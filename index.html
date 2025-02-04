@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Усадьба "На Волне"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> <!-- Локальное подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap-icons.min.css"> <!-- Локальное подключение инконок Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container d-flex justify-content-between align-items-center py-2 mb-n3">
+        <img src="../images/logo.png" alt="Усадьба На Волне" class="logo">
+        <!-- Кнопка гамбургер для мобильного меню -->
+        <button class="menu-toggle" aria-label="Меню">&#9776;</button>
+
+        <nav class="mobile-nav">
+            <a href="#activities">Чем заняться</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#contact">Контакты</a>
+            <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button> -->
+        </nav>
+
+        <div class="header-info d-flex align-items-center">
+            <a href="tel:+375299718729" class="phone">8 (029) 718-72-29</a>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="hero text-center mt-n5">
+    <div class="container">
+        <h2>Усадьба «На Волне»: <br> Ваш идеальный <br> отдых на природе</h2>
+        <p>Прогулки по живописным тропам, уютные <br>озёра и уникальные услуги для всей семьи. <br>  Ваш отдых мечты ждёт Вас!</p>
+        <button class="btn btn_orange" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button>
+    </div>
+</section>
+
+<!-- Листья по бокам -->
+<section class = "leaves"> 
+<div class="container-fluid">
+
+<img class="listok-left" src="images/list-left.png" alt="listok1">
+<img class="listok-right" src="images/list-right.png" alt="listok2">
+
+
+</div>
+
+
+</section>
+
+<!-- чем можно заняться -->
+
+<section id="activities" class="activities text-center mt-n5 py-3">
+    <div class="container text-center">
+        <h2>Чем можно заняться у нас</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-4">
+            <div class="col mb-4">
+                <div class="activity-card">
+                    <img src="images/forest.png" alt="Лесные маршруты">
+                    <h5>Лесные маршруты</h5>
+                    <p> Для любителей пеших прогулок по свежему воздуху проложены лесные маршруты вдоль живописного озера.</p>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="activity-card">
+                    <img src="images/bike.png" alt="Аренда велосипедов">
+                    <h5>Лесные маршруты</h5>
+                    <p> Для любителей скорости: откройте живописные места на комфортных горных велосипедах!</p>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="activity-card">
+                    <img src="images/fishing.png" alt="Рыбалка">
+                    <h5>Трофейная рыбалка</h5>
+                    <p> Для любителей уединения: откройте лучшие рыболовные угодья и наслаждайтесь тишиной на воде!</p>
+                </div>
+            </div>
+            </div>
+            </div>
+</section>
+
+
+        
+  <!-- Секция идеальная тишина -->
+<section class="booking">
+    <div class="container">
+        <!-- Заголовок и описание -->
+        <div class="row justify-content-center text-left pt-5">
+            <div class="col-lg-8">
+                <h2 class="heading">Идеальная тишина и спокойствие</h2>
+                <p class="lead">
+                    Усадьба «На волне» находится в живописном месте, которыми так славится Беларусь.<br>
+                    Озёра с чистейшей водой и красивыми лугами, среди которых вы найдете умиротворение и спокойствие.
+                </p>
+            </div>
+        </div>
+
+        <!-- Основной контент с увеличенным зазором между колонками -->
+        <div class="row align-items-center g-5">
+            <!-- Левая колонка с фоновым изображением -->
+            <div class="col-lg-4 mt-5 bg-img">
+                <!-- Контент можно не добавлять, если фон служит только визуальным оформлением -->
+            </div>
+
+            <!-- Правая колонка с фотографиями -->
+            <div class="col-lg-6 pt-5">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <a href="images/photo1.jpg" class="photo-card">
+                            <img src="images/photo1.jpg" class="img-fluid" alt="Интерьер">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="images/photo2.jpg" class="photo-card">
+                            <img src="images/photo2.jpg" class="img-fluid" alt="Терраса">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="images/photo3.jpg" class="photo-card">
+                            <img src="images/photo3.jpg" class="img-fluid" alt="Сад">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+  
+<!-- Модальное окно для просмотра фото -->
+<div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" id="modalPhoto" class="img-fluid rounded-3" alt="Просмотр изображения">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ <!-- Шишка -->
+<section class = "shishka"> 
+    <div class="container-fluid d-none d-lg-block">
+    
+    <img class="shishka-left" src="images/shishka.png" alt="шишка">
+    
+    
+    </div>
+    
+    
+    </section>
+    
+
+<!-- Вторая секция: Текст и форма -->
+<section class="booking-section position-relative py-3">
+    <div class="container">
+        <div class="row justify-content-between">
+            
+            <!-- Левая часть с текстом -->
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <div class="booking-content text-black">
+                    <h3 class="h3 mb-4">Забронируйте отдых мечты</h3>
+                    <p class="lead mb-4">
+                        Оставьте ваши контактные данные, мы вам перезвоним и обсудим организацию лучшего отдыха.
+                    </p>
+                    <div class="benefits">
+                        <p class="d-flex align-items-center mb-3 p-3 border border-secondary rounded shadow-sm bg-light">
+                            <i class="bi bi-gift fs-3 me-2"></i>
+                            <span class="badge me-2 text-black">Бонус</span>
+                            Котенок, которого вам придется забрать домой
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая часть с формой -->
+            <div class="col-lg-6">
+                <div class="booking-form-wrapper position-relative">
+                    <!-- Форма -->
+                    <form id="bookingForm" class="position-relative bg-white rounded-3 p-4 shadow-lg">
+                        <h4 class="mb-4 text-black">Забронировать посещение</h4>
+                        <p class="text-black mb-6">Введите данные, мы перезвоним в течение 10 минут</p>
+            
+                        <div class="mb-3">
+                            <input type="text" 
+                                   id="name" 
+                                   class="form-control form-control-lg" 
+                                   placeholder="Введите Ваше имя" required>
+                        </div>
+            
+                        <div class="mb-4">
+                            <input type="tel" 
+                                   id="phone" 
+                                   class="form-control form-control-lg" 
+                                   placeholder="+375 (___) ___ - __ - __" required>
+                        </div>
+            
+                        <button type="submit" class="btn btn_orange btn-lg w-100">ЗАБРОНИРОВАТЬ</button>
+                    </form>
+                        <p class="text-muted mt-3 small">
+                            Нажимая кнопку, вы принимаете 
+                            <a href="#" class="text-decoration-none">Положение о согласии на обработку данных</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- фотогалерея -->
+<section id="gallery" class="gallery py-5">
+    <div class="container text-center">
+        <h2>Фото с нашей усадьбы</h2>
+        <div id="galleryCarouselMain" class="carousel slide pt-3" data-bs-ride="carousel" data-bs-interval="3000">
+            <ul class="carousel-indicators">
+                <li data-bs-target="#galleryCarouselMain" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#galleryCarouselMain" data-bs-slide-to="1"></li>
+            </ul>
+            
+            <div class="carousel-inner">
+                <!-- Первый слайд с тремя фото -->
+                <div class="carousel-item active">
+                    <div class="row gx-2">
+                        <div class="col-4">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="0">
+                                <img src="images/photo1.jpg" class="d-block w-100" alt="Фото усадьбы 1">
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="1">
+                                <img src="images/photo2.jpg" class="d-block w-100" alt="Фото усадьбы 2">
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="2">
+                                <img src="images/photo3.jpg" class="d-block w-100" alt="Фото усадьбы 3">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Второй слайд с оставшимися фото -->
+                <div class="carousel-item">
+                    <div class="row gx-2">
+                        <div class="col-4">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="3">
+                                <img src="images/photo4.jpg" class="d-block w-100" alt="Фото усадьбы 4">
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="4">
+                                <img src="images/photo5.jpg" class="d-block w-100" alt="Фото усадьбы 5">
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="5">
+                                <img src="images/photo6.jpg" class="d-block w-100" alt="Фото усадьбы 6">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Кнопки навигации -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarouselMain" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarouselMain" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>        
+    </div>
+</section>
+
+<!-- Bootstrap модальное окно с каруселью по нажатию на фото -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="galleryModalLabel">Галерея</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/photo1.jpg" class="d-block w-100" alt="Фото усадьбы 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/photo2.jpg" class="d-block w-100" alt="Фото усадьбы 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/photo3.jpg" class="d-block w-100" alt="Фото усадьбы 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/photo4.jpg" class="d-block w-100" alt="Фото усадьбы 4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/photo5.jpg" class="d-block w-100" alt="Фото усадьбы 5">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/photo6.jpg" class="d-block w-100" alt="Фото усадьбы 6">
+                        </div>
+                    </div>
+                    <!-- Кнопки управления слайдером -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Следующий</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+  <!-- Дополнительные преимущества -->
+<section class="additional-benefits py-5">
+    <div class="container text-center">
+        <h2>Наши дополнительные преимущества</h2>
+        <div class="row pt-3">
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <img src="images/icon1.png" alt="Метуальный анализ">
+                    <h3>Метуальный анализ</h3>
+                    <p>Мы проводим глубокий анализ для улучшения качества услуг.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <img src="images/icon2.png" alt="Экологические продукты">
+                    <h3>Экологические продукты</h3>
+                    <p>Используем только экологически чистые продукты.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="benefit-card">
+                    <img src="images/icon3.png" alt="Трофейный анализ">
+                    <h3>Трофейный анализ</h3>
+                    <p>Анализируем трофеи для улучшения сервиса.</p>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-orange">Узнать стоимость проживания</button>
+    </div>
+</section>
+<section class="reviews py-5">
+    <div class="container text-center">
+        <h2>Отзывы наших гостей</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="review-card">
+                    <p>"Приняли на защищенность. Привлекались к обязательному разрешению на новый год, но, есть много предпринимателей, рефлексивно вернув на 50 лет. Супер!"</p>
+                    <p class="author">- Никифоров</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="review-card">
+                    <p>"Отдавались с новой, далеко очень неправильной, но способной быть связан с другими людьми, учитывая ведение, что, как правило, можно использовать бумаги (программы, если? В этом направлены документы)?"</p>
+                    <p class="author">- Колия Сиинова</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="review-card">
+                    <p>"Важно лично находиться вне Объединенных Формов языков Китайского государственного региона ЮГОЮ от апреля Страны Северной Интернет."</p>
+                    <p class="author">- Андрей Минск</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="contact-form py-5">
+    <div class="container text-center">
+        <h2>Свяжитесь с нами</h2>
+        <form>
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="email" placeholder="Ваш email" required>
+            <textarea placeholder="Ваше сообщение" required></textarea>
+            <button type="submit" class="btn btn-warning">Отправить</button>
+        </form>
+    </div>
+</section>
+<footer class="text-center py-4">
+    <p>© 2025 Усадьба "На Волне". Все права защищены.</p>
+    <p>Телефон: <a href="tel:+375299718729">+375 (29) 718-72-29</a></p>
+</footer>
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Забронировать отдых</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваш email" required>
+                    <input type="date" placeholder="Дата заезда" required>
+                    <button type="submit" class="btn btn-orange">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<button id="back-to-top" class="btn btn-orange">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<script src="bootstrap/bootstrap.min.js"></script> <!-- Локальное подключение Bootstrap JS -->
+</body>
+</html>

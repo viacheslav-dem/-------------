@@ -1,0 +1,753 @@
+// 🎨 Переменные (цвета, тени)
+$primary-color: #ff914d;
+$secondary-color: #ff6f00;
+$bg-light: white;
+$text-dark: #333;
+$text-gray: #666;
+//
+$column-gap: 40px;
+$min-height-lg: 200px; // Высота фонового блока для больших экранов
+$min-height-md: 180px; // Для средних экранов
+$min-height-sm: 150px; // Для мобильных
+
+$primary-orange: #ff9d00;
+$secondary-orange: #ff6b00;
+$btn-shadow-orange: 0 2px 0 0 rgba(255, 111, 0, 0.004),
+                    0 10px 35px 0 rgba(255, 111, 0, 0.3),
+                    inset 0 2px 0 0 rgba(255, 111, 0, 0.004);
+
+// Переменная для светло-зеленого цвета
+$light-green: #90EE90;
+$shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$btn-shadow: 0 4px 6px rgba(45, 69, 105, 0.15);
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: $bg-light;
+    color: $text-dark;
+    margin: 0;
+    padding: 0;
+}
+
+// 📝 Заголовки
+h2 {
+    display: inline-block;
+    color: $text-dark;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    font-size: clamp(20px, 3vw, 24px);
+    font-weight: 600;
+}
+
+// Кнопки
+button, .btn {
+    background-color: $primary-color;
+    color: white;
+    padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: $btn-shadow;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        background-color: $secondary-color;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(255, 111, 0, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn_orange {
+    background-color: $primary-orange;
+    background-image: linear-gradient(to bottom, $primary-orange 0%, $secondary-orange 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9d00', endColorstr='#ff6b00', GradientType=0);
+    box-shadow: $btn-shadow-orange;
+    border-bottom: 2px solid darken($primary-orange, 10%);
+    color: #fff;
+    padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      background-color: $secondary-orange;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(255, 111, 0, 0.4);
+    }
+  
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+// Хедер
+.header {
+    background-color: #fcfbfb;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    box-shadow: none; /* Убираем тень по умолчанию */
+    transition: box-shadow 0.3s ease; /* Плавное появление тени */
+    z-index: 999;
+
+
+.header.scrolled {
+    box-shadow: $shadow; /* Тень появляется при наличии класса scrolled */
+}
+
+
+    .logo {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .header-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .phone {
+        font-size: 18px;
+        font-weight: bold;
+        color: $secondary-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: darken($secondary-color, 10%);
+        }
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 10px;
+        a {
+            font-size: 20px;
+            color: $secondary-color;
+            transition: color 0.3s ease;
+            &:hover {
+                color: darken($secondary-color, 10%);
+            }
+        }
+    }
+
+    .menu-toggle {
+        display: none;  /* Скрываем кнопку гамбургер на десктопах */
+    }
+    
+    nav {
+        font-size: 18px; /* Увеличиваем шрифт для меню */
+        display: flex; /* Скрываем навигацию по умолчанию */
+        gap: 20px;
+        a {
+            text-decoration: none;
+            color: $text-dark;
+            font-weight: 600;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: darken($text-dark, 10%);
+            }
+        }
+}
+}
+
+// 🌄 Hero секция
+.hero {
+    min-height: 90vh;
+    max-width: 100%;
+    background: url("../images/house-500.png") no-repeat center/cover;
+    padding: 30px 0;
+    color: $text-dark;
+    background-position: center center; /* Обеспечивает центрирование изображения */
+   
+    
+    h2 {
+        font-size: clamp(32px, 5vw, 42px);
+        text-align: left; /* Выравниваем сам заголовок влево */
+        margin: 0 auto 30px 0; /* Авто по горизонтали, 30px снизу, 0 слева */
+    }
+
+    p {
+        font-size: clamp(14px, 2vw, 18px);
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .btn {
+        display: block;
+        margin: 0;
+        
+    }
+
+    .container {
+        text-align: left; /* Выравниваем весь контент влево */
+        //max-width: 900px; /* Ограничиваем ширину контейнера */
+        margin-left: auto; /* Оставляем автоматический отступ справа */
+        margin-right: auto; /* Центрируем контейнер */
+        padding-left: 20px; /* Отступ слева */
+        padding-top: 4%; /* Отступ сверху */
+    }
+}
+
+//Контейнер с листьями
+.leaves
+{
+    //:root {
+      //  --parallax-offset: 0px;
+    //}
+    position: relative;
+    bottom: -100px;
+
+    .listok-left {
+        position: absolute;
+       z-index: 2;
+       left: 0px;
+       transition: all 0.1s ease-out;
+      //will-change: transform;
+       bottom: -100px;
+       width: 100px;
+    }
+    .listok-right {
+        position: absolute;
+       z-index: 3;
+       right: 0px;
+       bottom: -100px;
+       transition: all 0.1s ease-out;
+       //will-change: transform;
+       bottom: -100px;
+       width: 100px;
+    }
+    //.listok-left,
+    //.listok-right {
+    //transform: translateY(var(--parallax-offset));
+    //transition: transform 0.1s ease-out;
+//}
+}
+
+
+// Секция "Чем заняться"
+.activities {
+    
+    //padding: 10px 0;
+    //display: grid;
+    //grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    //gap: 10px;
+
+    .activity-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: $shadow;
+        text-align: center;
+        transition: transform 0.3s ease;
+        
+        img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 18px;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h5 {
+            font-weight: 600;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+
+//Шишка
+.shishka
+{
+    position: relative;
+    bottom: -100px;
+
+    .shishka-left {
+        position: absolute;
+       z-index: 1;
+       left: 0px;
+       transition: all 0.1s ease-out;
+       bottom: -100px;
+       width: 100px;
+    }
+    
+}
+
+
+.booking {
+    background: 
+        url('/images/cloud-resize.png'), no-repeat center top/cover, 
+        linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+    min-height: 100vh;
+    padding: 130px 0;
+    position: relative;
+
+    .bg-img {
+        background: url('/images/table.png') no-repeat center top/contain;
+        
+        min-height: $min-height-lg; // По умолчанию для больших экранов
+      }
+      .row.align-items-center {
+        column-gap: $column-gap;
+      }
+  }
+
+  .heading {
+    text-align:center;
+    position: relative;
+    display: inline-block;
+  
+    &::after {
+      content: "";
+      display: block;
+      width: 100px;        // Ширина линии (можно регулировать)
+      height: 4px;         // Толщина линии
+      background-color: orange;
+      margin-top: 10px;
+      margin-left: 70px;
+    }
+  }
+
+    /* .lead {
+        text-align: left;
+        //font-size: 1.1rem;
+        //color: #4a5568;
+        line-height: 1.6;
+    } */
+
+    .photo-card {
+        display: block;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+        
+    }
+
+  
+  
+  
+// Вторая секция: Текст и форма
+
+
+
+.booking-section {
+    color: white;
+    
+    .booking-content {
+        h3 {
+            font-size: 2.5rem;
+        }
+    }
+
+    .booking-form-wrapper {
+        position: relative;
+        
+        form {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .benefits {
+            span {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+// 📷 Галерея
+.gallery img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease; // Плавное увеличение
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+//с
+
+/* Стили для слайдера */
+.carousel-inner img {
+    width: 100%; /* Изображения в слайдере будут адаптироваться к экрану */
+    height: auto;
+}
+.carousel-indicators {
+    list-style: none !important; /* Убирает точки */
+    padding-left: 0;  /* Убирает стандартные отступы */
+    margin-bottom: 0; /* Убирает лишний нижний отступ */
+    
+}
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 50px; /* Размер кнопок */
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    border-radius: 50%; /* Делаем кнопки круглыми */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+    box-shadow: none; /* Убираем тень */
+    transform: translateY(0); /* Убираем трансформацию */
+    position: absolute; /* Обеспечиваем фиксированное положение */
+    top: 50%; /* Центрируем кнопки по вертикали */
+    z-index: 10; /* Убедимся, что кнопки всегда будут сверху */
+    margin-top: -25px; /* Центрируем кнопки точно в центре */
+}
+.carousel-control-prev {
+    left: 10px; /* Расстояние от левого края */
+}
+
+.carousel-control-next {
+    right: 10px; /* Расстояние от правого края */
+}
+
+
+
+
+// Преимущества
+.additional-benefits {
+    padding: 50px 0;
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+
+    .benefit-card {
+        background: $bg-light;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: $shadow;
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: $text-gray;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+//Иконка + текст (бонус)
+
+.benefits {
+    // Стиль для иконки
+    .bi-gift {
+        color: $light-green !important;  // Светло-зеленый цвет иконки
+    }
+
+    // Стиль для текста в <span> внутри
+    .badge {
+        background-color: $light-green; // Светло-зеленый фон для бейджа
+    }
+
+}
+
+
+// Отзывы
+.reviews {
+    background: #fff;
+    padding: 50px 0;
+
+    .review-card {
+        background: $bg-light;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: $shadow;
+        text-align: center;
+
+        p {
+            font-size: 16px;
+            color: $text-gray;
+        }
+
+        .author {
+            font-weight: 600;
+            margin-top: 10px;
+            color: $text-dark;
+        }
+    }
+}
+
+// Контакты
+.contact-form {
+    background: white;
+    padding: 50px 0;
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    textarea {
+        resize: none;
+        height: 120px;
+    }
+}
+
+// Подвал
+footer {
+    background: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+@media (max-width: 992px) {
+    .photo-card img {
+        height: 200px;
+    }
+    .booking {
+        .bg-img {
+            min-height: $min-height-md;
+
+        }
+        
+
+    }
+    
+}
+
+
+@media (max-width: 767px) {
+    .header {
+        flex-direction: row;  /* Размещаем элементы в строку для мобильных устройств */
+        justify-content: space-between; /* Разделяем логотип и гамбургер */
+        align-items: center; /* Центрируем элементы по вертикали */
+        text-align: center;      /* Центрируем текст */
+        padding: 10px 15px;      /* Уменьшаем отступы для мобильных */
+    
+
+    .logo {
+        width: 50%; /* Устанавливаем ширину логотипа на 50% от ширины экрана */
+        height: auto; /* Убираем жестко заданные размеры */
+        object-fit: contain; /* Масштабируем изображение, сохраняя пропорции */
+        order: 1;  /* Логотип идет после кнопки гамбургер */
+        margin-left: 10px;  /* Немного отступаем слева для симметрии */
+    }
+
+    .menu-toggle {
+        display: block; /* Появляется кнопка гамбургер */
+        font-size: 24px; /* Уменьшаем размер шрифта кнопки */
+        cursor: pointer;
+        color: $text-dark;
+        margin-top: 0; /* Убираем верхний отступ */
+        z-index: 1000;
+        order: 0; /* Перемещаем гамбургер перед логотипом */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .header-info {
+        flex-direction: column; /* Размещаем элементы вертикально */
+        gap: 15px; /* Увеличиваем расстояние между элементами */
+        margin-top: 10px; /* Добавляем отступ сверху для .header-info */
+    }
+
+    .phone {
+        order: 2;
+        font-size: 16px; /* Уменьшаем размер шрифта телефона */
+    }
+
+    .social-icons {
+        order: 3;
+        gap: 8px; /* Уменьшаем расстояние между иконками */
+    }
+
+    nav {
+        display: none; /* Скрываем навигацию на мобильных устройствах */
+    }
+
+    /* Мобильное меню */
+    .mobile-nav {
+        display: none;  /* Изначально скрыто */
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 999; /* Убедимся, что меню появляется поверх других элементов */
+
+        a {
+            display: block;
+            padding: 10px 20px;
+            color: $text-dark;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #f5f5f5;
+            }
+        }
+    }
+    
+    .mobile-nav.active {
+        display: block; /* Показываем меню при активации */
+    }
+}
+
+    .hero {
+        min-height: 60vh; /* Уменьшаем высоту для мобильных устройств */
+        text-align: center;
+        padding: 20px 0; /* Возможно, стоит уменьшить отступы для мобильных */
+        background-attachment: scroll;
+    }
+
+    .hero .btn {
+        font-size: 16px;
+    }
+
+    .activities {
+        display: flex;
+        flex-direction: column; /* Размещаем карточки вертикально */
+        gap: 20px; /* Увеличиваем отступы между карточками на мобильных */
+        padding: 30px 0; /* Можно уменьшить общий отступ */
+    }
+
+    .activity-card {
+       margin-bottom: 20px; /* Увеличиваем отступ снизу */
+    }
+
+    .gallery img {
+        margin: 5px; /* Равномерные отступы по всем сторонам */
+    }
+    .booking {
+        
+        background: 
+          url('/images/cloud-mobile.png') no-repeat center bottom/cover, 
+          linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+            .bg-img {
+                min-height: $min-height-sm;
+            }
+        }
+      }
+
+
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    .hero {
+        min-height: 50vh;
+
+        h2 {
+            font-size: 26px;
+        }
+    }
+
+    .gallery img {
+        margin: 5px; /* Равномерные отступы по всем сторонам */
+    }
+
+    .booking {
+        background: 
+        url('/images/cloud-mobile.png') no-repeat center bottom/cover, 
+        linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+
+        .booking-photos {
+            height: 200px;
+
+            img {
+                width: 25% !important;
+            }
+        }
+        .bg-img {
+            min-height: $min-height-sm;
+            
+    }
+    }
+
+    .booking-section {
+        padding: 40px 0;
+
+        .booking-content {
+            h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .booking-form-wrapper {
+            form {
+                padding: 20px;
+            }
+        }
+    }
+    .leaves
+    {
+        .listok-left,
+        .listok-right {
+        display: none;
+    }
+    
+    }
+}
