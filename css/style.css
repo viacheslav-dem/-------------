@@ -1,6 +1,8 @@
 @charset "UTF-8";
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Gotham Pro", sans-serif;
+  font-weight: normal;
+  font-style: normal;
   background-color: white;
   color: #333;
   margin: 0;
@@ -14,9 +16,6 @@ h2 {
   font-weight: 700;
   text-align: left;
   margin-bottom: 30px;
-  text-transform: uppercase;
-  width: 100%;
-  text-align: center;
 }
 
 h3 {
@@ -24,27 +23,28 @@ h3 {
   font-weight: 600;
 }
 
-button, .btn {
-  background-color: #ff914d;
-  color: white;
-  padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
-  border: none;
-  border-radius: 30px;
-  font-size: clamp(14px, 2vw, 20px);
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 4px 6px rgba(45, 69, 105, 0.15);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-button:hover, .btn:hover {
-  background-color: #ff6f00;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(255, 111, 0, 0.4);
-}
-button:active, .btn:active {
-  transform: translateY(0);
-}
+/* button, .btn {
+    background-color: $primary-color;
+    color: white;
+    padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: $btn-shadow;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 
+    &:hover {
+        background-color: $secondary-color;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(255, 111, 0, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+} */
 .btn_orange {
   background-color: #ff9d00;
   background-image: linear-gradient(to bottom, #ff9d00 0%, #ff6b00 100%);
@@ -234,18 +234,13 @@ button:active, .btn:active {
 }
 .booking .bg-img {
   background: url("/images/table.png") no-repeat center top/contain;
-  min-height: 200px;
+  min-height: 400px;
 }
 .booking .row.align-items-center {
   -moz-column-gap: 40px;
        column-gap: 40px;
 }
 
-.heading {
-  text-align: center;
-  position: relative;
-  display: inline-block;
-}
 .heading::after {
   content: "";
   display: block;
@@ -256,20 +251,49 @@ button:active, .btn:active {
   margin-left: 70px;
 }
 
-/* .lead {
-    text-align: left;
-    //font-size: 1.1rem;
-    //color: #4a5568;
-    line-height: 1.6;
-} */
+.photo-grid {
+  margin-bottom: 30%;
+}
+
 .photo-card {
-  display: block;
+  display: relative;
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 .photo-card:hover {
   transform: translateY(-5px);
+}
+
+#photoModal .modal-content {
+  max-width: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#photoModal .modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 80vh;
+}
+#photoModal #modalPhoto {
+  max-width: 100%;
+  max-height: 85vh;
+}
+
+.col-left {
+  margin-left: -200px;
+  margin-top: 100px;
+}
+
+.col-right {
+  margin-top: -100px;
+}
+
+.col-right-img {
+  margin-top: 70px;
 }
 
 .booking-section {
@@ -426,59 +450,56 @@ footer {
   font-size: 14px;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 320px) and (max-width: 480px) {
   .photo-card img {
     height: 200px;
   }
   .booking .bg-img {
     min-height: 180px;
   }
-}
-@media (max-width: 767px) {
   .header {
-    flex-direction: row; /* Размещаем элементы в строку для мобильных устройств */
-    justify-content: space-between; /* Разделяем логотип и гамбургер */
-    align-items: center; /* Центрируем элементы по вертикали */
-    text-align: center; /* Центрируем текст */
-    padding: 10px 15px; /* Уменьшаем отступы для мобильных */
-    /* Мобильное меню */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px 15px;
   }
   .header .logo {
-    width: 50%; /* Устанавливаем ширину логотипа на 50% от ширины экрана */
-    height: auto; /* Убираем жестко заданные размеры */
+    width: 50%;
+    height: auto;
     -o-object-fit: contain;
-       object-fit: contain; /* Масштабируем изображение, сохраняя пропорции */
-    order: 1; /* Логотип идет после кнопки гамбургер */
-    margin-left: 10px; /* Немного отступаем слева для симметрии */
+       object-fit: contain;
+    order: 1;
+    margin-left: 10px;
   }
   .header .menu-toggle {
-    display: block; /* Появляется кнопка гамбургер */
-    font-size: 24px; /* Уменьшаем размер шрифта кнопки */
+    display: block;
+    font-size: 24px;
     cursor: pointer;
     color: #333;
-    margin-top: 0; /* Убираем верхний отступ */
+    margin-top: 0;
     z-index: 1000;
-    order: 0; /* Перемещаем гамбургер перед логотипом */
-    padding: 10px; /* Уменьшаем отступы */
+    order: 0;
+    padding: 10px;
   }
   .header .header-info {
-    flex-direction: column; /* Размещаем элементы вертикально */
-    gap: 15px; /* Увеличиваем расстояние между элементами */
-    margin-top: 10px; /* Добавляем отступ сверху для .header-info */
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
   }
   .header .phone {
     order: 2;
-    font-size: 16px; /* Уменьшаем размер шрифта телефона */
+    font-size: 16px;
   }
   .header .social-icons {
     order: 3;
-    gap: 8px; /* Уменьшаем расстояние между иконками */
+    gap: 8px;
   }
   .header nav {
-    display: none; /* Скрываем навигацию на мобильных устройствах */
+    display: none;
   }
   .header .mobile-nav {
-    display: none; /* Изначально скрыто */
+    display: none;
     width: 100%;
     background-color: #fff;
     position: absolute;
@@ -486,7 +507,7 @@ footer {
     left: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
-    z-index: 999; /* Убедимся, что меню появляется поверх других элементов */
+    z-index: 999;
   }
   .header .mobile-nav a {
     display: block;
@@ -500,51 +521,37 @@ footer {
     background-color: #f5f5f5;
   }
   .header .mobile-nav.active {
-    display: block; /* Показываем меню при активации */
+    display: block;
   }
   .hero {
-    min-height: 60vh; /* Уменьшаем высоту для мобильных устройств */
+    min-height: 50vh;
     text-align: center;
-    padding: 20px 0; /* Возможно, стоит уменьшить отступы для мобильных */
+    padding: 20px 0;
     background-attachment: scroll;
+  }
+  .hero h2 {
+    font-size: 26px;
   }
   .hero .btn {
     font-size: 16px;
   }
   .activities {
     display: flex;
-    flex-direction: column; /* Размещаем карточки вертикально */
-    gap: 20px; /* Увеличиваем отступы между карточками на мобильных */
-    padding: 30px 0; /* Можно уменьшить общий отступ */
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0;
   }
   .activity-card {
-    margin-bottom: 20px; /* Увеличиваем отступ снизу */
+    margin-bottom: 20px;
   }
   .gallery img {
-    margin: 5px; /* Равномерные отступы по всем сторонам */
+    margin: 5px;
   }
   .booking {
     background: url("/images/cloud-mobile.png") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
   .booking .bg-img {
     min-height: 150px;
-  }
-}
-@media (max-width: 480px) {
-  h2 {
-    font-size: 24px;
-  }
-  .hero {
-    min-height: 50vh;
-  }
-  .hero h2 {
-    font-size: 26px;
-  }
-  .gallery img {
-    margin: 5px; /* Равномерные отступы по всем сторонам */
-  }
-  .booking {
-    background: url("/images/cloud-mobile.png") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
   .booking .booking-photos {
     height: 200px;
@@ -552,8 +559,8 @@ footer {
   .booking .booking-photos img {
     width: 25% !important;
   }
-  .booking .bg-img {
-    min-height: 150px;
+  h2 {
+    font-size: 24px;
   }
   .booking-section {
     padding: 40px 0;
@@ -567,5 +574,140 @@ footer {
   .leaves .listok-left,
   .leaves .listok-right {
     display: none;
+  }
+  .col-right {
+    margin-top: 0;
+  }
+  .col-left {
+    margin-left: -40px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .photo-card img {
+    height: 200px;
+  }
+  .booking .bg-img {
+    min-height: 180px;
+  }
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px 15px;
+  }
+  .header .logo {
+    width: 50%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+    order: 1;
+    margin-left: 10px;
+  }
+  .header .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    margin-top: 0;
+    z-index: 1000;
+    order: 0;
+    padding: 10px;
+  }
+  .header .header-info {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .header .phone {
+    order: 2;
+    font-size: 16px;
+  }
+  .header .social-icons {
+    order: 3;
+    gap: 8px;
+  }
+  .header nav {
+    display: none;
+  }
+  .header .mobile-nav {
+    display: none;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 999;
+  }
+  .header .mobile-nav a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  .header .mobile-nav a:hover {
+    background-color: #f5f5f5;
+  }
+  .header .mobile-nav.active {
+    display: block;
+  }
+  .hero {
+    min-height: 60vh;
+    text-align: center;
+    padding: 20px 0;
+    background-attachment: scroll;
+  }
+  .hero .btn {
+    font-size: 16px;
+  }
+  .activities {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0;
+  }
+  .activity-card {
+    margin-bottom: 20px;
+  }
+  .gallery img {
+    margin: 5px;
+  }
+  .booking {
+    background: url("/images/cloud-mobile.png") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+  }
+  .booking .bg-img {
+    min-height: 150px;
+  }
+  .col-right {
+    margin-top: 0;
+  }
+  .col-left {
+    margin-left: -40px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .photo-card img {
+    height: 200px;
+  }
+  .booking .bg-img {
+    min-height: 180px;
+  }
+  .col-right {
+    margin-top: 0;
+  }
+  .col-left {
+    margin-left: -50px;
+  }
+}
+@media (min-width: 993px) and (max-width: 1024px) {
+  .col-right {
+    margin-top: -140px;
+  }
+  .col-left {
+    margin-left: -50px;
   }
 }/*# sourceMappingURL=style.css.map */

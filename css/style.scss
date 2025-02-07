@@ -4,17 +4,21 @@ $secondary-color: #ff6f00;
 $bg-light: white;
 $text-dark: #333;
 $text-gray: #666;
-//
-$column-gap: 40px;
-$min-height-lg: 200px; // Высота фонового блока для больших экранов
-$min-height-md: 180px; // Для средних экранов
-$min-height-sm: 150px; // Для мобильных
 
+//Кнопка
 $primary-orange: #ff9d00;
 $secondary-orange: #ff6b00;
 $btn-shadow-orange: 0 2px 0 0 rgba(255, 111, 0, 0.004),
                     0 10px 35px 0 rgba(255, 111, 0, 0.3),
                     inset 0 2px 0 0 rgba(255, 111, 0, 0.004);
+
+//Переменные для высоты экрана
+$column-gap: 40px;
+$min-height-lg: 400px; // Высота фонового блока для больших экранов
+$min-height-md: 180px; // Для средних экранов
+$min-height-sm: 150px; // Для мобильных
+
+
 
 // Переменная для светло-зеленого цвета
 $light-green: #90EE90;
@@ -22,7 +26,10 @@ $shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 $btn-shadow: 0 4px 6px rgba(45, 69, 105, 0.15);
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    //font-family: 'Montserrat', sans-serif;
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: normal;
+    font-style: normal;
     background-color: $bg-light;
     color: $text-dark;
     margin: 0;
@@ -37,9 +44,6 @@ h2 {
     font-weight: 700;
     text-align: left;
     margin-bottom: 30px;
-    text-transform: uppercase;
-    width: 100%;
-    text-align: center;
 }
 
 h3 {
@@ -48,7 +52,7 @@ h3 {
 }
 
 // Кнопки
-button, .btn {
+/* button, .btn {
     background-color: $primary-color;
     color: white;
     padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
@@ -69,7 +73,7 @@ button, .btn {
     &:active {
         transform: translateY(0);
     }
-}
+} */
 
 .btn_orange {
     background-color: $primary-orange;
@@ -175,7 +179,7 @@ button, .btn {
 }
 }
 
-// 🌄 Hero секция
+// Hero секция
 .hero {
     min-height: 90vh;
     max-width: 100%;
@@ -241,6 +245,7 @@ button, .btn {
        bottom: -100px;
        width: 100px;
     }
+    // Для паралакса
     //.listok-left,
     //.listok-right {
     //transform: translateY(var(--parallax-offset));
@@ -325,11 +330,9 @@ button, .btn {
       }
   }
 
-  .heading {
-    text-align:center;
-    position: relative;
-    display: inline-block;
   
+ .heading
+ { 
     &::after {
       content: "";
       display: block;
@@ -339,33 +342,60 @@ button, .btn {
       margin-top: 10px;
       margin-left: 70px;
     }
-  }
-
-    /* .lead {
-        text-align: left;
-        //font-size: 1.1rem;
-        //color: #4a5568;
-        line-height: 1.6;
-    } */
-
-    .photo-card {
-        display: block;
+}
+    .photo-grid {
+        margin-bottom: 30%;
+      }
+      
+      .photo-card {
+        display: relative;
         border-radius: 12px;
         overflow: hidden;
         transition: transform 0.3s ease;
-
+      
         &:hover {
-            transform: translateY(-5px);
+          transform: translateY(-5px);
         }
-        
-    }
+      }
+      
+      #photoModal {
+        .modal-content {
+          max-width: 70vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      
+        .modal-body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem;
+          width: 80vh;
+        }
+      
+        #modalPhoto {
+          max-width: 100%;
+          max-height: 85vh;
+        }
+      }
 
-  
-  
-  
-// Вторая секция: Текст и форма
+
+      .col-left{
+        margin-left: -200px;
+        margin-top: 100px;
+      }
+      
+      .col-right{
+        margin-top: -100px;
+      }
+      
+      .col-right-img{
+        margin-top: 70px;
+      }
 
 
+      // Вторая секция: Текст и форма
 
 .booking-section {
     color: white;
@@ -395,6 +425,7 @@ button, .btn {
             }
         }
     }
+    
 }
 
 // 📷 Галерея
@@ -409,6 +440,8 @@ button, .btn {
         transform: scale(1.05);
     }
 }
+
+
 
 //с
 
@@ -559,73 +592,61 @@ footer {
 
 
 
-@media (max-width: 992px) {
+// 1. Диапазон 320px – 480px (Extra Small Mobile)
+@media (min-width: 320px) and (max-width: 480px) {
+    // Общие стили для экранов до 992px (из исходного блока @media (max-width: 992px))
     .photo-card img {
-        height: 200px;
+      height: 200px;
     }
     .booking {
-        .bg-img {
-            min-height: $min-height-md;
-
-        }
-        
-
+      .bg-img {
+        min-height: $min-height-md;
+      }
     }
     
-}
-
-
-@media (max-width: 767px) {
+    // Стили из блока для мобильных (исходный @media (max-width: 767px))
     .header {
-        flex-direction: row;  /* Размещаем элементы в строку для мобильных устройств */
-        justify-content: space-between; /* Разделяем логотип и гамбургер */
-        align-items: center; /* Центрируем элементы по вертикали */
-        text-align: center;      /* Центрируем текст */
-        padding: 10px 15px;      /* Уменьшаем отступы для мобильных */
-    
-
-    .logo {
-        width: 50%; /* Устанавливаем ширину логотипа на 50% от ширины экрана */
-        height: auto; /* Убираем жестко заданные размеры */
-        object-fit: contain; /* Масштабируем изображение, сохраняя пропорции */
-        order: 1;  /* Логотип идет после кнопки гамбургер */
-        margin-left: 10px;  /* Немного отступаем слева для симметрии */
-    }
-
-    .menu-toggle {
-        display: block; /* Появляется кнопка гамбургер */
-        font-size: 24px; /* Уменьшаем размер шрифта кнопки */
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 10px 15px;
+  
+      .logo {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        order: 1;
+        margin-left: 10px;
+      }
+      .menu-toggle {
+        display: block;
+        font-size: 24px;
         cursor: pointer;
         color: $text-dark;
-        margin-top: 0; /* Убираем верхний отступ */
+        margin-top: 0;
         z-index: 1000;
-        order: 0; /* Перемещаем гамбургер перед логотипом */
-        padding: 10px; /* Уменьшаем отступы */
-    }
-
-    .header-info {
-        flex-direction: column; /* Размещаем элементы вертикально */
-        gap: 15px; /* Увеличиваем расстояние между элементами */
-        margin-top: 10px; /* Добавляем отступ сверху для .header-info */
-    }
-
-    .phone {
+        order: 0;
+        padding: 10px;
+      }
+      .header-info {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+      .phone {
         order: 2;
-        font-size: 16px; /* Уменьшаем размер шрифта телефона */
-    }
-
-    .social-icons {
+        font-size: 16px;
+      }
+      .social-icons {
         order: 3;
-        gap: 8px; /* Уменьшаем расстояние между иконками */
-    }
-
-    nav {
-        display: none; /* Скрываем навигацию на мобильных устройствах */
-    }
-
-    /* Мобильное меню */
-    .mobile-nav {
-        display: none;  /* Изначально скрыто */
+        gap: 8px;
+      }
+      nav {
+        display: none;
+      }
+      .mobile-nav {
+        display: none;
         width: 100%;
         background-color: #fff;
         position: absolute;
@@ -633,121 +654,273 @@ footer {
         left: 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
-        z-index: 999; /* Убедимся, что меню появляется поверх других элементов */
-
-        a {
-            display: block;
-            padding: 10px 20px;
-            color: $text-dark;
-            font-weight: 600;
-            text-align: center;
-            transition: background-color 0.3s ease;
-
-            &:hover {
-                background-color: #f5f5f5;
-            }
-        }
-    }
-    
-    .mobile-nav.active {
-        display: block; /* Показываем меню при активации */
-    }
-}
-
-    .hero {
-        min-height: 60vh; /* Уменьшаем высоту для мобильных устройств */
-        text-align: center;
-        padding: 20px 0; /* Возможно, стоит уменьшить отступы для мобильных */
-        background-attachment: scroll;
-    }
-
-    .hero .btn {
-        font-size: 16px;
-    }
-
-    .activities {
-        display: flex;
-        flex-direction: column; /* Размещаем карточки вертикально */
-        gap: 20px; /* Увеличиваем отступы между карточками на мобильных */
-        padding: 30px 0; /* Можно уменьшить общий отступ */
-    }
-
-    .activity-card {
-       margin-bottom: 20px; /* Увеличиваем отступ снизу */
-    }
-
-    .gallery img {
-        margin: 5px; /* Равномерные отступы по всем сторонам */
-    }
-    .booking {
+        z-index: 999;
         
-        background: 
-          url('/images/cloud-mobile.png') no-repeat center bottom/cover, 
-          linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
-            .bg-img {
-                min-height: $min-height-sm;
-            }
+        a {
+          display: block;
+          padding: 10px 20px;
+          color: $text-dark;
+          font-weight: 600;
+          text-align: center;
+          transition: background-color 0.3s ease;
+          
+          &:hover {
+            background-color: #f5f5f5;
+          }
         }
       }
-
-
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 24px;
-    }
-
-    .hero {
-        min-height: 50vh;
-
-        h2 {
-            font-size: 26px;
-        }
-    }
-
-    .gallery img {
-        margin: 5px; /* Равномерные отступы по всем сторонам */
-    }
-
-    .booking {
-        background: 
-        url('/images/cloud-mobile.png') no-repeat center bottom/cover, 
-        linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
-
-        .booking-photos {
-            height: 200px;
-
-            img {
-                width: 25% !important;
-            }
-        }
-        .bg-img {
-            min-height: $min-height-sm;
-            
-    }
-    }
-
-    .booking-section {
-        padding: 40px 0;
-
-        .booking-content {
-            h3 {
-                font-size: 1.8rem;
-            }
-        }
-
-        .booking-form-wrapper {
-            form {
-                padding: 20px;
-            }
-        }
-    }
-    .leaves
-    {
-        .listok-left,
-        .listok-right {
-        display: none;
+      .mobile-nav.active {
+        display: block;
+      }
     }
     
+    .hero {
+      // Изначально в блоке для мобильных было min-height: 60vh,
+      // но в узком диапазоне дополнительно меняется до 50vh
+      min-height: 50vh;
+      text-align: center;
+      padding: 20px 0;
+      background-attachment: scroll;
+      
+      // Переопределение h2 внутри hero
+      h2 {
+        font-size: 26px;
+      }
+      
+      .btn {
+        font-size: 16px;
+      }
     }
-}
+    
+    .activities {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px 0;
+    }
+    
+    .activity-card {
+      margin-bottom: 20px;
+    }
+    
+    .gallery img {
+      margin: 5px;
+    }
+    
+    .booking {
+      // Фон, заданный для мобильных устройств
+      background: url('/images/cloud-mobile.png') no-repeat center bottom/cover,
+                  linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+      
+      // В исходном блоке для мобильных bg-img получал min-height: $min-height-sm
+      .bg-img {
+        min-height: $min-height-sm;
+      }
+      
+      // Дополнительные стили из @media (max-width: 480px)
+      .booking-photos {
+        height: 200px;
+        
+        img {
+          width: 25% !important;
+        }
+      }
+    }
+    
+    // Общие правила для заголовков (из блока @media (max-width: 480px))
+    h2 {
+      font-size: 24px;
+    }
+    
+    .booking-section {
+      padding: 40px 0;
+      
+      .booking-content {
+        h3 {
+          font-size: 1.8rem;
+        }
+      }
+      
+      .booking-form-wrapper {
+        form {
+          padding: 20px;
+        }
+      }
+    }
+    
+    .leaves {
+      .listok-left,
+      .listok-right {
+        display: none;
+      }
+    }
+    
+    // Правила для колонок (исходный диапазон 320px–768px)
+    .col-right {
+      margin-top: 0;
+    }
+    .col-left {
+      margin-left: -40px;
+    }
+  }
+  
+  
+  // 2. Диапазон 481px – 767px (Оставшиеся мобильные устройства)
+  @media (min-width: 481px) and (max-width: 767px) {
+    // Правила из блока для экранов до 992px
+    .photo-card img {
+      height: 200px;
+    }
+    .booking {
+      .bg-img {
+        min-height: $min-height-md;
+      }
+    }
+    
+    // Стили для шапки и прочего (как в блоке для max-width: 767px)
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 10px 15px;
+  
+      .logo {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        order: 1;
+        margin-left: 10px;
+      }
+      .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: $text-dark;
+        margin-top: 0;
+        z-index: 1000;
+        order: 0;
+        padding: 10px;
+      }
+      .header-info {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+      .phone {
+        order: 2;
+        font-size: 16px;
+      }
+      .social-icons {
+        order: 3;
+        gap: 8px;
+      }
+      nav {
+        display: none;
+      }
+      .mobile-nav {
+        display: none;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 999;
+        
+        a {
+          display: block;
+          padding: 10px 20px;
+          color: $text-dark;
+          font-weight: 600;
+          text-align: center;
+          transition: background-color 0.3s ease;
+          
+          &:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+      .mobile-nav.active {
+        display: block;
+      }
+    }
+    
+    .hero {
+      min-height: 60vh;
+      text-align: center;
+      padding: 20px 0;
+      background-attachment: scroll;
+      
+      .btn {
+        font-size: 16px;
+      }
+    }
+    
+    .activities {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px 0;
+    }
+    
+    .activity-card {
+      margin-bottom: 20px;
+    }
+    
+    .gallery img {
+      margin: 5px;
+    }
+    
+    .booking {
+      background: url('/images/cloud-mobile.png') no-repeat center bottom/cover,
+                  linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+      
+      .bg-img {
+        min-height: $min-height-sm;
+      }
+    }
+    
+    // Правила для колонок (диапазон 320px–768px)
+    .col-right {
+      margin-top: 0;
+    }
+    .col-left {
+      margin-left: -40px;
+    }
+  }
+  
+  
+  // 3. Диапазон 768px – 992px (Планшеты)
+  @media (min-width: 768px) and (max-width: 992px) {
+    // Общие стили из блока для экранов до 992px
+    .photo-card img {
+      height: 200px;
+    }
+    .booking {
+      .bg-img {
+        min-height: $min-height-md;
+      }
+    }
+    
+    // Для колонок – планшетный диапазон (отличается от мобильного)
+    .col-right {
+      margin-top: 0;
+    }
+    .col-left {
+      margin-left: -50px;
+    }
+  }
+  
+  
+  // 4. Диапазон 993px – 1024px (Небольшие десктопы)
+  @media (min-width: 993px) and (max-width: 1024px) {
+    .col-right {
+      margin-top: -140px;
+    }
+    .col-left {
+      margin-left: -50px;
+    }
+  }
+  

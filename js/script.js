@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Открытие модального окна для фотографий
-    const photoCards = document.querySelectorAll('.photo-card');
+    const photoCards = document.querySelectorAll('.photo-grid a');
     const modalPhoto = document.getElementById('modalPhoto');
     const photoModalEl = document.getElementById('photoModal');
     let photoModal; // Переменная для инстанса модального окна

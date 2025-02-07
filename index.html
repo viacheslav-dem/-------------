@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> <!-- Локальное подключение Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap/bootstrap-icons.min.css"> <!-- Локальное подключение инконок Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/gotham-pro/stylesheet.css"> <!-- шрифт Ghotam-Pro -->
     <script defer src="js/script.js"></script>
 </head>
 <body>
 <header class="header">
     <div class="container d-flex justify-content-between align-items-center py-2 mb-n3">
-        <img src="../images/logo.png" alt="Усадьба На Волне" class="logo">
+        <img src="images/logo.png" alt="Усадьба На Волне" class="logo">
         <!-- Кнопка гамбургер для мобильного меню -->
         <button class="menu-toggle" aria-label="Меню">&#9776;</button>
 
@@ -46,14 +47,9 @@
 <!-- Листья по бокам -->
 <section class = "leaves"> 
 <div class="container-fluid">
-
 <img class="listok-left" src="images/list-left.png" alt="listok1">
 <img class="listok-right" src="images/list-right.png" alt="listok2">
-
-
 </div>
-
-
 </section>
 
 <!-- чем можно заняться -->
@@ -86,54 +82,55 @@
             </div>
             </div>
 </section>
-
-
         
   <!-- Секция идеальная тишина -->
 <section class="booking">
     <div class="container">
         <!-- Заголовок и описание -->
-        <div class="row justify-content-center text-left pt-5">
-            <div class="col-lg-8">
+        <div class="row text-left pt-5">
+            <div class="col-lg-6">
                 <h2 class="heading">Идеальная тишина и спокойствие</h2>
                 <p class="lead">
-                    Усадьба «На волне» находится в живописном месте, которыми так славится Беларусь.<br>
-                    Озёра с чистейшей водой и красивыми лугами, среди которых вы найдете умиротворение и спокойствие.
+                    Усадьба «На волне» находится в живописном <br> месте, которыми так славится Беларусь.<br>
+                    Озёра с чистейшей водой и красивыми лугами, <br> среди которых вы найдете умиротворение <br> и спокойствие.
                 </p>
             </div>
         </div>
 
         <!-- Основной контент с увеличенным зазором между колонками -->
-        <div class="row align-items-center g-5">
+        <div class="row g-5" style="justify-content: space-between;">
             <!-- Левая колонка с фоновым изображением -->
-            <div class="col-lg-4 mt-5 bg-img">
+            <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-5 col-sm-5 bg-img col-left">
                 <!-- Контент можно не добавлять, если фон служит только визуальным оформлением -->
             </div>
 
             <!-- Правая колонка с фотографиями -->
-            <div class="col-lg-6 pt-5">
-                <div class="row g-3">
-                    <div class="col-12">
-                        <a href="images/photo1.jpg" class="photo-card">
-                            <img src="images/photo1.jpg" class="img-fluid" alt="Интерьер">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-7 col-right">
+                <div class="row g-3 ">
+                    <div class="col-7 col-right-img photo-grid">
+                        <a href="images/photo7.jpg">
+                            <img src="images/photo7.jpg" class="img-fluid photo-card" alt="Интерьер">
                         </a>
                     </div>
-                    <div class="col-6">
-                        <a href="images/photo2.jpg" class="photo-card">
-                            <img src="images/photo2.jpg" class="img-fluid" alt="Терраса">
+                    <div class="col-5">
+                          <div class="col-12 mb-3 photo-grid" >
+                        <a href="images/photo8.jpg">
+                            <img src="images/photo8.jpg" class="img-fluid photo-card" alt="Терраса">
                         </a>
                     </div>
-                    <div class="col-6">
-                        <a href="images/photo3.jpg" class="photo-card">
-                            <img src="images/photo3.jpg" class="img-fluid" alt="Сад">
+                    <div class="col-12 photo-grid">
+                        <a href="images/photo3.jpg">
+                            <img src="images/photo3.jpg" class="img-fluid photo-card" alt="Сад">
                         </a>
                     </div>
+                    </div>
+                  
                 </div>
             </div>
         </div>
     </div>
-</section>
-    
+</section> 
+
   
 <!-- Модальное окно для просмотра фото -->
 <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
@@ -148,17 +145,13 @@
       </div>
     </div>
   </div>
-  
+
  <!-- Шишка -->
 <section class = "shishka"> 
     <div class="container-fluid d-none d-lg-block">
     
     <img class="shishka-left" src="images/shishka.png" alt="шишка">
-    
-    
     </div>
-    
-    
     </section>
     
 
