@@ -1,4 +1,10 @@
 @charset "UTF-8";
+:root {
+  --swiper-pagination-bottom: -20px !important; /* Переопределяем переменную */
+  --swiper-navigation-color: #ff6b00 !important;
+  --swiper-pagination-color: #ff6b00 !important;
+}
+
 body {
   font-family: "Gotham Pro", sans-serif;
   font-weight: normal;
@@ -245,19 +251,22 @@ p {
 }
 
 #photoModal .modal-content {
-  max-width: 80vh;
+  max-width: 80vw; /* Можно оставить, чтобы окно не выходило за пределы экрана */
   display: flex;
   flex-direction: column;
 }
 #photoModal .modal-body {
   display: flex;
-  justify-content: center;
-  padding: 1rem;
-  width: 80vh;
+  justify-content: center; /* Центрирует изображение по горизонтали */
+  width: 100%; /* Используем 100% ширины для .modal-body */
+  height: 85vh; /* Ограничиваем высоту контейнера, если нужно */
+  overflow: hidden; /* Чтобы изображение не выходило за пределы */
 }
 #photoModal #modalPhoto {
-  max-width: 100%;
-  max-height: 85vh;
+  max-width: 100%; /* Ширина изображения ограничена размером контейнера */
+  max-height: 100%; /* Ограничиваем высоту, чтобы изображение не выходило за пределы */
+  -o-object-fit: cover;
+     object-fit: cover; /* Сохраняет пропорции изображения */
 }
 
 .col-left {
@@ -284,17 +293,16 @@ p {
   width: 400px;
 }
 
-/* .gallery img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease; // Плавное увеличение
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
 
-    &:hover {
-        transform: scale(1.05);
-    }
-} */
 .line-text {
   display: flex;
   align-items: center;
@@ -340,12 +348,14 @@ p {
   margin-top: -25px; /* Центрируем кнопки точно в центре */
 }
 
-.carousel-control-prev {
-  left: 10px; /* Расстояние от левого края */
-}
-
-.carousel-control-next {
-  right: 10px; /* Расстояние от правого края */
+.heading-benefits::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: orange;
+  margin: auto;
+  margin-top: 10px;
 }
 
 .additional-benefits {
@@ -364,48 +374,137 @@ p {
   transition: transform 0.3s ease;
 }
 .additional-benefits .benefit-card img {
-  width: 80px;
-  margin-bottom: 15px;
+  width: 84px;
+  height: 84px;
+  margin-bottom: 20px;
 }
 .additional-benefits .benefit-card h3 {
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 .additional-benefits .benefit-card p {
-  font-size: 16px;
-  color: #666;
+  font-size: 17px;
 }
 .additional-benefits .benefit-card:hover {
   transform: translateY(-5px);
 }
 
-.benefits .bi-gift {
-  color: #90EE90 !important;
+.reviews {
+  position: relative;
 }
-.benefits .badge {
-  background-color: #90EE90;
+.reviews .reviews-slider .review-card-wrapper {
+  transform: scale(0.9);
+  transition: all 0.3s ease-in-out;
+}
+.reviews .reviews-slider .review-card-wrapper.active {
+  transform: scale(1) translateY(-5px);
+  z-index: 2;
+}
+.reviews .reviews-slider .review-card {
+  background: white;
+  padding: 30px;
+  position: relative;
+  transform: skewX(-10deg) rotateY(5deg);
+  min-height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.reviews .reviews-slider .review-card:hover {
+  transform: skewX(-10deg) rotateY(0deg) translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+.reviews .reviews-slider .review-card .review-content {
+  transform: skewX(10deg);
+  padding-left: 90px;
+}
+.reviews .reviews-slider .review-card .user-photo {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%) skewX(10deg);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+.reviews .reviews-slider .review-card .user-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.reviews {
-  background: #fff;
-  padding: 50px 0;
+.reviews-slider {
+  overflow: hidden; /* Скрываем всё, что выходит за пределы контейнера */
 }
-.reviews .review-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center; /* Центрируем слайды по вертикали */
 }
-.reviews .review-card p {
-  font-size: 16px;
-  color: #666;
+
+.swiper-slide {
+  width: 100%; /* Ширина слайда */
+  transition: transform 0.3s ease; /* Плавное изменение размера */
+  opacity: 0.5; /* Полупрозрачность боковых слайдов */
+  transform: scale(0.9); /* Уменьшение размера боковых слайдов */
 }
-.reviews .review-card .author {
-  font-weight: 600;
-  margin-top: 10px;
-  color: #333;
+
+.swiper-slide-active {
+  opacity: 1; /* Полная видимость центрального слайда */
+  transform: scale(1); /* Нормальный размер центрального слайда */
+}
+
+/* Основной контейнер слайдера */
+.reviews-slider {
+  position: relative;
+  padding: 0 60px;
+}
+
+/* Контейнер для пагинации */
+/* Общие стили для стрелок */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 30px;
+  color: #ff9900;
+  transition: opacity 0.3s ease;
+}
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+  opacity: 0.7;
+}
+
+/* Позиционирование конкретных стрелок */
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+/* Пагинация */
+.swiper-pagination {
+  position: relative;
+  bottom: auto !important;
+  top: auto !important;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #ff9900;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 .contact-form {
@@ -432,6 +531,15 @@ footer {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .reviews-slider {
+    padding: 0 20px !important;
+  }
+  .reviews-slider .swiper-button-prev {
+    left: -10px;
+  }
+  .reviews-slider .swiper-button-next {
+    right: -10px;
+  }
   .photo-card img {
     height: 200px;
   }
@@ -493,7 +601,6 @@ footer {
   .header .mobile-nav a {
     display: block;
     padding: 10px 20px;
-    color: #333;
     font-weight: 600;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -509,12 +616,6 @@ footer {
     text-align: center;
     padding: 20px 0;
     background-attachment: scroll;
-  }
-  .hero h2 {
-    font-size: 26px;
-  }
-  .hero .btn {
-    font-size: 16px;
   }
   .activities {
     display: flex;
@@ -540,9 +641,6 @@ footer {
   .booking .booking-photos img {
     width: 25% !important;
   }
-  h2 {
-    font-size: 24px;
-  }
   .booking-section {
     padding: 40px 0;
   }
@@ -563,9 +661,6 @@ footer {
 @media (min-width: 481px) and (max-width: 767px) {
   .photo-card img {
     height: 200px;
-  }
-  .booking .bg-img {
-    min-height: 180px;
   }
   .header {
     flex-direction: row;
@@ -639,9 +734,6 @@ footer {
     padding: 20px 0;
     background-attachment: scroll;
   }
-  .hero .btn {
-    font-size: 16px;
-  }
   .activities {
     display: flex;
     flex-direction: column;
@@ -671,9 +763,6 @@ footer {
   .photo-card img {
     height: 200px;
   }
-  .booking .bg-img {
-    min-height: 180px;
-  }
   .col-right {
     margin-top: 0;
   }
@@ -687,5 +776,38 @@ footer {
   }
   .col-left {
     margin-left: -50px;
+  }
+}
+/* Добавляем адаптацию для мобильных */
+@media (max-width: 767px) and (orientation: portrait) {
+  .reviews-slider {
+    padding: 0 30px !important;
+  }
+  .reviews-slider .swiper-button-prev,
+  .reviews-slider .swiper-button-next {
+    width: 35px;
+    height: 35px;
+    top: 45%;
+  }
+  .reviews-slider .swiper-button-prev::after,
+  .reviews-slider .swiper-button-next::after {
+    font-size: 22px;
+  }
+  .reviews-slider .review-card .user-photo {
+    left: -25px;
+    width: 80px;
+    height: 80px;
+    z-index: 3;
+  }
+  .reviews-slider .swiper-slide:not(.swiper-slide-active) {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+  .reviews-slider .review-card-wrapper.active {
+    transform: scale(0.95) translateY(-5px);
+    margin: 0 5px;
+  }
+  .review-content {
+    padding-left: 70px !important;
   }
 }/*# sourceMappingURL=style.css.map */

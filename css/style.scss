@@ -5,6 +5,14 @@ $bg-light: white;
 $text-dark: #333;
 $text-gray: #666;
 
+:root {
+  --swiper-pagination-bottom: -20px !important; /* Переопределяем переменную */
+  --swiper-navigation-color: #ff6b00 !important;
+  --swiper-pagination-color: #ff6b00 !important;
+  //--swiper-navigation-size: 36px !important;
+}
+
+
 //Кнопка
 $primary-orange: #ff9d00;
 $secondary-orange: #ff6b00;
@@ -56,7 +64,6 @@ p {
   font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
   line-height: 1.6;
 }
-
 
 .btn_orange {
   background-color: $primary-orange;
@@ -325,23 +332,29 @@ p {
       
       #photoModal {
         .modal-content {
-          max-width: 80vh;
-          display: flex;
-          flex-direction: column;
+            max-width: 80vw; /* Можно оставить, чтобы окно не выходило за пределы экрана */
+            display: flex;
+            flex-direction: column;
+            //justify-content: center;
+            //align-items: center; /* Центрирование содержимого по горизонтали */
         }
       
         .modal-body {
-          display: flex;
-          justify-content: center;
-          padding: 1rem;
-          width: 80vh;
+            display: flex;
+            justify-content: center; /* Центрирует изображение по горизонтали */
+            //align-items: center; /* Центрирует изображение по вертикали */
+            //padding: 1rem;
+            width: 100%; /* Используем 100% ширины для .modal-body */
+            height: 85vh; /* Ограничиваем высоту контейнера, если нужно */
+            overflow: hidden; /* Чтобы изображение не выходило за пределы */
         }
       
         #modalPhoto {
-          max-width: 100%;
-          max-height: 85vh;
+            max-width: 100%; /* Ширина изображения ограничена размером контейнера */
+            max-height: 100%; /* Ограничиваем высоту, чтобы изображение не выходило за пределы */
+            object-fit: cover; /* Сохраняет пропорции изображения */
         }
-      }
+    }
 
 
       .col-left{
@@ -374,9 +387,9 @@ p {
     }
 
 // 📷 Галерея
-/* .gallery img {
+ .gallery img {
     width: 100%;
-    max-width: 400px;
+    //max-width: 400px;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease; // Плавное увеличение
@@ -384,7 +397,7 @@ p {
     &:hover {
         transform: scale(1.05);
     }
-} */
+} 
 
 
 
@@ -434,15 +447,22 @@ p {
     z-index: 10; /* Убедимся, что кнопки всегда будут сверху */
     margin-top: -25px; /* Центрируем кнопки точно в центре */
 }
-.carousel-control-prev {
-    left: 10px; /* Расстояние от левого края */
-}
 
-.carousel-control-next {
-    right: 10px; /* Расстояние от правого края */
-}
 
 // Преимущества
+
+.heading-benefits
+ { 
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;        // Ширина линии (можно регулировать)
+      height: 3px;         // Толщина линии
+      background-color: orange;
+      margin:auto;
+      margin-top: 10px;
+    }
+}
 .additional-benefits {
     padding: 50px 0;
     background: #fff;
@@ -459,19 +479,19 @@ p {
         transition: transform 0.3s ease;
 
         img {
-            width: 80px;
-            margin-bottom: 15px;
+            width:84px;
+            height: 84px;
+            margin-bottom: 20px;
         }
 
         h3 {
-            font-size: 22px;
+            font-size: 17px;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         p {
-            font-size: 16px;
-            color: $text-gray;
+            font-size: 17px;
         }
 
         &:hover {
@@ -479,47 +499,143 @@ p {
         }
     }
 }
+//ОТЗЫВЫ
 
-//Иконка + текст (бонус)
-
-.benefits {
-    // Стиль для иконки
-    .bi-gift {
-        color: $light-green !important;  // Светло-зеленый цвет иконки
-    }
-
-    // Стиль для текста в <span> внутри
-    .badge {
-        background-color: $light-green; // Светло-зеленый фон для бейджа
-    }
-
-}
-
-
-// Отзывы
 .reviews {
-    background: #fff;
-    padding: 50px 0;
+  
+  position: relative;
+  
+  .reviews-slider {
+    .review-card-wrapper {
+      transform: scale(0.9); // Уменьшаем размер карточек
+      transition: all 0.3s ease-in-out; // Плавное изменение размера
+
+      &.active {
+        transform: scale(1) translateY(-5px);
+        z-index: 2;
+      }
+    }
 
     .review-card {
-        background: $bg-light;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: $shadow;
-        text-align: center;
+      background: $bg-light; // Легкий градиент
+      padding: 30px;
+      position: relative;
+      transform: skewX(-10deg) rotateY(5deg); // Скос и поворот
+      min-height: 300px;
+      box-shadow: $shadow; // Добавляем объемную тень
+      transition: transform 0.3s ease, box-shadow 0.3s ease; // Плавное изменение размера и тени
 
-        p {
-            font-size: 16px;
-            color: $text-gray;
-        }
+      &:hover {
+        transform: skewX(-10deg) rotateY(0deg) translateY(-10px); // Эффект поднятия
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      }
 
-        .author {
-            font-weight: 600;
-            margin-top: 10px;
-            color: $text-dark;
+      .review-content {
+        transform: skewX(10deg);
+        padding-left: 90px;
+      }
+
+      .user-photo {
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%) skewX(10deg);
+        width: 150px;
+        height: 150px;
+        
+        border-radius: 50%;
+        overflow: hidden;
+        //border: 1px solid #fff;
+        //box-shadow: $shadow;
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
+      }
     }
+  }
 }
+
+.reviews-slider {
+  overflow: hidden; /* Скрываем всё, что выходит за пределы контейнера */
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center; /* Центрируем слайды по вертикали */
+}
+
+.swiper-slide {
+  width: 100%; /* Ширина слайда */
+  transition: transform 0.3s ease; /* Плавное изменение размера */
+  opacity: 0.5; /* Полупрозрачность боковых слайдов */
+  transform: scale(0.9); /* Уменьшение размера боковых слайдов */
+}
+
+.swiper-slide-active {
+  opacity: 1; /* Полная видимость центрального слайда */
+  transform: scale(1); /* Нормальный размер центрального слайда */
+}
+/* Основной контейнер слайдера */
+.reviews-slider {
+  position: relative;
+  padding: 0 60px; // Оставляем место для стрелок по бокам
+}
+
+/* Контейнер для пагинации */
+
+
+/* Общие стили для стрелок */
+.swiper-button-prev,
+.swiper-button-next {
+  
+  
+  &::after {
+    font-size: 30px;
+    color: #ff9900;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover::after {
+    opacity: 0.7;
+  }
+}
+
+/* Позиционирование конкретных стрелок */
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+/* Пагинация */
+.swiper-pagination {
+  position: relative;
+  bottom: auto !important;
+  top: auto !important;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #ff9900;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  
+  &-active {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 
 // Контакты
 .contact-form {
@@ -552,7 +668,18 @@ footer {
 
 // 1. Диапазон 320px – 480px (Extra Small Mobile)
 @media (min-width: 320px) and (max-width: 480px) {
-    // Общие стили для экранов до 992px (из исходного блока @media (max-width: 992px))
+    
+  .reviews-slider {
+    padding: 0 20px !important;
+    
+    .swiper-button-prev {
+      left: -10px;
+    }
+    
+    .swiper-button-next {
+      right: -10px;
+    }
+  }
     .photo-card img {
       height: 200px;
     }
@@ -617,7 +744,7 @@ footer {
         a {
           display: block;
           padding: 10px 20px;
-          color: $text-dark;
+          //color: $text-dark;
           font-weight: 600;
           text-align: center;
           transition: background-color 0.3s ease;
@@ -639,15 +766,6 @@ footer {
       text-align: center;
       padding: 20px 0;
       background-attachment: scroll;
-      
-      // Переопределение h2 внутри hero
-      h2 {
-        font-size: 26px;
-      }
-      
-      .btn {
-        font-size: 16px;
-      }
     }
     
     .activities {
@@ -686,9 +804,6 @@ footer {
     }
     
     // Общие правила для заголовков (из блока @media (max-width: 480px))
-    h2 {
-      font-size: 24px;
-    }
     
     .booking-section {
       padding: 40px 0;
@@ -722,11 +837,6 @@ footer {
     // Правила из блока для экранов до 992px
     .photo-card img {
       height: 200px;
-    }
-    .booking {
-      .bg-img {
-        min-height: $min-height-md;
-      }
     }
     
     // Стили для шапки и прочего (как в блоке для max-width: 767px)
@@ -804,10 +914,6 @@ footer {
       text-align: center;
       padding: 20px 0;
       background-attachment: scroll;
-      
-      .btn {
-        font-size: 16px;
-      }
     }
     
     .activities {
@@ -850,12 +956,7 @@ footer {
     .photo-card img {
       height: 200px;
     }
-    .booking {
-      .bg-img {
-        min-height: $min-height-md;
-      }
-    }
-    
+  
     // Для колонок – планшетный диапазон (отличается от мобильного)
     .col-right {
       margin-top: 0;
@@ -875,4 +976,45 @@ footer {
       margin-left: -50px;
     }
   }
-  
+  /* Добавляем адаптацию для мобильных */
+@media (max-width: 767px) and (orientation: portrait) {
+  .reviews-slider {
+    padding: 0 30px !important; // Уменьшаем боковые отступы
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 35px;
+      height: 35px;
+      top: 45%; // Корректируем вертикальное положение
+      
+      &::after {
+        font-size: 22px;
+      }
+    }
+
+    // Сдвигаем фото пользователя
+    .review-card .user-photo {
+      left: -25px;
+      width: 80px;
+      height: 80px;
+      z-index: 3; // Поднимаем фото выше стрелок
+    }
+
+    // Уменьшаем масштаб неактивных слайдов
+    .swiper-slide:not(.swiper-slide-active) {
+      transform: scale(0.85);
+      opacity: 0.4;
+    }
+
+    // Сдвигаем контент активного слайда
+    .review-card-wrapper.active {
+      transform: scale(0.95) translateY(-5px);
+      margin: 0 5px; // Добавляем боковой отступ
+    }
+  }
+
+  // Адаптируем отступы контента
+  .review-content {
+    padding-left: 70px !important;
+  }
+}

@@ -301,4 +301,35 @@ const gallery = document.getElementById('galleryContainer');
     initGallery();
 
 
+    const swiper = new Swiper('.reviews-slider', {
+        loop: true,
+        slidesPerView: 3, // По умолчанию на больших экранах показываем 3 слайда
+        slidesPerGroup: 3,
+        centeredSlides: true, // Центрируем активный слайд
+        spaceBetween: 20, // Расстояние между слайдами
+        loopedSlides: 3, // Количество дублируемых слайдов для loop
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          320: { // На телефонах (320px и больше) - 1 слайд
+            slidesPerView: 1,
+            slidesPerGroup: 1
+          },
+          768: { // На планшетах (768px и больше) - 2 слайда
+            slidesPerView: 2,
+            slidesPerGroup: 2
+          }
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }
+      });
+
 });

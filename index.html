@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> <!-- Локальное подключение Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap/bootstrap-icons.min.css"> <!-- Локальное подключение инконок Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="/gotham-pro/stylesheet.css"> <!-- шрифт Ghotam-Pro -->
+    <link rel="stylesheet" href="gotham-pro/stylesheet.css"> <!-- шрифт Ghotam-Pro -->
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
     <script defer src="js/script.js"></script>
 </head>
 <body>
@@ -169,7 +170,8 @@
                     </h3>
                     <div class="benefits">
                         <p class="d-flex align-items-center p-4 border rounded shadow-sm bonus">
-                            <i class="bi bi-gift fs-1 me-3"></i>
+                            <!-- <i class="bi bi-gift fs-1 me-3"></i> -->
+                             <img src="images/bonus.png" alt="" class="me-3">
                             Бонусом вы получите <br> Котенка, которого вам <br> придется забрать домой
                         </p>
                     </div>
@@ -281,58 +283,192 @@
   <!-- Дополнительные преимущества -->
 <section class="additional-benefits py-5">
     <div class="container text-center">
-        <h2>Наши дополнительные преимущества</h2>
-        <div class="row pt-3">
-            <div class="col-md-4">
+        <h2 class="py-3">Наши дополнительные преимущества</h2>
+        <div class="line-text">
+            <span></span>
+            <h3 class="py-3">Мы улучшаем качество нашей работы каждый день</h3>
+            <span></span>
+            </div>
+        <div class="row py-3">
+            <div class="col-md-3">
                 <div class="benefit-card">
-                    <img src="images/icon1.png" alt="Метуальный анализ">
-                    <h3>Метуальный анализ</h3>
-                    <p>Мы проводим глубокий анализ для улучшения качества услуг.</p>
+                    <img src="images/tv-monitor.png" alt="Метуальный анализ">
+                    <h3 class="heading-benefits">СПУТНИКОВОЕ ТВ, <br> БЕСПЛАТНЫЙ WI-FI</h3>
+                    <p>Зона покрытия <br> на всей территории</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="benefit-card">
-                    <img src="images/icon2.png" alt="Экологические продукты">
-                    <h3>Экологические продукты</h3>
-                    <p>Используем только экологически чистые продукты.</p>
+                    <img src="images/salad.png" alt="Натуральное питание">
+                    <h3 class="heading-benefits">НАТУРАЛЬНОЕ <br> ПИТАНИЕ</h3>
+                    <p>Из местых экологически <br> чистых продуктов</p>
                 </div>
-            </div>
-            <div class="col-md-4">
+            </div> 
+            <div class="col-md-3">
                 <div class="benefit-card">
-                    <img src="images/icon3.png" alt="Трофейный анализ">
-                    <h3>Трофейный анализ</h3>
-                    <p>Анализируем трофеи для улучшения сервиса.</p>
+                    <img src="images/fishing.png" alt="трофейная рыбалка">
+                    <h3 class="heading-benefits">ТРОФЕЙНАЯ <br> РЫБАЛКА</h3>
+                    <p>Бесплтаная лицензия <br> для проживающих в усадьбе </p>
                 </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-card">
+                        <img src="images/board-game.png" alt="настольные игры">
+                        <h3 class="heading-benefits">НАСТОЛЬНЫЕ <br> ИГРЫ</h3>
+                        <p>Найдутся игры для <br> детей и взрослых</p>
+                    </div>
+                    </div>
             </div>
-        </div>
-        <button class="btn_orange">Узнать стоимость проживания</button>
+        <button class="btn_orange my-5">Узнать стоимость проживания</button>
     </div>
 </section>
+
+<!-- ОТЗЫВЫ -->
 <section class="reviews py-5">
-    <div class="container text-center">
-        <h2>Отзывы наших гостей</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="review-card">
-                    <p>"Приняли на защищенность. Привлекались к обязательному разрешению на новый год, но, есть много предпринимателей, рефлексивно вернув на 50 лет. Супер!"</p>
-                    <p class="author">- Никифоров</p>
+    <div class="container">
+      <h2 class="text-center mb-5">Отзывы наших гостей</h2>
+      <!-- Swiper Slider Container -->
+      <div class="reviews-slider swiper">
+        <!-- Обёртка слайдов -->
+        <div class="swiper-wrapper">
+          <!-- Отзыв 1 -->
+          <div class="swiper-slide">
+            <div class="review-card-wrapper">
+              <div class="review-card">
+                <div class="user-photo">
+                  <img src="/images/review1.png" alt="Игорь Никифоров">
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="review-card">
-                    <p>"Отдавались с новой, далеко очень неправильной, но способной быть связан с другими людьми, учитывая ведение, что, как правило, можно использовать бумаги (программы, если? В этом направлены документы)?"</p>
-                    <p class="author">- Колия Сиинова</p>
+                <div class="review-content">
+                  <h5>ИГОРЬ НИКИФОРОВ</h5>
+                  <p>
+                    Были с друзьями на шашлыках. Приезжали 
+                    на выходные, обязательно вернемся на новый год.
+                    Понравилось, есть много развлечений, 
+                    Поймали трофейного карпа на 20 кг. Супер!
+                  </p>
                 </div>
+              </div>
             </div>
-            <div class="col-md-4">
-                <div class="review-card">
-                    <p>"Важно лично находиться вне Объединенных Формов языков Китайского государственного региона ЮГОЮ от апреля Страны Северной Интернет."</p>
-                    <p class="author">- Андрей Минск</p>
+          </div>
+          
+          <!-- Отзыв 2 -->
+          <div class="swiper-slide">
+            <div class="review-card-wrapper">
+              <div class="review-card">
+                <div class="user-photo">
+                  <img src="/images/review1.png" alt="Юлия Смиронова">
                 </div>
+                <div class="review-content">
+                  <h5>ЮЛИЯ СМИРОНОВА</h5>
+                  <p>
+                    Отдыхали с семьёй, детям очень понравилось 
+                    на природе. Чистые озера с крупной рыбой,
+                    уютные номера, есть где отдохнуть. 
+                    Очень понравилось будем приезжать еще!
+                    И рекомендовать друзьям!
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+          
+          <!-- Отзыв 3 -->
+          <div class="swiper-slide">
+            <div class="review-card-wrapper">
+              <div class="review-card">
+                <div class="user-photo">
+                  <img src="/images/review1.png" alt="Андрей Минск">
+                </div>
+                <div class="review-content">
+                  <h5>АНДРЕЙ МИНСК</h5>
+                  <p>
+                    Были летом несколько раз.
+                    Обязательно будем возвращаться.
+                    Рыба клюёт здоровенная,
+                    поймали 100500 кг карася!
+                    Супер! Скорее бы вернуться.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+           <!-- Отзыв 4 -->
+           <div class="swiper-slide">
+            <div class="review-card-wrapper">
+              <div class="review-card">
+                <div class="user-photo">
+                  <img src="/images/review1.png" alt="Андрей Минск">
+                </div>
+                <div class="review-content">
+                  <h5>ОТЗЫВ 4</h5>
+                  <p>
+                    Были летом несколько раз.
+                    Обязательно будем возвращаться.
+                    Рыба клюёт здоровенная,
+                    поймали 100500 кг карася!
+                    Супер! Скорее бы вернуться.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <!-- Отзыв 5 -->
+           <div class="swiper-slide">
+            <div class="review-card-wrapper">
+              <div class="review-card">
+                <div class="user-photo">
+                  <img src="/images/review1.png" alt="Андрей Минск">
+                </div>
+                <div class="review-content">
+                  <h5>ОТЗЫВ 5</h5>
+                  <p>
+                    Были летом несколько раз.
+                    Обязательно будем возвращаться.
+                    Рыба клюёт здоровенная,
+                    поймали 100500 кг карася!
+                    Супер! Скорее бы вернуться.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <!-- Отзыв 6 -->
+           <div class="swiper-slide">
+            <div class="review-card-wrapper">
+              <div class="review-card">
+                <div class="user-photo">
+                  <img src="/images/review1.png" alt="Андрей Минск">
+                </div>
+                <div class="review-content">
+                  <h5>ОТЗЫВ 6</h5>
+                  <p>
+                    Были летом несколько раз.
+                    Обязательно будем возвращаться.
+                    Рыба клюёт здоровенная,
+                    поймали 100500 кг карася!
+                    Супер! Скорее бы вернуться.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Добавьте остальные отзывы как swiper-slide -->
         </div>
-    </div>
-</section>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div> 
+       <!-- Блок управления (пагинация + кнопки) -->
+    <div class="slider-controls">
+        <div class="swiper-pagination"></div>
+        
+      </div>
+    
+      </div>
+  </section>
+  
 <section id="contact" class="contact-form py-5">
     <div class="container text-center">
         <h2>Свяжитесь с нами</h2>
@@ -370,5 +506,6 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 <script src="bootstrap/bootstrap.min.js"></script> <!-- Локальное подключение Bootstrap JS -->
+<script src="swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
