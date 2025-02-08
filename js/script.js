@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("Элементы для модального окна фотографий не найдены на странице.");
     }
-
+    /*
     // Существующий код для работы с каруселью в модальном окне галереи
     const galleryModal = document.getElementById('galleryModal');
     const carouselGallery = document.getElementById('galleryCarousel');
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("Элементы 'galleryModal' или 'carouselGallery' не найдены на странице.");
     }
-
+*/
     // Обработчик отправки формы
 document.getElementById('bookingForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Отменяем стандартное поведение формы
@@ -201,5 +201,104 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
 window.addEventListener("scroll", function () {
     document.documentElement.style.setProperty("--parallax-offset", `${window.scrollY * 0.751}px`);
 });
+
+const gallery = document.getElementById('galleryContainer');
+    const loadMoreBtn = document.getElementById('loadMore');
+    let currentPage = 1;
+    const itemsPerPage = 6;
+
+    // Имитация данных (замените на реальный API)
+    const allImages = [
+        {src: 'images/photo1.jpg', alt: 'Фото 1'},
+        {src: 'images/photo2.jpg', alt: 'Фото 2'},
+        {src: 'images/photo3.jpg', alt: 'Фото 3'},
+        {src: 'images/photo4.jpg', alt: 'Фото 4'},
+        {src: 'images/photo5.jpg', alt: 'Фото 5'},
+        {src: 'images/photo11.jpg', alt: 'Фото 9'},
+        {src: 'images/photo12.jpg', alt: 'Фото 10'},
+        {src: 'images/photo13.jpg', alt: 'Фото 11'},
+        {src: 'images/photo14.jpg', alt: 'Фото 14'}
+    ];
+
+    // Инициализация галереи
+    function initGallery() {
+        // Загрузка первых изображений
+        loadImages(currentPage);
+        
+        // Обработчик для модального окна
+        gallery.addEventListener('click', (e) => {
+            const item = e.target.closest('.gallery-item');
+            if (item) {
+                const index = item.dataset.index;
+                showModal(index);
+            }
+        });
+
+        // Кнопка "Показать еще"
+        loadMoreBtn.addEventListener('click', () => {
+            currentPage++;
+            loadImages(currentPage);
+        });
+    }
+
+    // Загрузка изображений
+    function loadImages(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const imagesToLoad = allImages.slice(start, end);
+
+        imagesToLoad.forEach((img, index) => {
+            const item = createGalleryItem(img, start + index);
+            gallery.appendChild(item);
+            
+            // Добавляем слайд в модальное окно
+            addModalSlide(img, start + index);
+        });
+
+        // Скрыть кнопку если больше нет изображений
+        if (start + imagesToLoad.length >= allImages.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+
+    // Создание элемента галереи
+    function createGalleryItem(img, index) {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-6 col-lg-4';
+        
+        col.innerHTML = `
+            <a href="#" class="gallery-item" 
+               data-bs-toggle="modal" 
+               data-bs-target="#galleryModal" 
+               data-index="${index}">
+                <img src="${img.src}" 
+                     class="img-fluid" 
+                     alt="${img.alt}" 
+                     loading="lazy">
+            </a>
+        `;
+        return col;
+    }
+
+    // Добавление слайда в модальное окно
+    function addModalSlide(img, index) {
+        const carouselInner = document.getElementById('modalCarouselInner');
+        const existingSlides = carouselInner.querySelectorAll('.carousel-item');
+    
+        if (existingSlides.length <= index) {
+            const slide = document.createElement('div');
+            slide.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+            slide.innerHTML = `<img src="${img.src}" class="d-block w-100" alt="${img.alt}">`;
+            carouselInner.appendChild(slide);
+        }
+    }
+    // Показать модальное окно с нужным слайдом
+    function showModal(index) {
+        const carousel = new bootstrap.Carousel('#modalCarousel');
+        carousel.to(index);
+    }
+
+    initGallery();
+
 
 });

@@ -38,9 +38,9 @@
 </header>
 <section class="hero text-center mt-n5">
     <div class="container">
-        <h2>Усадьба «На Волне»: <br> Ваш идеальный <br> отдых на природе</h2>
+        <h1>Усадьба «На Волне»: <br> Ваш идеальный <br> отдых на природе</h1>
         <p>Прогулки по живописным тропам, уютные <br>озёра и уникальные услуги для всей семьи. <br>  Ваш отдых мечты ждёт Вас!</p>
-        <button class="btn btn_orange" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button>
+        <button class= "btn_orange" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button>
     </div>
 </section>
 
@@ -156,7 +156,7 @@
     
 
 <!-- Вторая секция: Текст и форма -->
-<section class="booking-section position-relative py-3">
+<section class="booking-section position-relative py-5">
     <div class="container">
         <div class="row justify-content-between">
             
@@ -168,9 +168,8 @@
                         Оставьте ваши контактные данные, мы вам перезвоним и обсудим организацию лучшего отдыха.
                     </p>
                     <div class="benefits">
-                        <p class="d-flex align-items-center mb-3 p-3 border border-secondary rounded shadow-sm bg-light">
-                            <i class="bi bi-gift fs-3 me-2"></i>
-                            <span class="badge me-2 text-black">Бонус</span>
+                        <p class="d-flex align-items-center mb-3 p-3 border rounded shadow-sm bg-light bonus">
+                            <i class="bi bi-gift fs-1 me-2"></i>
                             Котенок, которого вам придется забрать домой
                         </p>
                     </div>
@@ -199,82 +198,55 @@
                                    placeholder="+375 (___) ___ - __ - __" required>
                         </div>
             
-                        <button type="submit" class="btn btn_orange btn-lg w-100">ЗАБРОНИРОВАТЬ</button>
-                    </form>
+                        <button type="submit" class="btn_orange btn-lg w-100">ЗАБРОНИРОВАТЬ</button>
                         <p class="text-muted mt-3 small">
                             Нажимая кнопку, вы принимаете 
                             <a href="#" class="text-decoration-none">Положение о согласии на обработку данных</a>
                         </p>
+                    </form>
+                        
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <!-- фотогалерея -->
 <section id="gallery" class="gallery py-5">
-    <div class="container text-center">
+    <div class="container text-center py-5">
         <h2>Фото с нашей усадьбы</h2>
-        <div id="galleryCarouselMain" class="carousel slide pt-3" data-bs-ride="carousel" data-bs-interval="3000">
-            <ul class="carousel-indicators">
-                <li data-bs-target="#galleryCarouselMain" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#galleryCarouselMain" data-bs-slide-to="1"></li>
-            </ul>
-            
-            <div class="carousel-inner">
-                <!-- Первый слайд с тремя фото -->
-                <div class="carousel-item active">
-                    <div class="row gx-2">
-                        <div class="col-4">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="0">
-                                <img src="images/photo1.jpg" class="d-block w-100" alt="Фото усадьбы 1">
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="1">
-                                <img src="images/photo2.jpg" class="d-block w-100" alt="Фото усадьбы 2">
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="2">
-                                <img src="images/photo3.jpg" class="d-block w-100" alt="Фото усадьбы 3">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Второй слайд с оставшимися фото -->
-                <div class="carousel-item">
-                    <div class="row gx-2">
-                        <div class="col-4">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="3">
-                                <img src="images/photo4.jpg" class="d-block w-100" alt="Фото усадьбы 4">
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="4">
-                                <img src="images/photo5.jpg" class="d-block w-100" alt="Фото усадьбы 5">
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-slide-to="5">
-                                <img src="images/photo6.jpg" class="d-block w-100" alt="Фото усадьбы 6">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="line-text">
+            <span></span>
+            <p>Мы улучшаем качество нашей работы каждый день</p>
+            <span></span>
+        </div>
+        
+        <!-- Контейнер галереи -->
+        <div class="row g-3 py-5" id="galleryContainer">
+            <!-- Начальные изображения -->
+            <!-- <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-index="0">
+                    <img src="images/photo1.jpg" class="img-fluid" alt="Фото 1" loading="lazy">
+                </a>
             </div>
-            <!-- Кнопки навигации -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarouselMain" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Предыдущий</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarouselMain" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Следующий</span>
-            </button>
-        </div>        
-    </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-index="1">
+                    <img src="images/photo2.jpg" class="img-fluid" alt="Фото 2" loading="lazy">
+                </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-index="2">
+                    <img src="images/photo3.jpg" class="img-fluid" alt="Фото 3" loading="lazy">
+                </a>
+            </div>
+        </div>
+    -->
+        </div>
+        <!-- Кнопка загрузки -->
+        <button id="loadMore" class="btn_orange mt-4">
+            Показать еще
+        </button>
+    </div> <!-- Закрываем контейнер -->
 </section>
 
 <!-- Bootstrap модальное окно с каруселью по нажатию на фото -->
@@ -286,33 +258,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
             </div>
             <div class="modal-body">
-                <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/photo1.jpg" class="d-block w-100" alt="Фото усадьбы 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/photo2.jpg" class="d-block w-100" alt="Фото усадьбы 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/photo3.jpg" class="d-block w-100" alt="Фото усадьбы 3">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/photo4.jpg" class="d-block w-100" alt="Фото усадьбы 4">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/photo5.jpg" class="d-block w-100" alt="Фото усадьбы 5">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/photo6.jpg" class="d-block w-100" alt="Фото усадьбы 6">
-                        </div>
+                <div id="modalCarousel" class="carousel slide">
+                    <div class="carousel-inner" id="modalCarouselInner">
+                        <!-- Изображения добавляются динамически -->
                     </div>
                     <!-- Кнопки управления слайдером -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev" role="button">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Предыдущий</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next" role="button">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Следующий</span>
                     </button>
@@ -321,6 +276,7 @@
         </div>
     </div>
 </div>
+
 
   
   <!-- Дополнительные преимущества -->
@@ -350,7 +306,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-orange">Узнать стоимость проживания</button>
+        <button class="btn_orange">Узнать стоимость проживания</button>
     </div>
 </section>
 <section class="reviews py-5">

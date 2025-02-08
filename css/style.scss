@@ -37,43 +37,32 @@ body {
 }
 
 // 📝 Заголовки
+
+h1 {
+  font-size: clamp(32px, 5vw, 48px); /* Главный заголовок */
+  font-weight: 700;
+}
 h2 {
-    display: inline-block;
     color: $text-dark;
     font-size: clamp(24px, 4vw, 36px);
     font-weight: 700;
-    text-align: left;
-    margin-bottom: 30px;
 }
 
 h3 {
-    font-size: clamp(20px, 3vw, 24px);
-    font-weight: 600;
+  font-size: clamp(22px, 3.5vw, 30px); /* Подзаголовок */
+  font-weight: 600;
 }
 
-// Кнопки
-/* button, .btn {
-    background-color: $primary-color;
-    color: white;
-    padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
-    border: none;
-    border-radius: 30px;
-    font-size: clamp(14px, 2vw, 20px);
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: $btn-shadow;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+h4 {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 600;
+}
 
-    &:hover {
-        background-color: $secondary-color;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(255, 111, 0, 0.4);
-    }
+p {
+  font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
+  line-height: 1.6;
+}
 
-    &:active {
-        transform: translateY(0);
-    }
-} */
 
 .btn_orange {
     background-color: $primary-orange;
@@ -209,7 +198,6 @@ h3 {
 
     .container {
         text-align: left; /* Выравниваем весь контент влево */
-        //max-width: 900px; /* Ограничиваем ширину контейнера */
         margin-left: auto; /* Оставляем автоматический отступ справа */
         margin-right: auto; /* Центрируем контейнер */
         padding-left: 20px; /* Отступ слева */
@@ -245,22 +233,11 @@ h3 {
        bottom: -100px;
        width: 100px;
     }
-    // Для паралакса
-    //.listok-left,
-    //.listok-right {
-    //transform: translateY(var(--parallax-offset));
-    //transition: transform 0.1s ease-out;
-//}
 }
 
 
 // Секция "Чем заняться"
 .activities {
-    
-    //padding: 10px 0;
-    //display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    //gap: 10px;
 
     .activity-card {
         background: white;
@@ -314,16 +291,16 @@ h3 {
 
 .booking {
     background: 
-        url('/images/cloud-resize.png'), no-repeat center top/cover, 
+        url('/images/cloud-resize.png'), no-repeat center center/cover, 
         linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
     min-height: 100vh;
-    padding: 130px 0;
+    padding-top: 130px;
     position: relative;
 
     .bg-img {
         background: url('/images/table.png') no-repeat center top/contain;
         
-        min-height: $min-height-lg; // По умолчанию для больших экранов
+        //min-height: $min-height-lg; // По умолчанию для больших экранов
       }
       .row.align-items-center {
         column-gap: $column-gap;
@@ -340,7 +317,6 @@ h3 {
       height: 4px;         // Толщина линии
       background-color: orange;
       margin-top: 10px;
-      margin-left: 70px;
     }
 }
     .photo-grid {
@@ -360,15 +336,13 @@ h3 {
       
       #photoModal {
         .modal-content {
-          max-width: 70vh;
+          max-width: 80vh;
           display: flex;
           flex-direction: column;
-          align-items: center;
         }
       
         .modal-body {
           display: flex;
-          align-items: center;
           justify-content: center;
           padding: 1rem;
           width: 80vh;
@@ -394,21 +368,9 @@ h3 {
         margin-top: 70px;
       }
 
-
       // Вторая секция: Текст и форма
 
-.booking-section {
-    color: white;
-    
-    .booking-content {
-        h3 {
-            font-size: 2.5rem;
-        }
-    }
-
-    .booking-form-wrapper {
-        position: relative;
-        
+.booking-section {    
         form {
             background: white;
             border-radius: 15px;
@@ -416,20 +378,16 @@ h3 {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
-
         .benefits {
-            span {
-                font-weight: bold;
-                padding: 5px 10px;
-                border-radius: 5px;
+            .bonus {
+                font-size: 20px;
+    
             }
         }
     }
-    
-}
 
 // 📷 Галерея
-.gallery img {
+/* .gallery img {
     width: 100%;
     max-width: 400px;
     height: auto;
@@ -439,11 +397,27 @@ h3 {
     &:hover {
         transform: scale(1.05);
     }
+} */
+
+
+
+.line-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; // Расстояние между текстом и линиями
+
+  span {
+      width: 20px; // Линии займут доступное пространство
+      height: 2px; // Толщина линии
+      background-color: $primary-orange; // Цвет линии
+  }
+
+  p {
+      margin: 0;
+      //white-space: nowrap; // Чтобы текст не переносился
+  }
 }
-
-
-
-//с
 
 /* Стили для слайдера */
 .carousel-inner img {
@@ -480,9 +454,6 @@ h3 {
 .carousel-control-next {
     right: 10px; /* Расстояние от правого края */
 }
-
-
-
 
 // Преимущества
 .additional-benefits {
