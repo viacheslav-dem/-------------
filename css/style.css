@@ -1,8 +1,7 @@
 @charset "UTF-8";
 :root {
   --swiper-pagination-bottom: -20px !important; /* Переопределяем переменную */
-  --swiper-navigation-color: #ff6b00 !important;
-  --swiper-pagination-color: #ff6b00 !important;
+  --swiper-navigation-color: $primary-color !important;
 }
 
 body {
@@ -31,16 +30,26 @@ h3 {
   font-weight: normal;
 }
 
+h4 {
+  font-size: clamp(21px, 1.56vw, 26.42px); /* Подзаголовок */
+  font-weight: 700;
+}
+
+h5 {
+  font-size: clamp(18px, 1.56vw, 22px); /* Подзаголовок */
+  font-weight: 400;
+}
+
 p {
   font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
   line-height: 1.6;
 }
 
 .btn_orange {
-  background-color: #ff9d00;
-  background-image: linear-gradient(to bottom, #ff9d00 0%, #ff6b00 100%);
+  background-color: #ff9933;
+  background-image: linear-gradient(to bottom, #ff9933 0%, #ff6b00 100%);
   box-shadow: 0 2px 0 0 rgba(255, 111, 0, 0.004), 0 10px 35px 0 rgba(255, 111, 0, 0.3), inset 0 2px 0 0 rgba(255, 111, 0, 0.004);
-  border-bottom: 2px solid #cc7e00;
+  border-bottom: 2px solid #ff8000;
   color: #fff;
   padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 38px);
   border: none;
@@ -59,7 +68,11 @@ p {
 }
 
 .text-orange {
-  color: #ff9d00;
+  color: #ff9933;
+}
+
+a {
+  text-decoration: none;
 }
 
 .heading::after {
@@ -67,7 +80,7 @@ p {
   display: block;
   width: 100px;
   height: 3px;
-  background-color: orange;
+  background-color: #f58c28;
   margin-top: 10px;
 }
 
@@ -76,7 +89,7 @@ p {
   display: block;
   width: 60px;
   height: 3px;
-  background-color: orange;
+  background-color: #f58c28;
   margin: auto;
   margin-top: 10px;
 }
@@ -86,7 +99,7 @@ p {
   display: block;
   width: 120px;
   height: 3px;
-  background-color: orange;
+  background-color: #f58c28;
   margin: auto;
   margin-top: 10px;
 }
@@ -96,7 +109,7 @@ p {
   display: block;
   width: 125px;
   height: 3px;
-  background-color: orange;
+  background-color: #f58c28;
   margin-top: 10px;
 }
 
@@ -105,13 +118,12 @@ p {
   display: block;
   width: 125px;
   height: 3px;
-  background-color: orange;
+  background-color: #f58c28;
   margin: auto;
   margin-top: 15px;
 }
 
 .header {
-  background-color: #fcfbfb;
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
@@ -120,10 +132,12 @@ p {
   position: sticky;
   top: 0;
   box-shadow: none; /* Убираем тень по умолчанию */
-  transition: box-shadow 0.3s ease; /* Плавное появление тени */
+  background-color: transparent;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Плавное появление тени */
   z-index: 999;
 }
-.header .header.scrolled {
+.header.scrolled {
+  background-color: #fcfbfb;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень появляется при наличии класса scrolled */
 }
 .header .logo {
@@ -348,7 +362,7 @@ p {
 .line-text span {
   width: 20px;
   height: 2px;
-  background-color: #ff9d00;
+  background-color: #ff9933;
 }
 .line-text p {
   margin: 0;
@@ -487,7 +501,7 @@ p {
 .swiper-button-prev::after,
 .swiper-button-next::after {
   font-size: 30px;
-  color: #ff9900;
+  color: #f58c28;
   transition: opacity 0.3s ease;
 }
 .swiper-button-prev:hover::after,
@@ -517,29 +531,71 @@ p {
 .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background: #ff9900;
   opacity: 0.5;
   transition: all 0.3s ease;
 }
 .swiper-pagination-bullet-active {
   opacity: 1;
   transform: scale(1.2);
+  background-color: #f58c28 !important;
+}
+
+.reservation .caps {
+  text-transform: uppercase;
+}
+.reservation .reservation-card {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.reservation .reservation-card img {
+  border-radius: 10px;
+  width: 344px;
+  height: 223px;
+}
+.reservation .reservation-card:hover {
+  transform: translateY(-5px);
 }
 
 .contact-form {
-  background: white;
   padding: 50px 0;
 }
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.contact-form .number {
+  color: #f58c28;
 }
-.contact-form textarea {
-  resize: none;
-  height: 120px;
+.contact-form .contact-card {
+  background: white;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.contact-form .contact-card .d-flex.gap-3 {
+  width: 60%;
+}
+.contact-form .contact-card input {
+  flex: 1;
+  width: auto;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+.contact-form .contact-card input::-moz-placeholder {
+  color: #999;
+}
+.contact-form .contact-card input::placeholder {
+  color: #999;
+}
+.contact-form .contact-card .contact {
+  margin: auto;
+  width: 350px;
+}
+.contact-form .contact-card:hover {
+  transform: translateY(-5px);
 }
 
 footer {

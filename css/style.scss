@@ -1,5 +1,5 @@
 // 🎨 Переменные (цвета, тени)
-$primary-color: #ff914d;
+$primary-color: #f58c28;
 $secondary-color: #ff6f00;
 $bg-light: white;
 $text-dark: #333;
@@ -7,14 +7,13 @@ $text-gray: #666;
 
 :root {
   --swiper-pagination-bottom: -20px !important; /* Переопределяем переменную */
-  --swiper-navigation-color: #ff6b00 !important;
-  --swiper-pagination-color: #ff6b00 !important;
+  --swiper-navigation-color: $primary-color !important;
   //--swiper-navigation-size: 36px !important;
 }
 
 
 //Кнопка
-$primary-orange: #ff9d00;
+$primary-orange: #ff9933;
 $secondary-orange: #ff6b00;
 $btn-shadow-orange: 0 2px 0 0 rgba(255, 111, 0, 0.004),
                     0 10px 35px 0 rgba(255, 111, 0, 0.3),
@@ -60,6 +59,14 @@ h3 {
   font-size: clamp(22px, 1.56vw, 30px); /* Подзаголовок */
   font-weight: normal;
 }
+h4 {
+  font-size:  clamp(21px, 1.56vw, 26.42px); /* Подзаголовок */
+  font-weight: 700;
+}
+h5 {
+  font-size: clamp(18px, 1.56vw, 22px); /* Подзаголовок */
+  font-weight: 400;
+}
 p {
   font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
   line-height: 1.6;
@@ -92,7 +99,10 @@ p {
 .text-orange {
     color: $primary-orange;
 }
-
+//Убираем подчеркивание у ссылок
+a {
+  text-decoration: none;
+}
 //ЛИНИИ
 
 .heading
@@ -102,7 +112,7 @@ p {
       display: block;
       width: 100px;        // Ширина линии (можно регулировать)
       height: 3px;         // Толщина линии
-      background-color: orange;
+      background-color: $primary-color;
       margin-top: 10px;
     }
 }
@@ -114,7 +124,7 @@ p {
       display: block;
       width: 60px;        // Ширина линии (можно регулировать)
       height: 3px;         // Толщина линии
-      background-color: orange;
+      background-color: $primary-color;
       margin:auto;
       margin-top: 10px;
     }
@@ -127,7 +137,7 @@ p {
       display: block;
       width: 120px;        // Ширина линии (можно регулировать)
       height: 3px;         // Толщина линии
-      background-color: orange;
+      background-color: $primary-color;
       margin:auto;
       margin-top: 10px;
     }
@@ -139,7 +149,7 @@ p {
       display: block;
       width: 125px;        // Ширина линии (можно регулировать)
       height: 3px;         // Толщина линии
-      background-color: orange;
+      background-color:  $primary-color;
       //margin:auto;
       margin-top: 10px;
     }
@@ -151,7 +161,7 @@ p {
       display: block;
       width: 125px;        // Ширина линии (можно регулировать)
       height: 3px;         // Толщина линии
-      background-color: orange;
+      background-color: $primary-color;
       margin:auto;
       margin-top: 15px;
     }
@@ -160,7 +170,7 @@ p {
 
 // Хедер
 .header {
-    background-color: #fcfbfb;
+    //background-color: #fcfbfb;
     padding: 15px 0;
     display: flex;
     justify-content: space-between;
@@ -169,12 +179,15 @@ p {
     position: sticky;
     top: 0;
     box-shadow: none; /* Убираем тень по умолчанию */
-    transition: box-shadow 0.3s ease; /* Плавное появление тени */
+    background-color: transparent;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Плавное появление тени */
     z-index: 999;
 
 
-.header.scrolled {
+ &.scrolled {
+    background-color: #fcfbfb;
     box-shadow: $shadow; /* Тень появляется при наличии класса scrolled */
+    
 }
 
 
@@ -629,7 +642,7 @@ p {
   
   &::after {
     font-size: 30px;
-    color: #ff9900;
+    color: $primary-color;
     transition: opacity 0.3s ease;
   }
   
@@ -660,34 +673,79 @@ p {
 .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background: #ff9900;
   opacity: 0.5;
   transition: all 0.3s ease;
   
   &-active {
     opacity: 1;
     transform: scale(1.2);
+    background-color: $primary-color !important;
   }
 }
 
+//Забронировать номер
+.reservation {
+  .caps {
+    text-transform: uppercase;
+  }
+  .reservation-card {
+      background: $bg-light;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: $shadow;
+      text-align: center;
+      transition: transform 0.3s ease;
 
+      img {
+         border-radius: 10px;  
+         width: 344px;   
+         height: 223px; 
+      }
+
+      &:hover {
+          transform: translateY(-5px);
+      }
+  }
+}
 // Контакты
 .contact-form {
-    background: white;
-    padding: 50px 0;
+  padding: 50px 0;
 
-    input, textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
+  .number {
+    color: $primary-color;
+  }
+  .contact-card {
+      background: $bg-light;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      
+      .d-flex.gap-3 {
+        width: 60%;
+     }
+      input {
+        flex: 1;
+         width: auto;
+          padding: 12px 20px;
+          margin-bottom: 15px;
+          border: 2px solid #ddd;
+          border-radius: 8px;
+          font-size: 1.5rem;
 
-    textarea {
-        resize: none;
-        height: 120px;
-    }
+          &::placeholder {
+              color: #999;
+          }
+      }
+
+      .contact {
+        margin: auto;
+          width: 350px;
+      }
+
+      &:hover {
+          transform: translateY(-5px);
+      }
+  }
 }
 
 // Подвал
@@ -778,7 +836,6 @@ footer {
         a {
           display: block;
           padding: 10px 20px;
-          //color: $text-dark;
           font-weight: 600;
           text-align: center;
           transition: background-color 0.3s ease;
