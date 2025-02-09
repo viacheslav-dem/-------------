@@ -62,6 +62,54 @@ p {
   color: #ff9d00;
 }
 
+.heading::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: orange;
+  margin-top: 10px;
+}
+
+.heading-benefits::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: orange;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.heading-reviews::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background-color: orange;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.heading-booking::after {
+  content: "";
+  display: block;
+  width: 125px;
+  height: 3px;
+  background-color: orange;
+  margin-top: 10px;
+}
+
+.heading-cards::after {
+  content: "";
+  display: block;
+  width: 125px;
+  height: 3px;
+  background-color: orange;
+  margin: auto;
+  margin-top: 15px;
+}
+
 .header {
   background-color: #fcfbfb;
   padding: 15px 0;
@@ -227,15 +275,6 @@ p {
        column-gap: 40px;
 }
 
-.heading::after {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 4px;
-  background-color: orange;
-  margin-top: 10px;
-}
-
 .photo-grid {
   margin-bottom: 30%;
 }
@@ -284,10 +323,7 @@ p {
 
 .booking-section form {
   background: white;
-  border-radius: 15px;
-  padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  z-index: 2;
 }
 .booking-section .benefits {
   width: 400px;
@@ -348,26 +384,9 @@ p {
   margin-top: -25px; /* Центрируем кнопки точно в центре */
 }
 
-.heading-benefits::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: orange;
-  margin: auto;
-  margin-top: 10px;
-}
-
-.additional-benefits {
-  padding: 50px 0;
-  background: #fff;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
 .additional-benefits .benefit-card {
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -657,19 +676,43 @@ footer {
   .col-left {
     margin-left: -40px;
   }
+  .booking-section h2 {
+    text-align: center;
+  }
+  .booking-section h3 {
+    text-align: center;
+  }
+  .booking-section .benefits {
+    width: 340px;
+  }
+  .booking-section .benefits p {
+    text-align: center;
+  }
 }
 @media (min-width: 481px) and (max-width: 767px) {
   .photo-card img {
     height: 200px;
   }
-  .header {
+  .booking-section h2 {
+    text-align: center;
+  }
+  .booking-section h3 {
+    text-align: center;
+  }
+  .booking-section .benefits {
+    width: 450px;
+  }
+  .booking-section .benefits p {
+    text-align: center;
+  }
+  .booking-section .header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     padding: 10px 15px;
   }
-  .header .logo {
+  .booking-section .header .logo {
     width: 50%;
     height: auto;
     -o-object-fit: contain;
@@ -677,7 +720,7 @@ footer {
     order: 1;
     margin-left: 10px;
   }
-  .header .menu-toggle {
+  .booking-section .header .menu-toggle {
     display: block;
     font-size: 24px;
     cursor: pointer;
@@ -687,23 +730,23 @@ footer {
     order: 0;
     padding: 10px;
   }
-  .header .header-info {
+  .booking-section .header .header-info {
     flex-direction: column;
     gap: 15px;
     margin-top: 10px;
   }
-  .header .phone {
+  .booking-section .header .phone {
     order: 2;
     font-size: 16px;
   }
-  .header .social-icons {
+  .booking-section .header .social-icons {
     order: 3;
     gap: 8px;
   }
-  .header nav {
+  .booking-section .header nav {
     display: none;
   }
-  .header .mobile-nav {
+  .booking-section .header .mobile-nav {
     display: none;
     width: 100%;
     background-color: #fff;
@@ -714,7 +757,7 @@ footer {
     padding: 10px 0;
     z-index: 999;
   }
-  .header .mobile-nav a {
+  .booking-section .header .mobile-nav a {
     display: block;
     padding: 10px 20px;
     color: #333;
@@ -722,34 +765,34 @@ footer {
     text-align: center;
     transition: background-color 0.3s ease;
   }
-  .header .mobile-nav a:hover {
+  .booking-section .header .mobile-nav a:hover {
     background-color: #f5f5f5;
   }
-  .header .mobile-nav.active {
+  .booking-section .header .mobile-nav.active {
     display: block;
   }
-  .hero {
+  .booking-section .hero {
     min-height: 60vh;
     text-align: center;
     padding: 20px 0;
     background-attachment: scroll;
   }
-  .activities {
+  .booking-section .activities {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 30px 0;
   }
-  .activity-card {
+  .booking-section .activity-card {
     margin-bottom: 20px;
   }
-  .gallery img {
+  .booking-section .gallery img {
     margin: 5px;
   }
-  .booking {
+  .booking-section .booking {
     background: url("/images/cloud-mobile.png") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
-  .booking .bg-img {
+  .booking-section .booking .bg-img {
     min-height: 150px;
   }
   .col-right {
@@ -769,6 +812,15 @@ footer {
   .col-left {
     margin-left: -50px;
   }
+  .booking-section h3 {
+    text-align: left;
+  }
+  .booking-section br {
+    display: none;
+  }
+  .booking-section .benefits {
+    width: 330px;
+  }
 }
 @media (min-width: 993px) and (max-width: 1024px) {
   .col-right {
@@ -778,7 +830,6 @@ footer {
     margin-left: -50px;
   }
 }
-/* Добавляем адаптацию для мобильных */
 @media (max-width: 767px) and (orientation: portrait) {
   .reviews-slider {
     padding: 0 30px !important;

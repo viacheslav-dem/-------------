@@ -92,6 +92,72 @@ p {
 .text-orange {
     color: $primary-orange;
 }
+
+//ЛИНИИ
+
+.heading
+ { 
+    &::after {
+      content: "";
+      display: block;
+      width: 100px;        // Ширина линии (можно регулировать)
+      height: 3px;         // Толщина линии
+      background-color: orange;
+      margin-top: 10px;
+    }
+}
+
+.heading-benefits
+ { 
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;        // Ширина линии (можно регулировать)
+      height: 3px;         // Толщина линии
+      background-color: orange;
+      margin:auto;
+      margin-top: 10px;
+    }
+}
+
+.heading-reviews
+ { 
+    &::after {
+      content: "";
+      display: block;
+      width: 120px;        // Ширина линии (можно регулировать)
+      height: 3px;         // Толщина линии
+      background-color: orange;
+      margin:auto;
+      margin-top: 10px;
+    }
+}
+.heading-booking
+ { 
+    &::after {
+      content: "";
+      display: block;
+      width: 125px;        // Ширина линии (можно регулировать)
+      height: 3px;         // Толщина линии
+      background-color: orange;
+      //margin:auto;
+      margin-top: 10px;
+    }
+}
+.heading-cards
+ { 
+    &::after {
+      content: "";
+      display: block;
+      width: 125px;        // Ширина линии (можно регулировать)
+      height: 3px;         // Толщина линии
+      background-color: orange;
+      margin:auto;
+      margin-top: 15px;
+    }
+}
+
+
 // Хедер
 .header {
     background-color: #fcfbfb;
@@ -303,18 +369,6 @@ p {
       }
   }
 
-  
- .heading
- { 
-    &::after {
-      content: "";
-      display: block;
-      width: 100px;        // Ширина линии (можно регулировать)
-      height: 4px;         // Толщина линии
-      background-color: orange;
-      margin-top: 10px;
-    }
-}
     .photo-grid {
         margin-bottom: 30%;
       }
@@ -375,10 +429,8 @@ p {
 .booking-section {    
         form {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 2;
+            //z-index: 2;
         }
         .benefits {
           width: 400px;
@@ -451,28 +503,10 @@ p {
 
 // Преимущества
 
-.heading-benefits
- { 
-    &::after {
-      content: "";
-      display: block;
-      width: 60px;        // Ширина линии (можно регулировать)
-      height: 3px;         // Толщина линии
-      background-color: orange;
-      margin:auto;
-      margin-top: 10px;
-    }
-}
 .additional-benefits {
-    padding: 50px 0;
-    background: #fff;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-
     .benefit-card {
         background: $bg-light;
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
         box-shadow: $shadow;
         text-align: center;
@@ -829,8 +863,24 @@ footer {
     .col-left {
       margin-left: -40px;
     }
+
+    .booking-section {    
+      h2 {
+        text-align: center;
+      }  
+      h3 {
+        text-align: center;
+      }
+
+
+      .benefits {
+        width: 340px;
+        p {
+          text-align: center;
+        }
+      }
   }
-  
+}
   
   // 2. Диапазон 481px – 767px (Оставшиеся мобильные устройства)
   @media (min-width: 481px) and (max-width: 767px) {
@@ -838,7 +888,20 @@ footer {
     .photo-card img {
       height: 200px;
     }
-    
+    .booking-section {  
+      h2 {
+        text-align: center;
+      }  
+      h3 {
+        text-align: center;
+      }
+
+      .benefits {
+        width: 450px;
+        p {
+          text-align: center;
+        }
+      }
     // Стили для шапки и прочего (как в блоке для max-width: 767px)
     .header {
       flex-direction: row;
@@ -939,6 +1002,9 @@ footer {
         min-height: $min-height-sm;
       }
     }
+  
+      
+  }
     
     // Правила для колонок (диапазон 320px–768px)
     .col-right {
@@ -964,7 +1030,19 @@ footer {
     .col-left {
       margin-left: -50px;
     }
+    .booking-section {    
+      h3 {
+        text-align:left;
+      }
+      br {
+        display: none;
+      }
+      .benefits {
+        width: 330px;
+      }
   }
+
+}
   
   
   // 4. Диапазон 993px – 1024px (Небольшие десктопы)
@@ -975,9 +1053,13 @@ footer {
     .col-left {
       margin-left: -50px;
     }
+    
   }
-  /* Добавляем адаптацию для мобильных */
+
+
+  // Мобильные портретный режим
 @media (max-width: 767px) and (orientation: portrait) {
+
   .reviews-slider {
     padding: 0 30px !important; // Уменьшаем боковые отступы
     
