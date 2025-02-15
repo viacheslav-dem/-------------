@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Smooth scrolling
+    // Smooth scrolling. Для прокрутки по пунктам меню
     document.querySelectorAll("nav a").forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -38,25 +38,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Back to top button functionality
     const backToTopButton = document.getElementById("back-to-top");
-    if (backToTopButton) {
-        let lastScrollTop = 0;
-        window.addEventListener("scroll", function () {
-            let scrollTop = window.scrollY;
-            if (scrollTop > 300) {
-                backToTopButton.classList.add("show");
-            } else {
-                backToTopButton.classList.remove("show");
-            }
-            backToTopButton.style.opacity = (scrollTop > lastScrollTop) ? "1" : "0.7";
-            lastScrollTop = scrollTop;
-        });
-        backToTopButton.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    } else {
-        console.error("Кнопка 'Наверх' не найдена на странице.");
-    }
+if (backToTopButton) {
+    let lastScrollTop = 0;
 
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        // Порог появления кнопки в зависимости от экрана
+        const scrollThreshold = window.innerWidth < 768 
+            ? window.innerHeight * 0.15  // 15vh для мобильных
+            : window.innerHeight * 0.3;  // 30vh для десктопов
+
+        if (scrollTop > scrollThreshold) {
+            backToTopButton.classList.add("show");
+        } else {
+            backToTopButton.classList.remove("show");
+        }
+
+        backToTopButton.style.opacity = (scrollTop > lastScrollTop) ? "0.7" : "1";
+        lastScrollTop = scrollTop;
+    });
+
+    backToTopButton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+    
     // Hover animation for buttons
     document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("mouseenter", () => {
@@ -130,39 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("Элементы для модального окна фотографий не найдены на странице.");
     }
-    /*
-    // Существующий код для работы с каруселью в модальном окне галереи
-    const galleryModal = document.getElementById('galleryModal');
-    const carouselGallery = document.getElementById('galleryCarousel');
-    let carouselInstance;
-
-    if (galleryModal && carouselGallery) {
-        galleryModal.addEventListener('show.bs.modal', function (event) {
-            const triggerEl = event.relatedTarget;
-            const slideTo = triggerEl.getAttribute('data-bs-slide-to');
-            console.log("Slide to:", slideTo); // Для отладки
-
-            // Инициализация карусели при открытии модального окна
-            if (!carouselInstance) {
-                carouselInstance = new bootstrap.Carousel(carouselGallery);
-            }
-
-            if (slideTo !== null) {
-                // Переключаем карусель на нужный слайд
-                carouselInstance.to(parseInt(slideTo));
-            } else {
-                console.error("Нет атрибута data-bs-slide-to на элементе!");
-            }
-        });
-
-        // Слушаем событие закрытия модального окна, чтобы сбросить carouselInstance
-        galleryModal.addEventListener('hidden.bs.modal', function () {
-            carouselInstance = null; // Сбрасываем инстанс карусели
-        });
-    } else {
-        console.error("Элементы 'galleryModal' или 'carouselGallery' не найдены на странице.");
-    }
-*/
+    
     // Обработчик отправки формы
 document.getElementById('bookingForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Отменяем стандартное поведение формы
@@ -209,15 +185,15 @@ const gallery = document.getElementById('galleryContainer');
 
     // Имитация данных (замените на реальный API)
     const allImages = [
-        {src: 'images/photo1.jpg', alt: 'Фото 1'},
-        {src: 'images/photo2.jpg', alt: 'Фото 2'},
-        {src: 'images/photo3.jpg', alt: 'Фото 3'},
-        {src: 'images/photo4.jpg', alt: 'Фото 4'},
-        {src: 'images/photo5.jpg', alt: 'Фото 5'},
-        {src: 'images/photo11.jpg', alt: 'Фото 9'},
-        {src: 'images/photo12.jpg', alt: 'Фото 10'},
-        {src: 'images/photo13.jpg', alt: 'Фото 11'},
-        {src: 'images/photo14.jpg', alt: 'Фото 14'}
+        {src: 'images/photo1.webp', alt: 'Фото 1'},
+        {src: 'images/photo2.webp', alt: 'Фото 2'},
+        {src: 'images/photo3.webp', alt: 'Фото 3'},
+        {src: 'images/photo4.webp', alt: 'Фото 4'},
+        {src: 'images/photo5.webp', alt: 'Фото 5'},
+        {src: 'images/photo11.webp', alt: 'Фото 9'},
+        {src: 'images/photo12.webp', alt: 'Фото 10'},
+        {src: 'images/photo13.webp', alt: 'Фото 11'},
+        {src: 'images/photo14.webp', alt: 'Фото 14'}
     ];
 
     // Инициализация галереи
@@ -318,8 +294,12 @@ const gallery = document.getElementById('galleryContainer');
             slidesPerGroup: 1
           },
           768: { // На планшетах (768px и больше) - 2 слайда
-            slidesPerView: 2,
-            slidesPerGroup: 2
+            slidesPerView: 1,
+            slidesPerGroup: 1
+          },
+            1024: { // На (1024px и больше) - 2 слайда
+                slidesPerView: 2,
+                slidesPerGroup: 2
           }
         },
         pagination: {

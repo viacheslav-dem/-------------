@@ -14,8 +14,34 @@ body {
   padding: 0;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  z-index: 100; /* Повышенный z-index */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  transform: scale(1.2);
+  background-color: #ff9933;
+}
+
 h1 {
-  font-size: clamp(32px, 2.8vw, 54px); /* Главный заголовок */
+  font-size: clamp(30px, 2.8vw, 54px); /* Главный заголовок */
   font-weight: 700;
 }
 
@@ -25,24 +51,28 @@ h2 {
   font-weight: 700;
 }
 
-h3 {
-  font-size: clamp(22px, 1.56vw, 30px); /* Подзаголовок */
+h3, .h3 {
+  font-size: clamp(22px, 1.56vw, 30px);
   font-weight: normal;
 }
 
-h4 {
-  font-size: clamp(21px, 1.56vw, 26.42px); /* Подзаголовок */
+h4, .h4 {
+  font-size: clamp(21px, 1.56vw, 26.42px);
   font-weight: 700;
 }
 
-h5 {
-  font-size: clamp(18px, 1.56vw, 22px); /* Подзаголовок */
+h5, .h5 {
+  font-size: clamp(18px, 1.56vw, 22px);
   font-weight: 400;
 }
 
 p {
   font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
   line-height: 1.6;
+}
+
+.caps {
+  text-transform: uppercase;
 }
 
 .btn_orange {
@@ -134,7 +164,7 @@ a {
   box-shadow: none; /* Убираем тень по умолчанию */
   background-color: transparent;
   transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Плавное появление тени */
-  z-index: 999;
+  z-index: 99;
 }
 .header.scrolled {
   background-color: #fcfbfb;
@@ -193,10 +223,21 @@ a {
 .hero {
   min-height: 90vh;
   max-width: 100%;
-  background: url("../images/house-500.png") no-repeat center/cover;
-  padding: 30px 0;
+  background: url("../images/hero.webp") no-repeat center/cover;
+  padding: 50px 0;
   color: #333;
   background-position: center center; /* Обеспечивает центрирование изображения */
+}
+.hero span {
+  display: block;
+}
+.hero .house {
+  width: 40%;
+  position: absolute; /* Фиксируем изображение относительно окна */
+  right: 0; /* Фиксируем слева */
+  top: 15%; /* Поднимаем картинку, например, на 10% от высоты экрана */
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero h2 {
   text-align: left; /* Выравниваем сам заголовок влево */
@@ -237,6 +278,7 @@ a {
 }
 
 .activities .activity-card {
+  height: 230px;
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -248,15 +290,12 @@ a {
   width: 60px;
   margin-bottom: 10px;
 }
-.activities .activity-card p {
-  text-align: left;
-  font-size: 18px;
-  max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
+.activities .activity-card .h5 {
+  font-size: 20px;
+  font-weight: 700;
 }
-.activities .activity-card h5 {
-  font-weight: 600;
+.activities .activity-card p {
+  font-size: 16px;
 }
 .activities .activity-card:hover {
   transform: translateY(-5px);
@@ -276,13 +315,13 @@ a {
 }
 
 .booking {
-  background: url("/images/cloud-resize.png"), no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+  background: url("/images/cloud-booking.webp"), no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   min-height: 100vh;
   padding-top: 130px;
   position: relative;
 }
 .booking .bg-img {
-  background: url("/images/table.png") no-repeat center top/contain;
+  background: url("/images/table.webp") no-repeat center top/contain;
 }
 .booking .row.align-items-center {
   -moz-column-gap: 40px;
@@ -411,19 +450,18 @@ a {
   height: 84px;
   margin-bottom: 20px;
 }
-.additional-benefits .benefit-card h3 {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
 .additional-benefits .benefit-card p {
   font-size: 17px;
+}
+.additional-benefits .benefit-card .h5 {
+  font-weight: 700;
 }
 .additional-benefits .benefit-card:hover {
   transform: translateY(-5px);
 }
 
 .reviews {
+  background: url("/images/cloud-reviews.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   position: relative;
 }
 .reviews .reviews-slider .review-card-wrapper {
@@ -432,14 +470,13 @@ a {
 }
 .reviews .reviews-slider .review-card-wrapper.active {
   transform: scale(1) translateY(-5px);
-  z-index: 2;
 }
 .reviews .reviews-slider .review-card {
   background: white;
-  padding: 30px;
+  padding: 20px;
   position: relative;
   transform: skewX(-10deg) rotateY(5deg);
-  min-height: 300px;
+  min-height: 270px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -496,7 +533,6 @@ a {
   padding: 0 60px;
 }
 
-/* Контейнер для пагинации */
 /* Общие стили для стрелок */
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -540,10 +576,8 @@ a {
   background-color: #f58c28 !important;
 }
 
-.reservation .caps {
-  text-transform: uppercase;
-}
 .reservation .reservation-card {
+  min-height: 650px;
   background: white;
   padding: 10px;
   border-radius: 10px;
@@ -555,13 +589,24 @@ a {
   border-radius: 10px;
   width: 344px;
   height: 223px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .reservation .reservation-card:hover {
   transform: translateY(-5px);
 }
+.reservation .reservation-card .btn_orange {
+  min-width: 200px; /* Фиксированная ширина кнопки */
+  padding: 12px 24px; /* Единые отступы */
+}
+.reservation .reservation-card .card-subtitle span,
+.reservation .reservation-card .card-text span {
+  display: block;
+  margin-bottom: 5px;
+}
 
 .contact-form {
-  padding: 50px 0;
+  background: url("/images/cloud-resize.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
 }
 .contact-form .number {
   color: #f58c28;
@@ -572,17 +617,12 @@ a {
   text-align: center;
   transition: transform 0.3s ease;
 }
-.contact-form .contact-card .d-flex.gap-3 {
-  width: 60%;
-}
 .contact-form .contact-card input {
-  flex: 1;
   width: auto;
   padding: 12px 20px;
   margin-bottom: 15px;
   border: 2px solid #ddd;
   border-radius: 8px;
-  font-size: 1.5rem;
 }
 .contact-form .contact-card input::-moz-placeholder {
   color: #999;
@@ -591,23 +631,73 @@ a {
   color: #999;
 }
 .contact-form .contact-card .contact {
-  margin: auto;
-  width: 350px;
+  margin: 0 auto;
+  width: clamp(300px, 30%, 400px);
 }
 .contact-form .contact-card:hover {
   transform: translateY(-5px);
 }
 
+.social-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to bottom, #ff9933 0%, #ff6b00 100%);
+  box-shadow: 0 2px 0 0 rgba(255, 111, 0, 0.004), 0 10px 35px 0 rgba(255, 111, 0, 0.3), inset 0 2px 0 0 rgba(255, 111, 0, 0.004);
+  border-bottom: 2px solid #ff8000;
+  padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 38px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+.social-icon:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to bottom, #ffa64d 0%, #ff7a1a 100%);
+  box-shadow: 0 6px 10px rgba(255, 152, 0, 0.6);
+}
+
 footer {
   background: white;
-  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.kust {
+  position: relative;
+  width: 100%;
+}
+.kust .kust-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 210px;
+  overflow: hidden;
+}
+.kust .kust-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 210px;
+  overflow: hidden;
+}
+
+.copyright {
   text-align: center;
   font-size: 14px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .reviews-slider {
-    padding: 0 20px !important;
+  .contact-card .d-flex.gap-3 {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .reviews {
+    background: url("/images/cloud-mobile-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
   .reviews-slider .swiper-button-prev {
     left: -10px;
@@ -687,10 +777,12 @@ footer {
     display: block;
   }
   .hero {
+    padding: 20px;
     min-height: 50vh;
     text-align: center;
-    padding: 20px 0;
-    background-attachment: scroll;
+  }
+  .hero .house {
+    display: none;
   }
   .activities {
     display: flex;
@@ -705,7 +797,7 @@ footer {
     margin: 5px;
   }
   .booking {
-    background: url("/images/cloud-mobile.png") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+    background: url("/images/cloud-mobile-review.webp") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
   .booking .bg-img {
     min-height: 150px;
@@ -744,8 +836,22 @@ footer {
   .booking-section .benefits p {
     text-align: center;
   }
+  .contact-form {
+    background: url("/images/cloud-mobile.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+  }
+  .footer-flex {
+    flex-direction: column;
+  }
 }
 @media (min-width: 481px) and (max-width: 767px) {
+  .hero .house {
+    display: none;
+  }
+  .contact-card .d-flex.gap-3 {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
   .photo-card img {
     height: 200px;
   }
@@ -816,7 +922,6 @@ footer {
   .booking-section .header .mobile-nav a {
     display: block;
     padding: 10px 20px;
-    color: #333;
     font-weight: 600;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -831,7 +936,12 @@ footer {
     min-height: 60vh;
     text-align: center;
     padding: 20px 0;
-    background-attachment: scroll;
+  }
+  .booking-section .hero .house {
+    display: none;
+  }
+  .booking-section .hero .hero-text br {
+    display: none;
   }
   .booking-section .activities {
     display: flex;
@@ -846,7 +956,7 @@ footer {
     margin: 5px;
   }
   .booking-section .booking {
-    background: url("/images/cloud-mobile.png") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+    background: url("/images/cloud-mobile.webp") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
   .booking-section .booking .bg-img {
     min-height: 150px;
@@ -857,8 +967,51 @@ footer {
   .col-left {
     margin-left: -40px;
   }
+  .contact-form {
+    background: url("/images/cloud-mobile-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+  }
+  .footer-flex {
+    flex-wrap: wrap;
+  }
+  .footer-flex .copyright {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-flex .reviews {
+    background: url("/images/cloud-mobile-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+  }
 }
 @media (min-width: 768px) and (max-width: 992px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px 15px;
+  }
+  .header .logo {
+    width: 20%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .header .header-info {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .hero {
+    min-height: 50vh;
+  }
+  .hero .house {
+    width: 36%;
+    top: 40%;
+  }
+  .contact-card .d-flex.gap-3 {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
   .photo-card img {
     height: 200px;
   }
@@ -868,7 +1021,7 @@ footer {
   .col-left {
     margin-left: -50px;
   }
-  .booking-section h3 {
+  .booking-section .h3 {
     text-align: left;
   }
   .booking-section br {
@@ -877,13 +1030,51 @@ footer {
   .booking-section .benefits {
     width: 330px;
   }
+  .kust {
+    position: relative;
+    width: 100%;
+  }
+  .kust .kust-left {
+    width: 150px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .kust .kust-right {
+    width: 150px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 @media (min-width: 993px) and (max-width: 1024px) {
+  .hero .house {
+    top: 30%; /* Поднимаем картинку, например, на 10% от высоты экрана */
+  }
+  .kust {
+    position: relative;
+    width: 100%;
+  }
+  .kust .kust-left {
+    width: 140px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .kust .kust-right {
+    width: 140px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
   .col-right {
     margin-top: -140px;
   }
   .col-left {
     margin-left: -50px;
+  }
+  .shishka {
+    display: none;
   }
 }
 @media (max-width: 767px) and (orientation: portrait) {

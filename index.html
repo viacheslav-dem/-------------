@@ -17,7 +17,7 @@
 <body>
 <header class="header">
     <div class="container d-flex justify-content-between align-items-center py-2 mb-n3">
-        <img src="images/logo.png" alt="Усадьба На Волне" class="logo">
+        <img src="images/logo.webp" alt="Усадьба На Волне" class="logo">
         <!-- Кнопка гамбургер для мобильного меню -->
         <button class="menu-toggle" aria-label="Меню">&#9776;</button>
 
@@ -31,27 +31,28 @@
         <div class="header-info d-flex align-items-center">
             <a href="tel:+375299718729" class="phone">8 (029) 718-72-29</a>
             <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-solid fa-phone"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-viber"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
             </div>
         </div>
     </div>
 </header>
-<section class="hero text-center mt-n5">
+<section class="hero text-center">
     <div class="container">
-        <h1>УСАДЬБА <span class ="text-orange"> «НА ВОЛНЕ»</span>:<br> ВАШ ИДЕАЛЬНЫЙ <br> ОТДЫХ НА ПРИРОДЕ!</h1>
-        <h3 class="py-3">Прогулки по живописным тропам, уютные <br>озёра и уникальные услуги для всей семьи. <br>  Ваш отдых мечты ждёт Вас!</h3>
+        <h1 class="hero-text">УСАДЬБА <span class ="text-orange"> «НА ВОЛНЕ»:</span> <span> ВАШ ИДЕАЛЬНЫЙ  </span> <span> ОТДЫХ  НА ПРИРОДЕ! </span></h1>
+        <p class="py-3 h3">Прогулки по живописным тропам, уютные <span> озёра и уникальные услуги для всей семьи. </span>  Ваш отдых мечты ждёт Вас!</p>
         <button class= "btn_orange" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button>
+        <img class="house" src="images/house-alone.webp" alt="дом">
     </div>
 </section>
 
 <!-- Листья по бокам -->
 <section class = "leaves"> 
 <div class="container-fluid">
-<img class="listok-left" src="images/list-left.png" alt="listok1">
-<img class="listok-right" src="images/list-right.png" alt="listok2">
+<img class="listok-left" src="images/list-left.webp" alt="listok1">
+<img class="listok-right" src="images/list-right.webp" alt="listok2">
 </div>
 </section>
 
@@ -63,23 +64,44 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-4">
             <div class="col mb-4">
                 <div class="activity-card">
-                    <img src="images/forest.png" alt="Лесные маршруты">
-                    <h5>Лесные маршруты</h5>
+                    <img src="images/forest.webp" alt="Лесные маршруты">
+                    <p class= "h5 caps">Лесные маршруты</p>
                     <p> Для любителей пеших прогулок по свежему воздуху проложены лесные маршруты вдоль живописного озера.</p>
                 </div>
             </div>
             <div class="col mb-4">
                 <div class="activity-card">
-                    <img src="images/bike.png" alt="Аренда велосипедов">
-                    <h5>Лесные маршруты</h5>
+                    <img src="images/bike.webp" alt="Аренда велосипедов">
+                    <p class= "h5 caps">Аренда велосипедов </p>
                     <p> Для любителей скорости: откройте живописные места на комфортных горных велосипедах!</p>
                 </div>
             </div>
             <div class="col mb-4">
                 <div class="activity-card">
-                    <img src="images/fishing.png" alt="Рыбалка">
-                    <h5>Трофейная рыбалка</h5>
-                    <p> Для любителей уединения: откройте лучшие рыболовные угодья и наслаждайтесь тишиной на воде!</p>
+                    <img src="images/ball.webp" alt="Спорт">
+                    <p class= "h5 caps">Активный отдых </p>
+                    <p> Для любителей активности: Простор для любых спортивных занятий и командных игр!</p>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="activity-card">
+                    <img src="images/boat.webp" alt="Лодка">
+                    <p class= "h5 caps"> Прогулки на лодке </p>
+                    <p> Осмотреть окрестности, береговую линию и полюбоваться закатом, прокатившись по озеру на лодке.</p>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="activity-card">
+                    <img src="images/horse.webp" alt="Лошадь">
+                    <p class= "h5 caps"> Конная база рядом</p>
+                    <p> Всего в 15км от нашей усадьбы есть конная база, где можно покататься на лошадях.</p>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="activity-card">
+                    <img src="images/fishing.webp" alt="Рыбалка">
+                    <p class= "h5 caps">Рыбалка</p>
+                    <p> Берег оборудован мостками с удобными площадками для рыбной ловли.</p>
                 </div>
             </div>
             </div>
@@ -101,7 +123,7 @@
         </div>
 
         <!-- Основной контент с увеличенным зазором между колонками -->
-        <div class="row g-5" style="justify-content: space-between;">
+        <div class="row g-4" style="justify-content: space-between;">
             <!-- Левая колонка с фоновым изображением -->
             <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-5 col-sm-5 bg-img col-left">
                 <!-- Контент можно не добавлять, если фон служит только визуальным оформлением -->
@@ -111,19 +133,19 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-7 col-right">
                 <div class="row g-3 ">
                     <div class="col-7 col-right-img photo-grid">
-                        <a href="images/photo7.jpg">
-                            <img src="images/photo7.jpg" class="img-fluid photo-card" alt="Интерьер">
+                        <a href="images/photo7.webp">
+                            <img src="images/photo7.webp" class="img-fluid photo-card" alt="Интерьер">
                         </a>
                     </div>
                     <div class="col-5">
                           <div class="col-12 mb-3 photo-grid" >
-                        <a href="images/photo8.jpg">
-                            <img src="images/photo8.jpg" class="img-fluid photo-card" alt="Терраса">
+                        <a href="images/photo8.webp">
+                            <img src="images/photo8.webp" class="img-fluid photo-card" alt="Терраса">
                         </a>
                     </div>
                     <div class="col-12 photo-grid">
-                        <a href="images/photo3.jpg">
-                            <img src="images/photo3.jpg" class="img-fluid photo-card" alt="Сад">
+                        <a href="images/photo3.webp">
+                            <img src="images/photo3.webp" class="img-fluid photo-card" alt="Сад">
                         </a>
                     </div>
                     </div>
@@ -134,7 +156,6 @@
     </div>
 </section> 
 
-  
 <!-- Модальное окно для просмотра фото -->
 <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -153,7 +174,7 @@
 <section class = "shishka"> 
     <div class="container-fluid d-none d-lg-block">
     
-    <img class="shishka-left" src="images/shishka.png" alt="шишка">
+    <img class="shishka-left" src="images/shishka.webp" alt="шишка">
     </div>
     </section>
     
@@ -166,7 +187,7 @@
             <!-- Левая часть с текстом -->
             <div class="col-lg-5 col-md-5 mb-5 ">
                 <div class="booking-content text-black">
-                    <h2 class="h1 pb-4 heading-booking text-left">Забронируйте <br> отдых мечты</h1>
+                    <h2 class="h1 pb-4 heading-booking text-left">Забронируйте <br> отдых мечты</h2>
                     <h3 class="mb-4">
                         Оставьте ваши контактные <br> данные, мы вам перезвоним <br> и обсудим организацию <br> лучшего отдыха.
                     </h3> 
@@ -174,7 +195,7 @@
                         <p class="d-flex align-items-center p-4 border rounded shadow-sm bonus">
                             <!-- <i class="bi bi-gift fs-1 me-3"></i> -->
                              
-                             <img src="images/bonus.png" alt="" class="me-3">
+                             <img src="images/bonus.webp" alt="" class="me-3">
                             Бонусом вы получите <br> Котенка, которого вам <br> придется забрать домой
                         </p>
                     </div>
@@ -228,23 +249,6 @@
         
         <!-- Контейнер галереи -->
         <div class="row g-3 py-5" id="galleryContainer">
-            <!-- Начальные изображения -->
-            <!-- <div class="col-12 col-md-6 col-lg-4">
-                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-index="0">
-                    <img src="images/photo1.jpg" class="img-fluid" alt="Фото 1" loading="lazy">
-                </a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-index="1">
-                    <img src="images/photo2.jpg" class="img-fluid" alt="Фото 2" loading="lazy">
-                </a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-index="2">
-                    <img src="images/photo3.jpg" class="img-fluid" alt="Фото 3" loading="lazy">
-                </a>
-            </div>
-    -->
         </div>
         <!-- Кнопка загрузки -->
         <button id="loadMore" class="btn_orange mt-4">
@@ -280,9 +284,6 @@
         </div>
     </div>
 </div>
-
-
-  
   <!-- Дополнительные преимущества -->
 <section class="additional-benefits py-4">
     <div class="container text-center">
@@ -295,41 +296,43 @@
         <div class="row py-3">
             <div class="col-md-6 col-lg-3 pb-4">
                 <div class="benefit-card">
-                    <img src="images/tv-monitor.png" alt="Метуальный анализ">
-                    <h3 class="heading-benefits">СПУТНИКОВОЕ ТВ, <br> БЕСПЛАТНЫЙ WI-FI</h3>
+                    <img src="images/tv-monitor.webp" alt="Метуальный анализ">
+                    <p class="heading-benefits h5">СПУТНИКОВОЕ ТВ, <br> БЕСПЛАТНЫЙ WI-FI</p>
                     <p>Зона покрытия Wi-Fi <br> доступна на всей территории</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 pb-4">
                 <div class="benefit-card">
-                    <img src="images/salad.png" alt="Натуральное питание">
-                    <h3 class="heading-benefits">НАТУРАЛЬНОЕ <br> ПИТАНИЕ</h3>
+                    <img src="images/salad.webp" alt="Натуральное питание">
+                    <p class="heading-benefits h5">НАТУРАЛЬНОЕ <br> ПИТАНИЕ</p>
                     <p>Готовим из местных <br> экологически чистых продуктов</p>
                 </div>
             </div> 
             <div class="col-md-6 col-lg-3 pb-4">
                 <div class="benefit-card">
-                    <img src="images/fishing.png" alt="трофейная рыбалка">
-                    <h3 class="heading-benefits">ТРОФЕЙНАЯ <br> РЫБАЛКА</h3>
+                    <img src="images/fishing.webp" alt="трофейная рыбалка">
+                    <p class="heading-benefits h5">ТРОФЕЙНАЯ <br> РЫБАЛКА</p>
                     <p>Бесплатная лицензия <br> для проживающих в усадьбе </p>
                 </div>
                 </div>
                 <div class="col-md-6 col-lg-3 pb-4">
                     <div class="benefit-card">
-                        <img src="images/board-game.png" alt="настольные игры">
-                        <h3 class="heading-benefits">НАСТОЛЬНЫЕ <br> ИГРЫ</h3>
+                        <img src="images/board-game.webp" alt="настольные игры">
+                        <p class="heading-benefits h5">НАСТОЛЬНЫЕ <br> ИГРЫ</p>
                         <p>Предусмотрены игры  <br>для  детей и взрослых &nbsp;</p>
                     </div>
                     </div>
+                    
+                            
             </div>
         <button class="btn_orange my-5">Узнать стоимость проживания</button>
     </div>
 </section>
 
 <!-- ОТЗЫВЫ -->
-<section class="reviews py-5">
+<section class="reviews my-5 py-5">
     <div class="container">
-      <h2 class="text-center mb-5 heading-reviews">Отзывы после посещения нашей усадьбы</h2>
+      <h2 class="text-center mb-5 pt-5 heading-reviews">Отзывы после посещения нашей усадьбы</h2>
       <!-- Swiper Slider Container -->
       <div class="reviews-slider swiper">
         <!-- Обёртка слайдов -->
@@ -339,10 +342,10 @@
             <div class="review-card-wrapper">
               <div class="review-card">
                 <div class="user-photo">
-                  <img src="/images/review1.png" alt="Игорь Никифоров">
+                  <img src="/images/review1.webp" alt="Игорь Никифоров">
                 </div>
                 <div class="review-content">
-                  <h5>ИГОРЬ НИКИФОРОВ</h5>
+                  <p class="h4">ИГОРЬ НИКИФОРОВ</p>
                   <p>
                     Были с друзьями на шашлыках. Приезжали 
                     на выходные, обязательно вернемся на новый год.
@@ -359,16 +362,14 @@
             <div class="review-card-wrapper">
               <div class="review-card">
                 <div class="user-photo">
-                  <img src="/images/review1.png" alt="Юлия Смиронова">
+                  <img src="/images/review2.webp" alt="Юлия Смиронова">
                 </div>
                 <div class="review-content">
-                  <h5>ЮЛИЯ СМИРОНОВА</h5>
+                  <p class="h4">ЮЛИЯ СМИРОНОВА</p>
                   <p>
-                    Отдыхали с семьёй, детям очень понравилось 
-                    на природе. Чистые озера с крупной рыбой,
-                    уютные номера, есть где отдохнуть. 
-                    Очень понравилось будем приезжать еще!
-                    И рекомендовать друзьям!
+                    Приезжали с коллегами на выходные, отлично провели время! 
+                    Природа замечательная, воздух чистый, есть где порыбачить и просто расслабиться. 
+                    Обязательно вернемся летом!
                   </p>
                 </div>
               </div>
@@ -379,17 +380,15 @@
           <div class="swiper-slide">
             <div class="review-card-wrapper">
               <div class="review-card">
-                <div class="user-photo">
-                  <img src="/images/review1.png" alt="Андрей Минск">
-                </div>
+                <!-- <div class="user-photo">
+                  <img src="/images/review1.webp" alt="Андрей Минск">
+                </div> -->
                 <div class="review-content">
-                  <h5>АНДРЕЙ МИНСК</h5>
+                  <p class="h4">АНДРЕЙ ВАСИЛЬЕВ </p>
                   <p>
-                    Были летом несколько раз.
-                    Обязательно будем возвращаться.
-                    Рыба клюёт здоровенная,
-                    поймали 100500 кг карася!
-                    Супер! Скорее бы вернуться.
+                    Провели выходные с семьёй, всё понравилось! 
+                    Дети в восторге от прогулок и рыбалки, а мы – от уютной атмосферы и вкусной еды. 
+                    Отличное место для отдыха!
                   </p>
                 </div>
               </div>
@@ -400,17 +399,15 @@
            <div class="swiper-slide">
             <div class="review-card-wrapper">
               <div class="review-card">
-                <div class="user-photo">
-                  <img src="/images/review1.png" alt="Андрей Минск">
-                </div>
+                <!-- <div class="user-photo">
+                  <img src="/images/review1.webp" alt="Андрей Минск">
+                </div> -->
                 <div class="review-content">
-                  <h5>ОТЗЫВ 4</h5>
+                  <p class="h4">ДМИТРИЙ СОЛОВЬЁВ</p>
                   <p>
-                    Были летом несколько раз.
-                    Обязательно будем возвращаться.
-                    Рыба клюёт здоровенная,
-                    поймали 100500 кг карася!
-                    Супер! Скорее бы вернуться.
+                    Ездили на рыбалку с друзьями, место просто супер! 
+                    Поймали несколько крупных щук, отдохнули на природе, насладились тишиной. 
+                    Всем рекомендуем!
                   </p>
                 </div>
               </div>
@@ -421,17 +418,16 @@
            <div class="swiper-slide">
             <div class="review-card-wrapper">
               <div class="review-card">
-                <div class="user-photo">
-                  <img src="/images/review1.png" alt="Андрей Минск">
-                </div>
+                <!-- <div class="user-photo">
+                  <img src="/images/review1.webp" alt="Андрей Минск">
+                </div> -->
                 <div class="review-content">
-                  <h5>ОТЗЫВ 5</h5>
+                  <p class="h4">НАТАЛЬЯ ВАСИЛЬЕВА</p>
                   <p>
-                    Были летом несколько раз.
-                    Обязательно будем возвращаться.
-                    Рыба клюёт здоровенная,
-                    поймали 100500 кг карася!
-                    Супер! Скорее бы вернуться.
+                    Приезжали с друзьями на рыбалку – впечатления незабываемые! 
+                    Озеро чистое, рыбы много, улов порадовал. 
+                    Вечером жарили шашлыки, отдых получился замечательный. 
+                    Спасибо, приедем ещё!
                   </p>
                 </div>
               </div>
@@ -442,17 +438,16 @@
            <div class="swiper-slide">
             <div class="review-card-wrapper">
               <div class="review-card">
-                <div class="user-photo">
-                  <img src="/images/review1.png" alt="Андрей Минск">
-                </div>
+                <!-- <div class="user-photo">
+                  <img src="/images/review1.webp" alt="Андрей Минск">
+                </div> -->
                 <div class="review-content">
-                  <h5>ОТЗЫВ 6</h5>
+                  <p class="h4">АЛЕКСЕЙ ГОРБАЧЁВ</p>
                   <p>
-                    Были летом несколько раз.
-                    Обязательно будем возвращаться.
-                    Рыба клюёт здоровенная,
-                    поймали 100500 кг карася!
-                    Супер! Скорее бы вернуться.
+                    Проводили выходные в этом замечательном месте! 
+                    Очень понравилась атмосфера, всё чисто, уютно, спокойно. 
+                    Рыбалка удалась на славу – наловили карасей и щук. 
+                    Обязательно приедем снова!
                   </p>
                 </div>
               </div>
@@ -472,82 +467,83 @@
       </div>
   </section>
 
-  <section class="reservation py-5">
+  <section class="reservation pt-5">
     <div class="container">
-        <h2 class="text-center mb-4">Забронировать свой отдых</h2>
-        <h3 class="text-center mb-5">
+        <p class="text-center mb-4 h1">Забронировать свой отдых</p>
+        <p class="text-center mb-5 h3">
             Позвоните нам, и мы поможем вам забронировать <br> 
             идеальный отдых с индивидуальными предложениями
         
-        </h3>
+        </p>
 
         <div class="row g-4">
             <!-- Карточка 1 -->
             <div class="col-md-6">
-                <div class="card h-100 shadow reservation-card">
-                    <div class="card-body">
-                        <h4 class="card-title caps py-3">Номер "семейный"</h4>
-                        <h5 class="card-subtitle mb-2">• Большая площадь  • Свой санузел и душ <br>
-                            • Двуспальная кровать <br>
-                            • В номере имеется диван
-                        </h5>
-                        <img src="images/room1.png" class="img-fluid rounded py-4" alt="Номер">
-                        <p class="card-text text-center">Прекрасный вид из окна! <br>
-                        Отличный номер для прекрасных выходных <br> с семьей в экоголичном месте Беларуси </p>
-                        <div class="text-center py-3">
-                            <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
-                        </div>
-                    </div>
+            <div class="card h-100 shadow reservation-card">
+                <div class="card-body">
+                <p class="card-title caps py-3 h4">Номер "семейный"</p>
+                <p class="card-subtitle mb-2 h5"><span> • Большая площадь  • Свой санузел и душ </span>
+                    <span> • Двуспальная кровать </span>
+                    <span>• В номере имеется диван </span>
+                </p>
+                <img src="images/room1.webp" class="img-fluid rounded py-4" alt="Номер">
+                <p class="card-text text-center"><span>Прекрасный вид из окна! </span>
+                <span>Отличный номер для прекрасных выходных с семьей в экоголичном месте Беларуси </span> </p>
+                <div class="text-center py-2">
+                    <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
                 </div>
+                </div>
+            </div>
             </div>
 
             <!-- Карточка 2 -->
             <div class="col-md-6">
-                <div class="card h-100 shadow reservation-card">
-                    <div class="card-body">
-                        <h4 class="card-title caps py-3">Номер "Эконом"</h4>
-                        <h5 class="card-subtitle mb-2">• Удобный и недорогой номер <br> с двуя кроватями,
-                            выполненными профессиональным столяром на заказ </h5>
-                        <img src="images/room2.png" class="img-fluid rounded py-4" alt="Номер эконом">
-                        <p class="card-text text-center">Прекрасный вид из окна! <br>
-                        Кровати могут трансформироваться в одну двуспальную </p>
-                        <div class="text-center py-3">
-                            <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
-                        </div>
-                    </div>
+            <div class="card h-100 shadow reservation-card">
+                <div class="card-body ">
+                <p class="card-title caps py-4 py-md-2 h4">Номер "Эконом"</p>
+                <p class="card-subtitle mb-2 h5 pt-3 "><span>• Удобный и недорогой номер с двуя кроватями.</span>
+                  <span>  • Номер расположен в тихой части усадьбы. </span>
+                </p>
+                <img src="images/room2.webp" class="img-fluid rounded py-4" alt="Номер эконом">
+                <p class="card-text text-center"><span >Прекрасный вид из окна! </span>
+                <span> Кровати могут трансформироваться в одну двуспальную </span> </p> 
+                <div class="text-center py-5">
+                    <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
                 </div>
+                </div>
+            </div>
             </div>
 
             <!-- Карточка 3 -->
             <div class="col-md-6">
-                <div class="card h-100 shadow reservation-card">
-                    <div class="card-body">
-                        <h4 class="card-title caps py-3">Номер "Стандарт"</h4>
-                        <h5 class="card-subtitle mb-2">• Удобный и недорогой номер <br> с двуя кроватями,
-                            • Санузел в номере <br>
-                            • Отдельный вход с улицы </h5>
-                        <img src="images/room2.png" class="img-fluid rounded py-4" alt="Номер эконом">
-                        <p class="card-text text-center">Прекрасный вид на озеро из окна! <br>
-                        Кровати могут трансформироваться в одну двуспальную </p>
-                        <div class="text-center py-3">
-                            <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
-                        </div>
-                    </div>
+            <div class="card h-100 shadow reservation-card">
+                <div class="card-body">
+                <p class="card-title caps py-3 h4">Номер "Стандарт"</p>
+                <p class="card-subtitle mb-2 h5"><span> • Удобный и недорогой номер с двумя кроватями </span>
+                   <span> • Санузел в номере </span>
+                   <span> • Отдельный вход с улицы </span> </p> 
+                <img src="images/room3.webp" class="img-fluid rounded py-4" alt="Номер эконом">
+                <p class="card-text text-center"><span> Прекрасный вид на озеро из окна! </span>
+                <span> Кровати могут трансформироваться в одну двуспальную </span> </p>
+                <div class="text-center py-3">
+                    <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
                 </div>
+                </div>
+            </div>
             </div>
 
             <!-- Карточка 4 -->
             <div class="col-md-6">
             <div class="card h-100 shadow reservation-card">
-                <div class="card-body">
-                    <h4 class="card-title caps py-3">Без номера</h4>
-                    <h5 class="card-subtitle mb-2">• Все удобства нашей усадьбы <br>• Платная рыбалка <br> 
-                        • Аренда беседки, мангала и другого инвентаря </h5>
-                    <img src="images/room2.png" class="img-fluid rounded py-4" alt="Номер эконом">
-                    <p class="card-text text-center">У нас спокойная тишина! <br>
-                    Рядом с вами только озеро, лес, <br> луга и свежий воздух! </p>
-                    <div class="text-center py-3">
-                        <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
+            <div class="card-body">
+                <p class="card-title caps py-3 h4">Без номера</p>
+                <p class="card-subtitle mb-2 h5"><span> • Все удобства нашей усадьбы </span> <span>• Платная рыбалка </span>
+                <span>• Аренда беседки, мангала и другого инвентаря </span> </p>
+                <img src="images/room2.webp" class="img-fluid rounded py-4" alt="Номер эконом">
+                <p class="card-text text-center"><span> У нас спокойная тишина! </span>
+                <span> Рядом с вами только озеро, лес, луга и свежий воздух! </span> </p>
+                <div class="text-center py-4 py-lg-5">
+                <a href="tel:+375297187229" class="btn_orange"> Узнать стоимость</a>
                     </div>
                 </div>
             </div>
@@ -558,13 +554,13 @@
 
  <!-- Модифицированная контактная форма в виде карточки -->
 <section id="contact" class="contact-form py-5">
-    <div class="container">
+    <div class="container pt-5">
         <h2 class="mb-3 text-center">Свяжитесь с нами прямо сейчас!</h2>
         <h3 class=" text-center mb-5"> Постараемся ответить как можно скорее </h3>
         <div class="contact-card mx-auto shadow">
             <div class="p-4 d-flex align-items-center justify-content-center"> <!-- Добавляем d-flex для flexbox -->
-                <img src="images/phone.png" alt="Телефон" class="phone-icon me-3">
-                <h1 class="number">8 (029) 718-72-29</h1>
+                <img src="images/phone.webp" alt="Телефон" class="phone-icon me-3">
+                <h2 class="number">8 (029) 718-72-29</h2>
             </div>
                 <h4>Звоните, мы работаем круглосуточно 24/7. <br>
                 Или оставьте заявку и мы перезвоним</h4>
@@ -584,31 +580,55 @@
         </div>
     </div>
 </section>
-<footer class="text-center py-4">
-    <p>© 2025 Усадьба "На Волне". Все права защищены.</p>
-    <p>Телефон: <a href="tel:+375299718729">+375 (29) 718-72-29</a></p>
-</footer>
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Забронировать отдых</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="email" placeholder="Ваш email" required>
-                    <input type="date" placeholder="Дата заезда" required>
-                    <button type="submit" class="btn btn-orange">Отправить</button>
-                </form>
-            </div>
+
+
+<section class="prefooter">
+    <div class="container">
+      <div class="row  g-2 justify-content-between align-items-center py-5">
+        <div class="col-auto">
+          <a href="#" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
         </div>
+        <div class="col-auto">
+          <a href="#" class="social-icon"><i class="fa-brands fa-viber"></i></a>
+        </div>
+        <div class="col-auto">
+          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <!-- <div class="col-auto">
+           <a href="#" class="social-icon"><i class="fa-regular fa-envelope-open"></i></a> 
+        </div> -->
+        <div class="col-auto">
+          <a href="tel:+375297187229" class="social-icon"><i class="fa-solid fa-phone"></i></a>
+        </div>
+    
+      </div>
     </div>
-</div>
-<button id="back-to-top" class="btn btn-orange">
+  </section>
+  
+  
+<footer class="py-1">
+    
+<div class = "container">
+   
+    <div class="d-flex justify-content-between align-items-center mt-2 footer-flex">
+        <a href="#" class="logo">
+            <img src="images/logo.webp" alt="Усадьба На Волне">
+        </a>
+        <p class=" pt-4"> <a href="tel:+375299718729">8 (029) 718-72-29</a> <br>Работаем круглосуточно</p>
+    <p class="copyright pt-4">© 2025. Все права защищены.</p>
+    
+    
+</footer>
+
+<button id="back-to-top" class="btn btn-orange back-to-top">
     <i class="fas fa-arrow-up"></i>
 </button>
+<section class="kust d-none d-lg-block">
+    <div class="container-fluid">
+        <img class="kust-left" src="images/kust-left.webp" alt="kust">
+        <img class="kust-right" src="images/kust-right.webp" alt="kust">
+    </div>
+</section>
 <script src="bootstrap/bootstrap.min.js"></script> <!-- Локальное подключение Bootstrap JS -->
 <script src="swiper/swiper-bundle.min.js"></script>
 </body>
