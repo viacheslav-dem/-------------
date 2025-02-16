@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Гостиница На Волне - идеальное место для отдыха на природе.">
     <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Cache-Control" content="no-store">
     <title>Усадьба "На Волне"</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" onerror="this.onerror=null;this.href='/css/font-awesome.min.css';">
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> <!-- Локальное подключение Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap/bootstrap-icons.min.css"> <!-- Локальное подключение инконок Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="bootstrap/bootstrap-icons.min.css">  -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="gotham-pro/stylesheet.css"> <!-- шрифт Ghotam-Pro -->
+    <!-- Preload для самых важных начертаний -->
+    <link rel="preload" href="gotham-pro/GothamPro.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="gotham-pro/GothamPro-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- шрифт Ghotam-Pro -->
+    <link rel="stylesheet" href="gotham-pro/stylesheet.css">
     <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
     <script defer src="js/script.js"></script>
 </head>
@@ -27,11 +32,11 @@
             <a href="#contact">Контакты</a>
             <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button> -->
         </nav>
-
+<main>
         <div class="header-info d-flex align-items-center">
             <a href="tel:+375299718729" class="phone">8 (029) 718-72-29</a>
             <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-solid fa-phone"></i></a>
+                <a href="#" target="_blank"><i class="fa-solid fa-phone"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-viber"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -43,8 +48,9 @@
     <div class="container">
         <h1 class="hero-text">УСАДЬБА <span class ="text-orange"> «НА ВОЛНЕ»:</span> <span> ВАШ ИДЕАЛЬНЫЙ  </span> <span> ОТДЫХ  НА ПРИРОДЕ! </span></h1>
         <p class="py-3 h3">Прогулки по живописным тропам, уютные <span> озёра и уникальные услуги для всей семьи. </span>  Ваш отдых мечты ждёт Вас!</p>
-        <button class= "btn_orange" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button>
-        <img class="house" src="images/house-alone.webp" alt="дом">
+        <a href="#contact" class="btn_orange">Забронировать</a>
+        <img class="raven" src="images/raven.webp" height="120" width="128" loading="lazy" decoding="async" alt="чайка">
+        <img class="house" src="images/house-alone.webp" loading="lazy" decoding="async" alt="дом">
     </div>
 </section>
 
@@ -206,32 +212,39 @@
             <div class="col-lg-5 col-md-6">
                 <div class="booking-form-wrapper">
                     <!-- Форма -->
-                    <form id="bookingForm" class="position-relative bg-white rounded-3 p-4 shadow-lg">
-                        <h4 class="mb-3 text-black text-center">Забронировать посещение</h4>
-                        <p class="text-black mb-6 text-center">Введите данные, мы перезвоним <br> в течение 10 минут</p>
-            
-                        <div class="mb-3">
-                            <input type="text" 
-                                   id="name" 
-                                   class="form-control form-control-lg" 
-                                   placeholder="Введите Ваше имя" required>
-                        </div>
-            
-                        <div class="mb-4">
-                            <input type="tel" 
-                                   id="phone" 
-                                   class="form-control form-control-lg" 
-                                   placeholder="+375 (___) ___ - __ - __" required>
-                        </div>
-            
-                        <button type="submit" class="btn_orange btn-lg w-100">ЗАБРОНИРОВАТЬ</button>
-                        <p class="text-muted mt-3 small text-left">
-                            Нажимая кнопку, вы принимаете 
-                            <a href="#" class="text-decoration-none ">Положение о согласии на обработку персональных данных</a>
-                        </p>
-                    </form>
-                        
-                    </form>
+                    <form id="bookingForm" class="position-relative bg-white rounded-3 p-4 shadow-lg" novalidate>
+                      <h4 class="mb-3 text-black text-center">Забронировать посещение</h4>
+                      <p class="text-black mb-6 text-center">
+                          Введите данные, мы перезвоним <br> в течение 10 минут
+                      </p>
+                  
+                      <div class="mb-3">
+                          <input type="text" 
+                                 id="bookingName" 
+                                 class="form-control form-control-lg" 
+                                 placeholder="Введите Ваше имя" required>
+                          <div class="invalid-feedback">
+                              Введите ваше имя (не менее 2 символов).
+                          </div>
+                      </div>
+                  
+                      <div class="mb-4">
+                          <input type="tel" 
+                                 id="bookingPhone" 
+                                 class="form-control form-control-lg" 
+                                 placeholder="+375 (___) ___ - __ - __" required>
+                          <div class="invalid-feedback">
+                              Введите корректный номер телефона.
+                          </div>
+                      </div>
+                  
+                      <button type="submit" class="btn_orange btn-lg w-100">ЗАБРОНИРОВАТЬ</button>
+                      <p class="text-muted mt-3 small text-left">
+                          Нажимая кнопку, вы принимаете 
+                          <a href="#" class="text-decoration-none">Положение о согласии на обработку персональных данных</a>
+                      </p>
+                  </form>
+                  
                 </div>
             </div>
         </div>
@@ -552,33 +565,41 @@
     </div>
 </section>
 
- <!-- Модифицированная контактная форма в виде карточки -->
+<!-- Модифицированная контактная форма в виде карточки -->
 <section id="contact" class="contact-form py-5">
-    <div class="container pt-5">
-        <h2 class="mb-3 text-center">Свяжитесь с нами прямо сейчас!</h2>
-        <h3 class=" text-center mb-5"> Постараемся ответить как можно скорее </h3>
-        <div class="contact-card mx-auto shadow">
-            <div class="p-4 d-flex align-items-center justify-content-center"> <!-- Добавляем d-flex для flexbox -->
-                <img src="images/phone.webp" alt="Телефон" class="phone-icon me-3">
-                <h2 class="number">8 (029) 718-72-29</h2>
-            </div>
-                <h4>Звоните, мы работаем круглосуточно 24/7. <br>
-                Или оставьте заявку и мы перезвоним</h4>
-                <p class="pb-4 text-muted"> Введите данные и мы перезвоним в течение 10 минут<p>
-                <form class="d-flex align-items-center flex-column">
-                    <div class ="d-flex gap-3 mb-3">
-                    <input type="text" placeholder="Введите Ваше имя" required class="mb-4 text-left">
-                    <input type="tel" placeholder="+375 (___) ___ - __ - __" required class="mb-4">
-                </div>
-                    <button type="submit" class="btn_orange contact">Оставить заявку</button>
-                    <p class="text-muted mt-3 small text-left">
-                        Нажимая кнопку, вы принимаете 
-                        <a href="#" class="pb-4">Положение о согласии на обработку персональных данных</a>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="container pt-5">
+      <p class="mb-3 text-center h2">Свяжитесь с нами прямо сейчас!</p>
+      <p class="text-center mb-5 h3">Постараемся ответить как можно скорее</p>
+      <div class="contact-card mx-auto shadow">
+          <div class="p-4 d-flex align-items-center justify-content-center">
+              <img src="images/phone.webp" alt="Телефон" class="phone-icon me-3">
+              <a href="tel:+375297187229"> <p class="number h2">8 (029) 718-72-29</p> </a>
+          </div>
+          <p class="h4">Звоните, мы работаем круглосуточно 24/7.<br> Или оставьте заявку, и мы перезвоним</p>
+          <p class="pb-4 text-muted">Введите данные и мы перезвоним в течение 10 минут</p>
+
+          <form class="d-flex align-items-center flex-column" id="contactForm" novalidate>
+              <div class="d-flex gap-3 mb-3">
+                <div>
+                     <input type="text" id="contactName" class="form-control mb-4" placeholder="Введите Ваше имя" required>
+                      <div class="invalid-feedback">Введите ваше имя (не менее 2 букв).</div>
+                    </div>
+                      <div>                 
+                      <input type="tel" id="contactPhone" class="form-control mb-4" placeholder="+375 (___) ___ - __ - __" required>
+                      <div class="invalid-feedback">Введите корректный номер телефона.</div>
+                    </div>
+                  </div>
+              
+
+              <button type="submit" class="btn_orange contact">Оставить заявку</button>
+
+              <p class="text-muted mt-3 small text-left">
+                  Нажимая кнопку, вы принимаете 
+                  <a href="#" class="pb-4">Положение о согласии на обработку персональных данных</a>
+              </p>
+          </form>
+      </div>
+  </div>
 </section>
 
 
@@ -614,7 +635,7 @@
         <a href="#" class="logo">
             <img src="images/logo.webp" alt="Усадьба На Волне">
         </a>
-        <p class=" pt-4"> <a href="tel:+375299718729">8 (029) 718-72-29</a> <br>Работаем круглосуточно</p>
+        <p class=" pt-4"> <a class="number h3" href="tel:+375299718729" >8 (029) 718-72-29</a> <br>Работаем круглосуточно</p>
     <p class="copyright pt-4">© 2025. Все права защищены.</p>
     
     
@@ -629,7 +650,8 @@
         <img class="kust-right" src="images/kust-right.webp" alt="kust">
     </div>
 </section>
-<script src="bootstrap/bootstrap.min.js"></script> <!-- Локальное подключение Bootstrap JS -->
-<script src="swiper/swiper-bundle.min.js"></script>
+</main>
+<script defer src="bootstrap/bootstrap.min.js"></script> <!-- Локальное подключение Bootstrap JS -->
+<script defer src="swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

@@ -139,40 +139,7 @@ if (backToTopButton) {
         console.error("Элементы для модального окна фотографий не найдены на странице.");
     }
     
-    // Обработчик отправки формы
-document.getElementById('bookingForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Отменяем стандартное поведение формы
-
-    // Получаем значения из полей формы
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-
-    // Создаем объект данных для отправки на сервер
-    const data = new FormData();
-    data.append('name', name);
-    data.append('phone', phone);
-
-    // Создаем AJAX запрос для отправки данных на сервер
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'php/send-email.php', true);
-
-    // Функция обработки ответа от сервера
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            // Если ответ успешный, выводим сообщение
-            alert('Сообщение отправлено!');
-            // Очистить форму
-            document.getElementById('bookingForm').reset();
-        } else {
-            // Если произошла ошибка, выводим сообщение
-            alert('Ошибка при отправке сообщения.');
-        }
-    };
-
-    // Отправляем данные на сервер
-    xhr.send(data);
-});
-
+   
 // Логика для анимации листьев на сайте
 window.addEventListener("scroll", function () {
     document.documentElement.style.setProperty("--parallax-offset", `${window.scrollY * 0.751}px`);
@@ -311,5 +278,130 @@ const gallery = document.getElementById('galleryContainer');
           prevEl: '.swiper-button-prev',
         }
       });
+ // Собираем обе формы по их id
+ const forms = document.querySelectorAll("#contactForm, #bookingForm");
+
+ // Обновленное регулярное выражение для белорусских и российских номеров
+ const phonePattern = /^(?:\+375|80|\+7)[\d\s\-()]{8,15}$/;
+
+ // Регулярное выражение для имени (только буквы и пробелы)
+ const namePattern = /^[a-zA-Zа-яА-ЯёЁ\s]+$/;
+
+ forms.forEach(function(form) {
+   // Получаем все поля с текстом (для имени) и телефона
+   const nameInput = form.querySelector('input[type="text"]');
+   const phoneInput = form.querySelector('input[type="tel"]');
+   const submitButton = form.querySelector('button[type="submit"]');
+
+   // Функция для обновления состояния кнопки
+   function updateSubmitButton() {
+     if (nameInput && phoneInput) {
+       // Проверяем все условия для имени и телефона
+       const isNameValid = namePattern.test(nameInput.value.trim()) && nameInput.value.trim().length >= 2;
+       const isPhoneValid = phonePattern.test(phoneInput.value.trim());
+
+       // Если оба поля валидны, делаем кнопку активной
+       if (isNameValid && isPhoneValid) {
+         submitButton.disabled = false;
+       } else {
+         submitButton.disabled = true;
+       }
+     }
+   }
+
+   // Валидация для поля имени
+   if (nameInput) {
+     nameInput.addEventListener("input", function() {
+       if (!namePattern.test(nameInput.value.trim()) || nameInput.value.trim().length < 2) {
+         nameInput.classList.add("is-invalid");
+         nameInput.classList.remove("is-valid");
+       } else {
+         nameInput.classList.remove("is-invalid");
+         nameInput.classList.add("is-valid");
+       }
+       // Проверяем состояние кнопки после каждого ввода
+       updateSubmitButton();
+     });
+   }
+
+   // Валидация для поля телефона
+   if (phoneInput) {
+     phoneInput.addEventListener("input", function() {
+       if (!phonePattern.test(phoneInput.value.trim())) {
+         phoneInput.classList.add("is-invalid");
+         phoneInput.classList.remove("is-valid");
+       } else {
+         phoneInput.classList.remove("is-invalid");
+         phoneInput.classList.add("is-valid");
+       }
+       // Проверяем состояние кнопки после каждого ввода
+       updateSubmitButton();
+     });
+   }
+
+   // Валидация формы при отправке
+   form.addEventListener("submit", function(event) {
+     let isValid = true;
+
+     // Валидация имени (не менее 2 символов и только буквы)
+     if (nameInput && (nameInput.value.trim().length < 2 || !namePattern.test(nameInput.value.trim()))) {
+       nameInput.classList.add("is-invalid");
+       isValid = false;
+     }
+
+     // Валидация телефона
+     if (phoneInput && !phonePattern.test(phoneInput.value.trim())) {
+       phoneInput.classList.add("is-invalid");
+       isValid = false;
+     }
+
+     // Если хотя бы одно поле не прошло валидацию, отменяем отправку формы
+     if (!isValid) {
+       event.preventDefault();
+       event.stopPropagation();
+     }
+   });
+
+   // Изначально кнопка заблокирована
+   updateSubmitButton();
+ });
+     // Обработчик отправки обеих форм
+   // Получаем все формы для отправки данных
+   const formElements = document.querySelectorAll('#contactForm, #bookingForm');
+
+   formElements.forEach(function(form) {
+       form.addEventListener('submit', function(event) {
+           event.preventDefault(); // Отменяем стандартное поведение формы
+
+           // Получаем значения из полей формы
+           const name = form.querySelector('input[type="text"]').value;
+           const phone = form.querySelector('input[type="tel"]').value;
+
+           // Создаем объект данных для отправки на сервер
+           const data = new FormData();
+           data.append('name', name);
+           data.append('phone', phone);
+
+           // Создаем AJAX запрос для отправки данных на сервер
+           const xhr = new XMLHttpRequest();
+           xhr.open('POST', 'php/send-email.php', true);
+
+           // Функция обработки ответа от сервера
+           xhr.onload = function() {
+               if (xhr.status === 200) {
+                   // Если ответ успешный, выводим сообщение
+                   alert('Сообщение отправлено!');
+                   // Очистить форму
+                   form.reset();
+               } else {
+                   // Если произошла ошибка, выводим сообщение
+                   alert('Ошибка при отправке сообщения.');
+               }
+           };
+
+           // Отправляем данные на сервер
+           xhr.send(data);
+       });
+   });
 
 });
