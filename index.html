@@ -8,8 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-store">
     <title>Усадьба "На Волне"</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" onerror="this.onerror=null;this.href='/css/font-awesome.min.css';">
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> <!-- Локальное подключение Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="bootstrap/bootstrap-icons.min.css">  -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- Preload для самых важных начертаний -->
     <link rel="preload" href="gotham-pro/GothamPro.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -24,13 +23,12 @@
     <div class="container d-flex justify-content-between align-items-center py-2 mb-n3">
         <img src="images/logo.webp" alt="Усадьба На Волне" class="logo">
         <!-- Кнопка гамбургер для мобильного меню -->
-        <button class="menu-toggle" aria-label="Меню">&#9776;</button>
+        <button class="menu-toggle btn_orange" aria-label="Меню">&#9776;</button>
 
         <nav class="mobile-nav">
             <a href="#activities">Чем заняться</a>
             <a href="#gallery">Галерея</a>
             <a href="#contact">Контакты</a>
-            <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">Забронировать</button> -->
         </nav>
 <main>
         <div class="header-info d-flex align-items-center">
@@ -64,10 +62,10 @@
 
 <!-- чем можно заняться -->
 
-<section id="activities" class="activities text-center mt-5 py-3">
+<section id="activities" class="activities text-center mt-5">
     <div class="container text-center">
-        <h2 class="heading-cards">Чем можно заняться у нас</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-4">
+        <p class= "h2 heading-cards">Чем можно заняться у нас</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 pt-4">
             <div class="col mb-4">
                 <div class="activity-card">
                     <img src="images/forest.webp" alt="Лесные маршруты">
@@ -103,7 +101,7 @@
                     <p> Всего в 15км от нашей усадьбы есть конная база, где можно покататься на лошадях.</p>
                 </div>
             </div>
-            <div class="col mb-4">
+            <div class="col">
                 <div class="activity-card">
                     <img src="images/fishing.webp" alt="Рыбалка">
                     <p class= "h5 caps">Рыбалка</p>
@@ -118,9 +116,9 @@
 <section class="booking">
     <div class="container">
         <!-- Заголовок и описание -->
-        <div class="row text-left pt-5">
+        <div class="row text-left">
             <div class="col-lg-6">
-                <h2 class="heading">Идеальная тишина и спокойствие</h2>
+                <p class="heading h2 pb-3">Идеальная тишина и спокойствие</p>
                 <p class="lead">
                     Усадьба «На волне» находится в живописном <br> месте, которыми так славится Беларусь.<br>
                     Озёра с чистейшей водой и красивыми лугами, <br> среди которых вы найдете умиротворение <br> и спокойствие.
@@ -132,7 +130,6 @@
         <div class="row g-4" style="justify-content: space-between;">
             <!-- Левая колонка с фоновым изображением -->
             <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-5 col-sm-5 bg-img col-left">
-                <!-- Контент можно не добавлять, если фон служит только визуальным оформлением -->
             </div>
 
             <!-- Правая колонка с фотографиями -->
@@ -179,7 +176,6 @@
  <!-- Шишка -->
 <section class = "shishka"> 
     <div class="container-fluid d-none d-lg-block">
-    
     <img class="shishka-left" src="images/shishka.webp" alt="шишка">
     </div>
     </section>
@@ -189,20 +185,17 @@
 <section class="booking-section position-relative py-5">
     <div class="container">
         <div class="row justify-content-between">
-            
             <!-- Левая часть с текстом -->
-            <div class="col-lg-5 col-md-5 mb-5 ">
+            <div class="col-lg-5 col-md-5 mb-4 ">
                 <div class="booking-content text-black">
                     <h2 class="h1 pb-4 heading-booking text-left">Забронируйте <br> отдых мечты</h2>
-                    <h3 class="mb-4">
+                    <h3 class="mb-4 data">
                         Оставьте ваши контактные <br> данные, мы вам перезвоним <br> и обсудим организацию <br> лучшего отдыха.
                     </h3> 
                     <div class="benefits">
-                        <p class="d-flex align-items-center p-4 border rounded shadow-sm bonus">
-                            <!-- <i class="bi bi-gift fs-1 me-3"></i> -->
-                             
-                             <img src="images/bonus.webp" alt="" class="me-3">
-                            Бонусом вы получите <br> Котенка, которого вам <br> придется забрать домой
+                        <p class="d-flex align-items-center justify-content-center p-4 border rounded shadow-sm">
+                             <img src="images/bonus.svg" alt="" class="me-3 gift ">
+                             Организуем бесплатный трансфер до нашей усадьбы из г. Глубокое.
                         </p>
                     </div>
                 </div>
@@ -214,15 +207,15 @@
                     <!-- Форма -->
                     <form id="bookingForm" class="position-relative bg-white rounded-3 p-4 shadow-lg" novalidate>
                       <h4 class="mb-3 text-black text-center">Забронировать посещение</h4>
-                      <p class="text-black mb-6 text-center">
+                      <p class="text-black text-center">
                           Введите данные, мы перезвоним <br> в течение 10 минут
                       </p>
                   
                       <div class="mb-3">
                           <input type="text" 
                                  id="bookingName" 
-                                 class="form-control form-control-lg" 
-                                 placeholder="Введите Ваше имя" required>
+                                 class="form-control form-control-lg p" 
+                                 placeholder ="Введите Ваше имя" required>
                           <div class="invalid-feedback">
                               Введите ваше имя (не менее 2 символов).
                           </div>
@@ -231,7 +224,7 @@
                       <div class="mb-4">
                           <input type="tel" 
                                  id="bookingPhone" 
-                                 class="form-control form-control-lg" 
+                                 class="form-control form-control-lg p" 
                                  placeholder="+375 (___) ___ - __ - __" required>
                           <div class="invalid-feedback">
                               Введите корректный номер телефона.
@@ -244,19 +237,18 @@
                           <a href="#" class="text-decoration-none">Положение о согласии на обработку персональных данных</a>
                       </p>
                   </form>
-                  
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- фотогалерея -->
-<section id="gallery" class="gallery py-5">
+<section id="gallery" class="gallery">
     <div class="container text-center py-5">
-        <h2 class="py-3">Фото с нашей усадьбы</h2>
+        <p class = "h1" class="py-3">Фото с нашей усадьбы</p>
         <div class="line-text">
             <span></span>
-            <h3>Мы улучшаем качество нашей работы каждый день</h3>
+            <p class="h3 py-2">Мы улучшаем качество нашей работы каждый день</p>
             <span></span>
         </div>
         
@@ -298,7 +290,7 @@
     </div>
 </div>
   <!-- Дополнительные преимущества -->
-<section class="additional-benefits py-4">
+<section class="additional-benefits py-3">
     <div class="container text-center">
         <h2 class="py-3">Наши дополнительные преимущества</h2>
         <div class="line-text">
@@ -334,18 +326,16 @@
                         <p class="heading-benefits h5">НАСТОЛЬНЫЕ <br> ИГРЫ</p>
                         <p>Предусмотрены игры  <br>для  детей и взрослых &nbsp;</p>
                     </div>
-                    </div>
-                    
-                            
+                    </div> 
             </div>
-        <button class="btn_orange my-5">Узнать стоимость проживания</button>
+        <button class="btn_orange">Узнать стоимость проживания</button>
     </div>
 </section>
 
 <!-- ОТЗЫВЫ -->
 <section class="reviews my-5 py-5">
     <div class="container">
-      <h2 class="text-center mb-5 pt-5 heading-reviews">Отзывы после посещения нашей усадьбы</h2>
+      <h2 class="text-center mb-5 pt-3 heading-reviews">Отзывы после посещения нашей усадьбы</h2>
       <!-- Swiper Slider Container -->
       <div class="reviews-slider swiper">
         <!-- Обёртка слайдов -->
@@ -466,8 +456,8 @@
               </div>
             </div>
           </div>
-          <!-- Добавьте остальные отзывы как swiper-slide -->
         </div>
+
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div> 
@@ -476,17 +466,15 @@
         <div class="swiper-pagination"></div>
         
       </div>
-    
       </div>
   </section>
 
   <section class="reservation pt-5">
     <div class="container">
-        <p class="text-center mb-4 h1">Забронировать свой отдых</p>
+        <p class="text-center mb-2 h1">Забронировать свой отдых</p>
         <p class="text-center mb-5 h3">
             Позвоните нам, и мы поможем вам забронировать <br> 
             идеальный отдых с индивидуальными предложениями
-        
         </p>
 
         <div class="row g-4">
@@ -565,70 +553,80 @@
     </div>
 </section>
 
-<!-- Модифицированная контактная форма в виде карточки -->
-<section id="contact" class="contact-form py-5">
-  <div class="container pt-5">
-      <p class="mb-3 text-center h2">Свяжитесь с нами прямо сейчас!</p>
-      <p class="text-center mb-5 h3">Постараемся ответить как можно скорее</p>
-      <div class="contact-card mx-auto shadow">
-          <div class="p-4 d-flex align-items-center justify-content-center">
-              <img src="images/phone.webp" alt="Телефон" class="phone-icon me-3">
-              <a href="tel:+375297187229"> <p class="number h2">8 (029) 718-72-29</p> </a>
-          </div>
-          <p class="h4">Звоните, мы работаем круглосуточно 24/7.<br> Или оставьте заявку, и мы перезвоним</p>
-          <p class="pb-4 text-muted">Введите данные и мы перезвоним в течение 10 минут</p>
-
-          <form class="d-flex align-items-center flex-column" id="contactForm" novalidate>
-              <div class="d-flex gap-3 mb-3">
-                <div>
-                     <input type="text" id="contactName" class="form-control mb-4" placeholder="Введите Ваше имя" required>
-                      <div class="invalid-feedback">Введите ваше имя (не менее 2 букв).</div>
-                    </div>
-                      <div>                 
-                      <input type="tel" id="contactPhone" class="form-control mb-4" placeholder="+375 (___) ___ - __ - __" required>
-                      <div class="invalid-feedback">Введите корректный номер телефона.</div>
-                    </div>
-                  </div>
-              
-
-              <button type="submit" class="btn_orange contact">Оставить заявку</button>
-
-              <p class="text-muted mt-3 small text-left">
-                  Нажимая кнопку, вы принимаете 
-                  <a href="#" class="pb-4">Положение о согласии на обработку персональных данных</a>
-              </p>
-          </form>
+<section id="contact" class="contact-form py-4">
+  <div class="container pt-4">
+    <p class="mb-3 text-center h2 pt-5 ">Свяжитесь с нами прямо сейчас!</p>
+    <p class="text-center pb-3 h3">Постараемся ответить как можно скорее</p>
+    <div class="contact-card mx-auto shadow">
+      <div class="p-2 d-flex align-items-center justify-content-center">
+       
+        <i class="fa-solid fa-phone-volume me-3 phone-icon"></i>
+  <a href="tel:+375297187229">
+    <p class="number h2 mb-0 py-3">8 (029) 718-72-29</p>
+  </a>
       </div>
+      <p class="h4">
+        Звоните, мы работаем круглосуточно 24/7.<br>
+        Или оставьте заявку, и мы перезвоним
+      </p>
+      <p class="pb-4 text-muted">
+        Введите данные и мы перезвоним в течение 10 минут
+      </p>
+      <form class="d-flex align-items-center flex-column" id="contactForm" novalidate>
+        <div class="d-flex gap-3 mb-3">
+          <div>
+            <input type="text" id="contactName" class="form-control mb-4 p" placeholder="Введите Ваше имя"  required>
+            <div class="invalid-feedback">Введите ваше имя (не менее 2 букв).</div>
+          </div>
+          <div>
+            <input type="tel" id="contactPhone" class="form-control mb-4 p" placeholder="+375 (___) ___ - __ - __"  required>
+            <div class="invalid-feedback">Введите корректный номер телефона.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn_orange contact">Оставить заявку</button>
+        <p class="text-muted mt-3 small text-left">
+          Нажимая кнопку, вы принимаете 
+          <a href="#" class="pb-4">Положение о согласии на обработку персональных данных</a>
+        </p>
+      </form>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Карта -->
+      <div class="col-md-12 pt-4">
+        <p class="h2 map-title pb-4">Мы находимся в д. Залесье Глубокского района</p>
+        <div class="map-container">
+          <script type="text/javascript" charset="utf-8" async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac50e70720f9a6e200d93cb3ce3ad2f5683c3e887ea2c7e54b8db6f7f71530910&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=false">
+          </script>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-
 <section class="prefooter">
     <div class="container">
-      <div class="row  g-2 justify-content-between align-items-center py-5">
-        <div class="col-auto">
-          <a href="#" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+      <div class="row  g-2 justify-content-between align-items-center">
+        <div class="col-auto py-5">
+          <a href="#" class="social-icon"><i class="fa-brands fa-telegram fa-lg"></i></a>
         </div>
         <div class="col-auto">
-          <a href="#" class="social-icon"><i class="fa-brands fa-viber"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-viber fa-lg"></i></a>
         </div>
         <div class="col-auto">
-          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-instagram fa-lg"></i></a>
         </div>
-        <!-- <div class="col-auto">
-           <a href="#" class="social-icon"><i class="fa-regular fa-envelope-open"></i></a> 
-        </div> -->
         <div class="col-auto">
-          <a href="tel:+375297187229" class="social-icon"><i class="fa-solid fa-phone"></i></a>
+          <a href="tel:+375297187229" class="social-icon"><i class="fa-solid fa-phone fa-lg"></i></a>
         </div>
     
       </div>
     </div>
   </section>
   
-  
 <footer class="py-1">
-    
 <div class = "container">
    
     <div class="d-flex justify-content-between align-items-center mt-2 footer-flex">
@@ -637,7 +635,6 @@
         </a>
         <p class=" pt-4"> <a class="number h3" href="tel:+375299718729" >8 (029) 718-72-29</a> <br>Работаем круглосуточно</p>
     <p class="copyright pt-4">© 2025. Все права защищены.</p>
-    
     
 </footer>
 
@@ -651,7 +648,7 @@
     </div>
 </section>
 </main>
-<script defer src="bootstrap/bootstrap.min.js"></script> <!-- Локальное подключение Bootstrap JS -->
+<script defer src="bootstrap/bootstrap.min.js"></script>
 <script defer src="swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

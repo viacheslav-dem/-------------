@@ -252,7 +252,7 @@ const gallery = document.getElementById('galleryContainer');
         spaceBetween: 20, // Расстояние между слайдами
         loopedSlides: 3, // Количество дублируемых слайдов для loop
         autoplay: {
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         },
         breakpoints: {

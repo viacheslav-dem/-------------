@@ -70,6 +70,16 @@ p, .p {
   font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
   line-height: 1.6;
 }
+p::-moz-placeholder, .p::-moz-placeholder {
+  font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
+  line-height: 1.6;
+  font-style: italic;
+}
+p::placeholder, .p::placeholder {
+  font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
+  line-height: 1.6;
+  font-style: italic;
+}
 
 .invalid-feedback {
   font-size: 15px;
@@ -86,10 +96,10 @@ p, .p {
   box-shadow: 0 2px 0 0 rgba(255, 111, 0, 0.004), 0 10px 35px 0 rgba(255, 111, 0, 0.3), inset 0 2px 0 0 rgba(255, 111, 0, 0.004);
   border-bottom: 2px solid #ff8000;
   color: #fff;
-  padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 38px);
+  padding: clamp(10px, 1.5vw, 14px) clamp(18px, 2.5vw, 32px);
   border: none;
   border-radius: 30px;
-  font-size: clamp(20px, 1.33vw, 28.5px);
+  font-size: clamp(17px, 1.25vw, 28.5px);
   text-transform: uppercase;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
@@ -309,7 +319,7 @@ a {
 }
 
 .activities .activity-card {
-  height: 230px;
+  height: 250px;
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -346,10 +356,8 @@ a {
 }
 
 .booking {
-  background: url("/images/cloud-booking.webp"), no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
-  min-height: 100vh;
-  padding-top: 130px;
-  position: relative;
+  padding-top: 140px;
+  background: url("/images/cloud-resize.webp"), no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
 }
 .booking .bg-img {
   background: url("/images/table.webp") no-repeat center top/contain;
@@ -410,7 +418,7 @@ a {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 .booking-section .benefits {
-  width: 400px;
+  width: 82%;
 }
 
 .gallery img {
@@ -560,6 +568,7 @@ a {
 
 /* Основной контейнер слайдера */
 .reviews-slider {
+  width: 100%;
   position: relative;
   padding: 0 60px;
 }
@@ -662,12 +671,38 @@ a {
 .contact-form .contact-card input::placeholder {
   color: #999;
 }
+.contact-form .contact-card .phone-icon {
+  font-size: 35px;
+  color: #ff9933;
+}
 .contact-form .contact-card .contact {
   margin: 0 auto;
-  width: clamp(300px, 30%, 400px);
 }
 .contact-form .contact-card:hover {
   transform: translateY(-5px);
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  height: 450px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.map-container iframe,
+.map-container > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-title {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .social-icon {
@@ -690,12 +725,6 @@ a {
   transform: scale(1.1);
   background: linear-gradient(to bottom, #ffa64d 0%, #ff7a1a 100%);
   box-shadow: 0 6px 10px rgba(255, 152, 0, 0.6);
-}
-
-footer {
-  background: white;
-  text-align: center;
-  font-size: 14px;
 }
 
 .kust {
@@ -723,6 +752,15 @@ footer {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .heading-booking::after {
+    content: "";
+    display: block;
+    width: 180px;
+    height: 3px;
+    background-color: #f58c28;
+    margin: auto;
+    margin-top: 10px;
+  }
   .contact-card .d-flex.gap-3 {
     flex-direction: column;
     justify-content: center;
@@ -733,17 +771,12 @@ footer {
   .reviews {
     background: url("/images/cloud-mobile-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
-  .reviews-slider .swiper-button-prev {
-    left: -10px;
-  }
+  .reviews-slider .swiper-button-prev,
   .reviews-slider .swiper-button-next {
-    right: -10px;
+    top: 55%;
   }
   .photo-card img {
     height: 200px;
-  }
-  .booking .bg-img {
-    min-height: 180px;
   }
   .header {
     flex-direction: row;
@@ -777,7 +810,6 @@ footer {
   }
   .header .phone {
     order: 2;
-    font-size: 18px;
   }
   .header .social-icons {
     order: 3;
@@ -813,7 +845,7 @@ footer {
   .hero {
     background: -webkit-image-set url("/images/hero-mobile.webp") type "image/webp" no-repeat center/cover;
     background: image-set url("/images/hero-mobile.webp") type "image/webp" no-repeat center/cover;
-    min-height: 50vh;
+    min-height: 40vh;
     text-align: center;
   }
   .hero .house {
@@ -829,16 +861,14 @@ footer {
     padding: 30px 0;
   }
   .activity-card {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   .gallery img {
     margin: 5px;
   }
   .booking {
-    background: url("/images/cloud-mobile-review.webp") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
-  }
-  .booking .bg-img {
-    min-height: 150px;
+    padding-top: 100px;
+    background: url("/images/cloud-mobile-booking.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
   .booking .booking-photos {
     height: 200px;
@@ -869,19 +899,47 @@ footer {
     text-align: center;
   }
   .booking-section .benefits {
-    width: 340px;
+    width: 100%;
+    margin: 0 auto;
   }
   .booking-section .benefits p {
     text-align: center;
   }
+  .booking-section .benefits p .gift {
+    width: 71px;
+    height: auto;
+  }
+  .number {
+    font-size: 21px;
+  }
   .contact-form {
-    background: url("/images/cloud-mobile.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+    background: url("/images/cloud-contact-mobile.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
   .footer-flex {
     flex-direction: column;
   }
+  .social-icon {
+    width: 55px;
+    height: 55px;
+  }
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+  }
 }
 @media (min-width: 481px) and (max-width: 767px) {
+  .heading-booking::after {
+    content: "";
+    display: block;
+    width: 180px;
+    height: 3px;
+    background-color: #f58c28;
+    margin: auto;
+    margin-top: 10px;
+  }
   .header {
     flex-direction: row;
     justify-content: space-between;
@@ -964,7 +1022,8 @@ footer {
     text-align: center;
   }
   .booking-section .benefits {
-    width: 450px;
+    width: 80%;
+    margin: 0 auto;
   }
   .booking-section .benefits p {
     text-align: center;
@@ -999,9 +1058,6 @@ footer {
   .booking {
     background: url("/images/cloud-mobile.webp") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
-  .booking .bg-img {
-    min-height: 150px;
-  }
   .col-right {
     margin-top: 0;
   }
@@ -1009,7 +1065,7 @@ footer {
     margin-left: -40px;
   }
   .contact-form {
-    background: url("/images/cloud-mobile-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+    background: url("/images/cloud-contact-tablet.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
   .footer-flex {
     flex-wrap: wrap;
@@ -1019,20 +1075,14 @@ footer {
     text-align: center;
   }
   .reviews {
-    background: url("/images/cloud-mobile-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+    background: url("/images/cloud-mobile-review.webp") no-repeat center center/contain, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
   .reviews-slider {
     padding: 0 30px !important;
   }
   .reviews-slider .swiper-button-prev,
   .reviews-slider .swiper-button-next {
-    width: 35px;
-    height: 35px;
     top: 45%;
-  }
-  .reviews-slider .swiper-button-prev::after,
-  .reviews-slider .swiper-button-next::after {
-    font-size: 22px;
   }
   .reviews-slider .review-card .user-photo {
     left: -25px;
@@ -1050,6 +1100,13 @@ footer {
   }
   .review-content {
     padding-left: 70px !important;
+  }
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -1072,7 +1129,7 @@ footer {
     margin-top: 10px;
   }
   .hero {
-    background: url("/images/hero-mobile.png") no-repeat center/cover;
+    background: url("/images/hero.webp") no-repeat center/cover;
     min-height: 50vh;
   }
   .hero .house {
@@ -1080,7 +1137,7 @@ footer {
     top: 15%;
   }
   .hero .raven {
-    left: 50%;
+    left: 53%;
     top: 15vh;
   }
   .contact-card .d-flex.gap-3 {
@@ -1102,11 +1159,11 @@ footer {
   .booking-section .h3 {
     text-align: left;
   }
-  .booking-section br {
+  .booking-section .data br {
     display: none;
   }
   .booking-section .benefits {
-    width: 330px;
+    width: 350px;
   }
   .kust {
     position: relative;
@@ -1123,6 +1180,13 @@ footer {
     position: absolute;
     right: 0;
     bottom: 0;
+  }
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
   }
 }
 @media (min-width: 993px) and (max-width: 1024px) {

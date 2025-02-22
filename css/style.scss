@@ -8,9 +8,7 @@ $text-gray: #666;
 :root {
   --swiper-pagination-bottom: -20px !important; /* Переопределяем переменную */
   --swiper-navigation-color: $primary-color !important;
-  //--swiper-navigation-size: 36px !important;
 }
-
 
 //Кнопка
 $primary-orange: #ff9933;
@@ -21,10 +19,6 @@ $btn-shadow-orange: 0 2px 0 0 rgba(255, 111, 0, 0.004),
 
 //Переменные для высоты экрана
 $column-gap: 40px;
-$min-height-lg: 400px; // Высота фонового блока для больших экранов
-$min-height-md: 180px; // Для средних экранов
-$min-height-sm: 150px; // Для мобильных
-
 
 
 // Переменная для светло-зеленого цвета
@@ -102,25 +96,32 @@ h5, .h5 {
 p, .p {
   font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
   line-height: 1.6;
-}
 
+&::placeholder {
+  font-size: clamp(16px, 2.5vw, 20px); /* Обычный текст */
+  line-height: 1.6;
+  font-style: italic;
+}
+}
 .invalid-feedback {
   font-size: 15px;
 }
+
 .caps {
   text-transform: uppercase;
 }
 .btn_orange {
+  
   position: relative;
   background-color: $primary-orange;
   background-image: linear-gradient(to bottom, $primary-orange 0%, $secondary-orange 100%);
   box-shadow: $btn-shadow-orange;
   border-bottom: 2px solid darken($primary-orange, 10%);
   color: #fff;
-  padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3vw, 38px);
+  padding: clamp(10px, 1.5vw, 14px) clamp(18px, 2.5vw, 32px);
   border: none;
   border-radius: 30px;
-  font-size: clamp(20px, 1.33vw, 28.5px);
+  font-size: clamp(17px, 1.25vw, 28.5px);
   text-transform: uppercase;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
@@ -144,7 +145,6 @@ a {
   text-decoration: none;
 }
 //ЛИНИИ
-
 .heading
  { 
     &::after {
@@ -207,7 +207,6 @@ a {
     }
 }
 
-
 // Хедер
 .header {
     //background-color: #fcfbfb;
@@ -229,8 +228,6 @@ a {
     box-shadow: $shadow; /* Тень появляется при наличии класса scrolled */
     
 }
-
-
     .logo {
         font-size: 26px;
         font-weight: bold;
@@ -357,9 +354,6 @@ a {
 //Контейнер с листьями
 .leaves
 {
-    //:root {
-      //  --parallax-offset: 0px;
-    //}
     position: relative;
     bottom: -100px;
 
@@ -368,7 +362,6 @@ a {
        z-index: 2;
        left: 0px;
        transition: all 0.1s ease-out;
-      //will-change: transform;
        bottom: -100px;
        width: 100px;
     }
@@ -378,25 +371,22 @@ a {
        right: 0px;
        bottom: -100px;
        transition: all 0.1s ease-out;
-       //will-change: transform;
        bottom: -100px;
        width: 100px;
     }
 }
 
-
 // Секция "Чем заняться"
 .activities {
-
     .activity-card {
-      height: 230px;
+      height: 250px;
         background: white;
         padding: 20px;
         border-radius: 10px;
         box-shadow: $shadow;
         text-align: center;
         transition: transform 0.3s ease;
-        
+
         img {
             width: 60px;
             margin-bottom: 10px;
@@ -416,7 +406,6 @@ a {
     }
 }
 
-
 //Шишка
 .shishka
 {
@@ -434,25 +423,19 @@ a {
     
 }
 
-
 .booking {
+  padding-top: 140px;
     background: 
-        url('/images/cloud-booking.webp'), no-repeat center center/cover, 
+        url('/images/cloud-resize.webp'), no-repeat center center/cover, 
         linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
-    min-height: 100vh;
-    padding-top: 130px;
-    position: relative;
 
     .bg-img {
         background: url('/images/table.webp') no-repeat center top/contain;
-        
-        //min-height: $min-height-lg; // По умолчанию для больших экранов
       }
       .row.align-items-center {
         column-gap: $column-gap;
       }
   }
-
     .photo-grid {
         margin-bottom: 30%;
       }
@@ -472,16 +455,12 @@ a {
         .modal-content {
             max-width: 80vw; /* Можно оставить, чтобы окно не выходило за пределы экрана */
             display: flex;
-            flex-direction: column;
-            //justify-content: center;
-            //align-items: center; /* Центрирование содержимого по горизонтали */
+            flex-direction: column;   
         }
       
         .modal-body {
             display: flex;
             justify-content: center; /* Центрирует изображение по горизонтали */
-            //align-items: center; /* Центрирует изображение по вертикали */
-            //padding: 1rem;
             width: 100%; /* Используем 100% ширины для .modal-body */
             height: 85vh; /* Ограничиваем высоту контейнера, если нужно */
             overflow: hidden; /* Чтобы изображение не выходило за пределы */
@@ -493,8 +472,6 @@ a {
             object-fit: cover; /* Сохраняет пропорции изображения */
         }
     }
-
-
       .col-left{
         margin-left: -200px;
         margin-top: 100px;
@@ -514,12 +491,10 @@ a {
         form {
             background: white;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            //z-index: 2;
         }
         .benefits {
-          width: 400px;
-        }
-        
+          width: 82%;  
+        }   
     }
 
 // 📷 Галерея
@@ -528,13 +503,10 @@ a {
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease; // Плавное увеличение
-
     &:hover {
         transform: scale(1.05);
     }
 } 
-
-
 
 .line-text {
   display: flex;
@@ -550,7 +522,6 @@ a {
 
   p {
       margin: 0;
-      //white-space: nowrap; // Чтобы текст не переносился
   }
 }
 
@@ -562,8 +533,7 @@ a {
 .carousel-indicators {
     list-style: none !important; /* Убирает точки */
     padding-left: 0;  /* Убирает стандартные отступы */
-    margin-bottom: 0; /* Убирает лишний нижний отступ */
-    
+    margin-bottom: 0; /* Убирает лишний нижний отступ */ 
 }
 .carousel-control-prev, 
 .carousel-control-next {
@@ -583,9 +553,7 @@ a {
     margin-top: -25px; /* Центрируем кнопки точно в центре */
 }
 
-
 // Преимущества
-
 .additional-benefits {
     .benefit-card {
         background: $bg-light;
@@ -697,15 +665,14 @@ a {
 }
 /* Основной контейнер слайдера */
 .reviews-slider {
+  width: 100%;
   position: relative;
   padding: 0 60px; // Оставляем место для стрелок по бокам
 }
 
 /* Общие стили для стрелок */
 .swiper-button-prev,
-.swiper-button-next {
-  
-  
+.swiper-button-next { 
   &::after {
     font-size: 30px;
     color: $primary-color;
@@ -807,19 +774,19 @@ a {
           margin-bottom: 15px;
           border: 2px solid #ddd;
           border-radius: 8px;
-          //font-size: 1.5rem;
 
           &::placeholder {
               color: #999;
-          }
+          }  
+      }
+      .phone-icon {
+        font-size: 35px;
+        color: $primary-orange
       }
 
       .contact {
         margin: 0 auto;
-        width: clamp(300px, 30%, 400px);
-       
       }
-      
 
       &:hover {
           transform: translateY(-5px);
@@ -827,13 +794,37 @@ a {
   }
 }
 
+//Карта
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px; // Фиксируем максимальную ширину карты на ПК
+  height: 450px; // Фиксируем высоту
+  overflow: hidden;
+  margin: 0 auto; // Центрируем карту
+
+  iframe,
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+// Центрируем заголовок
+.map-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 // Префутер
 
 .social-icon {
-
   width: 70px;
   height: 70px;
-  
   background: linear-gradient(to bottom, $primary-orange 0%, $secondary-orange 100%);
   box-shadow: $btn-shadow-orange;
   border-bottom: 2px solid darken($primary-orange, 10%);
@@ -853,16 +844,6 @@ a {
       box-shadow: 0 6px 10px rgba(255, 152, 0, 0.6);
   }
 }
-
-
-
-// Подвал
-footer {
-    background: white;
-    text-align: center;
-    font-size: 14px;
-}
-
 // Кусты
 .kust {
   position: relative; // Устанавливаем относительное позиционирование для контейнера
@@ -891,7 +872,21 @@ footer {
 
 // 1. Диапазон 320px – 480px (Extra Small Mobile)
 @media (min-width: 320px) and (max-width: 480px) {
+
+  .heading-booking
+ { 
     
+      &::after {
+        content: "";
+        display: block;
+        width: 180px;        // Ширина линии (можно регулировать)
+        height: 3px;         // Толщина линии
+        background-color: $primary-color;
+        margin:auto;
+        margin-top: 10px;
+      
+    }
+}
   .contact-card {
     // Изменяем контейнер с инпутами, чтобы поля шли вертикально
     .d-flex.gap-3 {
@@ -910,23 +905,15 @@ footer {
   }
   .reviews-slider {
    
-    
-    .swiper-button-prev {
-      left: -10px;
-    }
-    
-    .swiper-button-next {
-      right: -10px;
-    }
+    .swiper-button-prev,
+      .swiper-button-next {
+        top: 55%; // Корректируем вертикальное положение
+      }
   }
     .photo-card img {
       height: 200px;
     }
-    .booking {
-      .bg-img {
-        min-height: $min-height-md;
-      }
-    }
+    
     .header {
       flex-direction: row;
       justify-content: space-between;
@@ -958,7 +945,6 @@ footer {
       }
       .phone {
         order: 2;
-        font-size: 18px;
       }
       .social-icons {
         order: 3;
@@ -1001,7 +987,7 @@ footer {
        url("/images/hero-mobile.webp") type ("image/webp")
       )
       no-repeat center/cover;
-      min-height: 50vh;
+      min-height: 40vh;
       text-align: center;
       .house {
         display: none;
@@ -1011,7 +997,6 @@ footer {
       }
       
     }
-    
     .activities {
       display: flex;
       flex-direction: column;
@@ -1020,7 +1005,7 @@ footer {
     }
     
     .activity-card {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     
     .gallery img {
@@ -1028,14 +1013,11 @@ footer {
     }
     
     .booking {
+      padding-top: 100px;
       // Фон, заданный для мобильных устройств
-      background: url('/images/cloud-mobile-review.webp') no-repeat center bottom/cover,
+      background: url('/images/cloud-mobile-booking.webp') no-repeat center center/cover,
                   linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
       
-      // В исходном блоке для мобильных bg-img получал min-height: $min-height-sm
-      .bg-img {
-        min-height: $min-height-sm;
-      }
       .booking-photos {
         height: 200px;
         
@@ -1079,24 +1061,62 @@ footer {
       }
 
       .benefits {
-        width: 340px;
+        width: 100%;
+        margin: 0 auto;
         p {
           text-align: center;
+          .gift { 
+            width: 71px;
+            height: auto;
+           
+          }
         }
       }
   }
+  .number {
+   font-size: 21px;
+  }
   .contact-form {
     background: 
-    url('/images/cloud-mobile.webp') no-repeat center center/cover,
+    url('/images/cloud-contact-mobile.webp') no-repeat center center/cover,
     linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
   .footer-flex {
     flex-direction: column;
   }
-}
+
+  .social-icon {
+
+    width: 55px;
+    height: 55px;
+  }
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // Соотношение сторон 16:9
+    overflow: hidden;
   
+  
+  }
+}
   // 2. Диапазон 481px – 767px (Оставшиеся мобильные устройства)
   @media (min-width: 481px) and (max-width: 767px) {
+
+    .heading-booking
+ { 
+    
+      &::after {
+        content: "";
+        display: block;
+        width: 180px;        // Ширина линии (можно регулировать)
+        height: 3px;         // Толщина линии
+        background-color: $primary-color;
+        margin:auto;
+        margin-top: 10px;
+      
+    }
+}
     .header {
       flex-direction: row;
       justify-content: space-between;
@@ -1189,11 +1209,14 @@ footer {
       }
 
       .benefits {
-        width: 450px;
+        width: 80%;
+        margin: 0 auto;
         p {
           text-align: center;
         }
+        
       }
+      
     }
     
     .hero {
@@ -1232,10 +1255,6 @@ footer {
     .booking {
       background: url('/images/cloud-mobile.webp') no-repeat center bottom/cover,
                   linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
-      
-      .bg-img {
-        min-height: $min-height-sm;
-      }
     }
   
     // Правила для колонок (диапазон 320px–768px)
@@ -1247,7 +1266,7 @@ footer {
     }
     .contact-form {
       background: 
-      url('/images/cloud-mobile-review.webp') no-repeat center center/cover,
+      url('/images/cloud-contact-tablet.webp') no-repeat center center/cover,
       linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
     }
 
@@ -1262,7 +1281,7 @@ footer {
 
 .reviews {
   background: 
-  url('/images/cloud-mobile-review.webp') no-repeat center center/cover,
+  url('/images/cloud-mobile-review.webp') no-repeat center center/contain,
   linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
 }
     
@@ -1272,13 +1291,8 @@ footer {
       
       .swiper-button-prev,
       .swiper-button-next {
-        width: 35px;
-        height: 35px;
+       
         top: 45%; // Корректируем вертикальное положение
-        
-        &::after {
-          font-size: 22px;
-        }
       }
   
       // Сдвигаем фото пользователя
@@ -1306,6 +1320,13 @@ footer {
     .review-content {
       padding-left: 70px !important;
     }
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; // Соотношение сторон 16:9
+      overflow: hidden;
+    }
 }
   // 3. Диапазон 768px – 992px (Планшеты)
   @media (min-width: 768px) and (max-width: 992px) {
@@ -1330,7 +1351,7 @@ footer {
     }
 
     .hero {
-      background: url("/images/hero-mobile.png") no-repeat center/cover;
+      background: url("/images/hero.webp") no-repeat center/cover;
       min-height: 50vh;
       .house {
         width: 36%;
@@ -1338,7 +1359,7 @@ footer {
       }
       .raven {
         
-        left: 50%;
+        left: 53%;
         top: 15vh;
       }
     }
@@ -1368,11 +1389,13 @@ footer {
       .h3 {
         text-align:left;
       }
-      br {
+      .data {
+        br {
         display: none;
       }
+    }
       .benefits {
-        width: 330px;
+        width: 350px;
       }
   }
 
@@ -1398,9 +1421,14 @@ footer {
         
     }
   }
-
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // Соотношение сторон 16:9
+    overflow: hidden;
+  }
 }
-  
   
   // 4. Диапазон 993px – 1024px (Небольшие десктопы)
   @media (min-width: 993px) and (max-width: 1024px) {
@@ -1418,12 +1446,10 @@ footer {
     .kust {
       position: relative; // Устанавливаем относительное позиционирование для контейнера
       width: 100%; // Ширина контейнера
-      
-    
+
       .kust-left {
         width: 140px;
           position: absolute;
-         
           left: 0; // Прижимаем к левому краю
           bottom: 0; // Позиционируем снизу
          
@@ -1432,14 +1458,10 @@ footer {
       .kust-right {
         width: 140px;
           position: absolute;
-          
           right: 0; // Прижимаем к правому краю
-          bottom: 0; // Позиционируем снизу
-          
-      }
-      
+          bottom: 0; // Позиционируем снизу 
+      }  
     }
-  
 
     .col-right {
       margin-top: -140px;
