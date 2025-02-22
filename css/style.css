@@ -197,7 +197,7 @@ a {
   flex-wrap: wrap;
 }
 .header .phone {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #ff6f00;
   text-decoration: none;
@@ -222,7 +222,7 @@ a {
   display: none; /* Скрываем кнопку гамбургер на десктопах */
 }
 .header nav {
-  font-size: 18px; /* Увеличиваем шрифт для меню */
+  font-size: 20px; /* Увеличиваем шрифт для меню */
   display: flex; /* Скрываем навигацию по умолчанию */
   gap: 20px;
 }
