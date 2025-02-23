@@ -319,7 +319,7 @@ a {
 }
 
 .activities .activity-card {
-  height: 250px;
+  height: 230px;
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -329,6 +329,7 @@ a {
 }
 .activities .activity-card img {
   width: 60px;
+  height: 60px;
   margin-bottom: 10px;
 }
 .activities .activity-card .h5 {
@@ -500,7 +501,7 @@ a {
 }
 
 .reviews {
-  background: url("/images/cloud-reviews.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+  background: url("/images/cloud-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   position: relative;
 }
 .reviews .reviews-slider .review-card-wrapper {
@@ -860,8 +861,8 @@ a {
     gap: 20px;
     padding: 30px 0;
   }
-  .activity-card {
-    margin-bottom: 30px;
+  .activities .activity-card {
+    height: auto;
   }
   .gallery img {
     margin: 5px;
@@ -876,17 +877,24 @@ a {
   .booking .booking-photos img {
     width: 25% !important;
   }
+  .booking .bg-img {
+    display: none;
+  }
   .booking-section {
     padding: 40px 0;
   }
   .booking-section .booking-form-wrapper form {
     padding: 20px;
   }
+  .booking-section .booking-content .data br {
+    display: none;
+  }
   .leaves .listok-left,
   .leaves .listok-right {
     display: none;
   }
   .col-right {
+    padding-top: 2rem;
     margin-top: 0;
   }
   .col-left {
@@ -1049,20 +1057,21 @@ a {
     gap: 20px;
     padding: 30px 0;
   }
-  .activity-card {
-    margin-bottom: 20px;
+  .activities .activity-card {
+    height: auto;
   }
   .gallery img {
     margin: 5px;
   }
   .booking {
-    background: url("/images/cloud-mobile.webp") no-repeat center bottom/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+    background: url("/images/cloud-booking.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
+  }
+  .booking .bg-img {
+    display: none;
   }
   .col-right {
+    padding-top: 2rem;
     margin-top: 0;
-  }
-  .col-left {
-    margin-left: -40px;
   }
   .contact-form {
     background: url("/images/cloud-contact-tablet.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
@@ -1075,7 +1084,7 @@ a {
     text-align: center;
   }
   .reviews {
-    background: url("/images/cloud-mobile-review.webp") no-repeat center center/contain, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
+    background: url("/images/cloud-tablet-review.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
   }
   .reviews-slider {
     padding: 0 30px !important;
@@ -1165,6 +1174,9 @@ a {
   .booking-section .benefits {
     width: 350px;
   }
+  .activities .activity-card {
+    height: 230px;
+  }
   .kust {
     position: relative;
     width: 100%;
@@ -1187,6 +1199,9 @@ a {
     height: 0;
     padding-bottom: 56.25%;
     overflow: hidden;
+  }
+  .booking {
+    background: url("/images/cloud-booking.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.09) 0%, rgba(32, 32, 32, 0.15) 100%);
   }
 }
 @media (min-width: 993px) and (max-width: 1024px) {
@@ -1225,6 +1240,9 @@ a {
   .shishka {
     display: none;
   }
+  .activities .activity-card {
+    height: 260px;
+  }
 }
 @media (min-width: 1025px) and (max-width: 1700px) {
   .hero {
@@ -1233,5 +1251,8 @@ a {
   .hero .raven {
     left: 50%;
     top: 15vh;
+  }
+  .activities .activity-card {
+    height: 255px;
   }
 }/*# sourceMappingURL=style.css.map */
