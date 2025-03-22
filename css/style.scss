@@ -380,7 +380,7 @@ a {
   
     .activity-card {
       
-      height: 280px;
+      height: 290px;
       max-width: 370px;
         background: white;
         padding: 35px;
@@ -389,6 +389,8 @@ a {
         box-shadow: $shadow;
         text-align: center;
         transition: transform 0.3s ease;
+        margin: auto;
+        z-index: 1;
 
         &::before {
           content: "";
@@ -399,6 +401,7 @@ a {
           bottom: 10px;
           border: 1px solid #ddd;
           border-radius: 5px;
+          z-index: -1;
       }
   
         img {
@@ -505,8 +508,8 @@ a {
 .booking-section {    
         form {
             background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            z-index: 1;
+          
 
             &::before {
               content: "";
@@ -517,11 +520,30 @@ a {
               bottom: 10px;
               border: 1px solid #ddd; /* Оранжевый контур */
               border-radius: 5px;
+              z-index: -1;
+        }
+        a {
+          span {
+            text-decoration: underline;
+          }
         }
       }
         .benefits {
-          
-          width: 82%;  
+          top: 46px;
+          position: relative;
+          width: 82%; 
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            z-index: -1;
+          }
         }   
     }
 
@@ -591,6 +613,7 @@ a {
         text-align: center;
         transition: transform 0.3s ease;
 
+
         img {
             width:84px;
             height: 84px;
@@ -607,6 +630,7 @@ a {
         &:hover {
             transform: translateY(-5px);
         }
+
     }
 }
 //ОТЗЫВЫ
@@ -616,7 +640,6 @@ a {
   background: 
   url('/images/cloud-review.webp') no-repeat center center/cover,
   linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
-
   position: relative;
   
   .reviews-slider {
@@ -638,6 +661,7 @@ a {
       min-height: 270px;
       box-shadow: $shadow; // Добавляем объемную тень
       transition: transform 0.3s ease, box-shadow 0.3s ease; // Плавное изменение размера и тени
+      z-index: 1;
 
       &:hover {
         transform: skewX(-10deg) rotateY(0deg) translateY(-10px); // Эффект поднятия
@@ -652,9 +676,8 @@ a {
           bottom: 10px;
           border: 1px solid #ddd;
           border-radius: 5px;
+          z-index: -1;
         }
-        
-      
 
       .review-content {
         transform: skewX(10deg);
@@ -760,13 +783,14 @@ a {
 .reservation {
   
   .reservation-card {
+    position: relative;
     min-height: 650px;
       background: $bg-light;
       padding: 10px;
       border-radius: 10px;
-      box-shadow: $shadow;
       text-align: center;
       transition: transform 0.3s ease;
+      z-index: 1;
 
       &::before {
         content: "";
@@ -777,6 +801,7 @@ a {
         bottom: 10px;
         border: 1px solid #ddd;
         border-radius: 5px;
+        z-index: -1;
       }
 
       img {
@@ -812,14 +837,13 @@ a {
   url('/images/cloud-contact.webp') no-repeat center center/cover,
   linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
 
- 
-
   .contact-card {
       position: relative;
       background: $bg-light;
       padding: 10px;
       text-align: center;
       transition: transform 0.3s ease;
+      z-index: 1;
 
       input {
         
@@ -855,6 +879,8 @@ a {
         bottom: 10px;
         border: 1px solid #ddd;
         border-radius: 5px;
+        z-index: -1;
+       
       }
       
   }
@@ -877,6 +903,7 @@ a {
     width: 100%;
     height: 100%;
     border: 0;
+    border-radius: 10px;
   }
 }
 
@@ -1133,7 +1160,8 @@ a {
 
       .benefits {
         width: 100%;
-        margin: 0 auto;
+        margin: 50px auto;
+        
         p {
           text-align: center;
           .gift { 
@@ -1260,7 +1288,12 @@ a {
         display: block;
       }
     }
-    
+    .leaves {
+      .listok-left,
+      .listok-right {
+        display: none;
+      }
+    }
     .contact-card {
       // Изменяем контейнер с инпутами, чтобы поля шли вертикально
       .d-flex.gap-3 {
@@ -1286,7 +1319,8 @@ a {
 
       .benefits {
         width: 80%;
-        margin: 0 auto;
+        margin: 50px auto;
+
         p {
           text-align: center;
         }
@@ -1449,7 +1483,7 @@ a {
         align-items: center;
       }
     }  
-    
+
     .photo-card img {
       height: 200px;
     }
@@ -1471,13 +1505,23 @@ a {
       }
     }
       .benefits {
-        width: 350px;
+        top: 101px;
+        width: 330px;
       }
   }
+
+  .leaves {
+    .listok-left,
+    .listok-right {
+      display: none;
+    }
+  }
+
   //Чем можно заняться
   .activities {
     .activity-card {
       max-width: 330px;
+      height: 295px;
     }
   }
   .kust {
@@ -1528,6 +1572,7 @@ a {
   top: 25vh;
  }
 }
+
     .kust {
       position: relative; // Устанавливаем относительное позиционирование для контейнера
       width: 100%; // Ширина контейнера
@@ -1563,6 +1608,12 @@ a {
        max-width: 302px;
       }
     }
+    .booking-section {
+    .benefits {
+      top: 56px;
+      width: 100%;
+    }
+  }
   }
 
 // 5. Диапазон 1025px – 1700px (Небольшие десктопы и планшеты)
@@ -1578,4 +1629,19 @@ top: 15vh;
   display: none;
 }
 
+.booking-section {
+  .benefits {
+    top: 52px;
+    width: 90%;
+  }
+}
+}
+@media (min-width: 1200px) and (max-width: 1700px) {
+  
+  .booking-section {
+    .benefits {
+      top: 32px;
+      width: 90%;
+    }
+  }
 }
