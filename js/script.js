@@ -76,11 +76,18 @@ if (backToTopButton) {
         });
     });
 
-    // Dynamic page title on scroll
-    let originalTitle = document.title;
-    window.addEventListener("scroll", () => {
-        document.title = window.scrollY > 200 ? "Вернитесь на сайт! 😊" : originalTitle;
-    });
+   // Сохраняем оригинальный заголовок страницы
+let originalTitle = document.title;
+
+// Обработчик события для изменения заголовка при переключении вкладки
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        document.title = "Вернитесь на сайт! 😊"; // Заголовок, когда вкладка скрыта
+    } else {
+        document.title = originalTitle; // Возвращаем исходный заголовок, когда вкладка снова активна
+    }
+});
+
 
     // Highlight active section in navigation
     function highlightActiveSection() {
@@ -150,12 +157,15 @@ const gallery = document.getElementById('galleryContainer');
     let currentPage = 1;
     const itemsPerPage = 6;
 
-    // Имитация данных (замените на реальный API)
+    // Фотографии
     const allImages = [
+        {src: 'images/room1-min.webp', alt: 'Номер'},
+        {src: 'images/room2-min.webp', alt: 'Номер'},
+        {src: 'images/room3-min.webp', alt: 'Номер'},
         {src: 'images/photo1.webp', alt: 'Фото 1'},
-        {src: 'images/photo2.webp', alt: 'Фото 2'},
+        {src: 'images/navolne-3.webp', alt: 'Берег'},
         {src: 'images/photo3.webp', alt: 'Фото 3'},
-        {src: 'images/photo4.webp', alt: 'Фото 4'},
+        {src: 'images/navolne-2.webp', alt: 'Фото 4'},
         {src: 'images/photo5.webp', alt: 'Фото 5'},
         {src: 'images/photo11.webp', alt: 'Фото 9'},
         {src: 'images/photo12.webp', alt: 'Фото 10'},
@@ -240,9 +250,7 @@ const gallery = document.getElementById('galleryContainer');
         const carousel = new bootstrap.Carousel('#modalCarousel');
         carousel.to(index);
     }
-
     initGallery();
-
 
     const swiper = new Swiper('.reviews-slider', {
         loop: true,
@@ -323,7 +331,6 @@ const gallery = document.getElementById('galleryContainer');
        updateSubmitButton();
      });
    }
-
    // Валидация для поля телефона
    if (phoneInput) {
      phoneInput.addEventListener("input", function() {
@@ -338,7 +345,6 @@ const gallery = document.getElementById('galleryContainer');
        updateSubmitButton();
      });
    }
-
    // Валидация формы при отправке
    form.addEventListener("submit", function(event) {
      let isValid = true;
@@ -388,17 +394,22 @@ const gallery = document.getElementById('galleryContainer');
 
            // Функция обработки ответа от сервера
            xhr.onload = function() {
-               if (xhr.status === 200) {
-                   // Если ответ успешный, выводим сообщение
-                   alert('Сообщение отправлено!');
-                   // Очистить форму
-                   form.reset();
-               } else {
-                   // Если произошла ошибка, выводим сообщение
-                   alert('Ошибка при отправке сообщения.');
-               }
-           };
-
+            if (xhr.status === 200) {
+                alert('Сообщение отправлено!');
+                form.reset();
+        
+                // Очистка классов валидации
+                form.querySelectorAll('.is-valid, .is-invalid').forEach(input => {
+                    input.classList.remove('is-valid', 'is-invalid');
+                });
+        
+                // Обновление состояния кнопки
+                updateSubmitButton();
+            } else {
+                alert('Ошибка при отправке сообщения.');
+            }
+        };
+        
            // Отправляем данные на сервер
            xhr.send(data);
        });

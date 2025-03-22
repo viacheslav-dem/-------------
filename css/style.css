@@ -221,19 +221,19 @@ a {
 .header .menu-toggle {
   display: none; /* Скрываем кнопку гамбургер на десктопах */
 }
-.header nav {
+.header .mobile-nav {
   font-size: 20px; /* Увеличиваем шрифт для меню */
   display: flex; /* Скрываем навигацию по умолчанию */
   gap: 20px;
 }
-.header nav a {
+.header .mobile-nav a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
   transition: color 0.3s ease;
 }
-.header nav a:hover {
-  color: #1a1a1a;
+.header .mobile-nav a:hover {
+  color: #ff6b00;
 }
 
 .hero {
@@ -314,22 +314,33 @@ a {
   right: 0px;
   bottom: -100px;
   transition: all 0.1s ease-out;
-  bottom: -100px;
   width: 100px;
 }
 
 .activities .activity-card {
-  height: 230px;
+  height: 280px;
+  max-width: 370px;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 35px;
+  border-radius: 12px;
+  position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
 }
+.activities .activity-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 .activities .activity-card img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   margin-bottom: 10px;
 }
 .activities .activity-card .h5 {
@@ -417,6 +428,17 @@ a {
 .booking-section form {
   background: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.booking-section form::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #ddd; /* Оранжевый контур */
+  border-radius: 5px;
 }
 .booking-section .benefits {
   width: 82%;
@@ -524,6 +546,16 @@ a {
   transform: skewX(-10deg) rotateY(0deg) translateY(-10px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
+.reviews .reviews-slider .review-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 .reviews .reviews-slider .review-card .review-content {
   transform: skewX(10deg);
   padding-left: 90px;
@@ -626,6 +658,16 @@ a {
   text-align: center;
   transition: transform 0.3s ease;
 }
+.reservation .reservation-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 .reservation .reservation-card img {
   border-radius: 10px;
   width: 344px;
@@ -654,6 +696,7 @@ a {
   background: url("/images/cloud-contact.webp") no-repeat center center/cover, linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
 }
 .contact-form .contact-card {
+  position: relative;
   background: white;
   padding: 10px;
   text-align: center;
@@ -681,6 +724,16 @@ a {
 }
 .contact-form .contact-card:hover {
   transform: translateY(-5px);
+}
+.contact-form .contact-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .map-container {
@@ -786,12 +839,14 @@ a {
     text-align: center;
     padding: 10px 15px;
   }
-  .header .logo {
-    width: 50%;
+  .header .logo-link {
+    order: 1;
+  }
+  .header .logo-link .logo {
+    width: 90%;
     height: auto;
     -o-object-fit: contain;
        object-fit: contain;
-    order: 1;
     margin-left: 10px;
   }
   .header .menu-toggle {
@@ -844,25 +899,21 @@ a {
     display: block;
   }
   .hero {
-    background: -webkit-image-set url("/images/hero-mobile.webp") type "image/webp" no-repeat center/cover;
-    background: image-set url("/images/hero-mobile.webp") type "image/webp" no-repeat center/cover;
+    background-image: url("/images/hero-mobile.webp");
     min-height: 40vh;
     text-align: center;
+  }
+  @supports ((background: -webkit-image-set(url("/images/hero-mobile.webp") type("image/webp"))) or (background: image-set(url("/images/hero-mobile.webp") type("image/webp")))) {
+    .hero {
+      background: -webkit-image-set(url("/images/hero-mobile.webp") type("image/webp")) no-repeat center/cover;
+      background: image-set(url("/images/hero-mobile.webp") type("image/webp")) no-repeat center/cover;
+    }
   }
   .hero .house {
     display: none;
   }
   .hero .raven {
     display: none;
-  }
-  .activities {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 0;
-  }
-  .activities .activity-card {
-    height: auto;
   }
   .gallery img {
     margin: 5px;
@@ -955,8 +1006,11 @@ a {
     text-align: center;
     padding: 10px 15px;
   }
-  .header .logo {
-    width: 50%;
+  .header .logo-link {
+    order: 1;
+  }
+  .header .logo-link .logo {
+    width: 90%;
     height: auto;
     -o-object-fit: contain;
        object-fit: contain;
@@ -1051,14 +1105,11 @@ a {
   .hero .hero-text br {
     display: none;
   }
-  .activities {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 0;
-  }
   .activities .activity-card {
-    height: auto;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    height: -moz-max-content;
+    height: max-content;
   }
   .gallery img {
     margin: 5px;
@@ -1126,15 +1177,15 @@ a {
     text-align: center;
     padding: 10px 15px;
   }
-  .header .logo {
-    width: 20%;
+  .header .logo-link .logo {
+    width: 90%;
     height: auto;
     -o-object-fit: contain;
        object-fit: contain;
   }
   .header .header-info {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     margin-top: 10px;
   }
   .hero {
@@ -1175,7 +1226,7 @@ a {
     width: 350px;
   }
   .activities .activity-card {
-    height: 230px;
+    max-width: 330px;
   }
   .kust {
     position: relative;
@@ -1241,7 +1292,8 @@ a {
     display: none;
   }
   .activities .activity-card {
-    height: 260px;
+    height: 310px;
+    max-width: 302px;
   }
 }
 @media (min-width: 1025px) and (max-width: 1700px) {
@@ -1252,7 +1304,7 @@ a {
     left: 50%;
     top: 15vh;
   }
-  .activities .activity-card {
-    height: 255px;
+  .shishka {
+    display: none;
   }
 }/*# sourceMappingURL=style.css.map */

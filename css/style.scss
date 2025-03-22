@@ -269,7 +269,7 @@ a {
         display: none;  /* Скрываем кнопку гамбургер на десктопах */
     }
     
-    nav {
+    .mobile-nav {
         font-size: 20px; /* Увеличиваем шрифт для меню */
         display: flex; /* Скрываем навигацию по умолчанию */
         gap: 20px;
@@ -280,7 +280,7 @@ a {
             transition: color 0.3s ease;
 
             &:hover {
-                color: darken($text-dark, 10%);
+                color: $secondary-orange;
             }
         }
 }
@@ -371,25 +371,39 @@ a {
        right: 0px;
        bottom: -100px;
        transition: all 0.1s ease-out;
-       bottom: -100px;
        width: 100px;
     }
 }
 
 // Секция "Чем заняться"
 .activities {
+  
     .activity-card {
-      height: 230px;
+      
+      height: 280px;
+      max-width: 370px;
         background: white;
-        padding: 20px;
-        border-radius: 10px;
+        padding: 35px;
+        border-radius: 12px;
+        position: relative;
         box-shadow: $shadow;
         text-align: center;
         transition: transform 0.3s ease;
 
+        &::before {
+          content: "";
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          bottom: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+      }
+  
         img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             margin-bottom: 10px;
         }
 
@@ -492,8 +506,21 @@ a {
         form {
             background: white;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              right: 10px;
+              bottom: 10px;
+              border: 1px solid #ddd; /* Оранжевый контур */
+              border-radius: 5px;
         }
+      }
         .benefits {
+          
           width: 82%;  
         }   
     }
@@ -616,6 +643,18 @@ a {
         transform: skewX(-10deg) rotateY(0deg) translateY(-10px); // Эффект поднятия
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
       }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          bottom: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }
+        
+      
 
       .review-content {
         transform: skewX(10deg);
@@ -729,6 +768,17 @@ a {
       text-align: center;
       transition: transform 0.3s ease;
 
+      &::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
       img {
          border-radius: 10px;  
          width: 344px;   
@@ -762,12 +812,15 @@ a {
   url('/images/cloud-contact.webp') no-repeat center center/cover,
   linear-gradient(to bottom, rgba(17, 16, 16, 0.06) 0%, rgba(32, 32, 32, 0.07) 100%);
 
+ 
+
   .contact-card {
+      position: relative;
       background: $bg-light;
       padding: 10px;
       text-align: center;
       transition: transform 0.3s ease;
-      
+
       input {
         
          width: auto;
@@ -792,6 +845,18 @@ a {
       &:hover {
           transform: translateY(-5px);
       }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      
   }
 }
 
@@ -921,14 +986,17 @@ a {
       align-items: center;
       text-align: center;
       padding: 10px 15px;
-  
-      .logo {
-        width: 50%;
+    
+      .logo-link {
+        order: 1;
+
+     .logo {
+        width: 90%;
         height: auto;
         object-fit: contain;
-        order: 1;
         margin-left: 10px;
       }
+    }
       .menu-toggle {
         display: block;
         font-size: 24px;
@@ -983,13 +1051,16 @@ a {
     }
     
     .hero {
-      background:
-      image-set (
-       url("/images/hero-mobile.webp") type ("image/webp")
-      )
-      no-repeat center/cover;
+      background-image: url("/images/hero-mobile.webp");
+      
+      @supports (background: image-set(url("/images/hero-mobile.webp") type("image/webp"))) {
+        background: image-set(url("/images/hero-mobile.webp") type("image/webp")) no-repeat center / cover;
+      }
+      
       min-height: 40vh;
       text-align: center;
+    
+    
       .house {
         display: none;
       }
@@ -998,16 +1069,7 @@ a {
       }
       
     }
-    .activities {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 30px 0;
     
-    .activity-card {
-      height:auto;
-    }
-  }
     .gallery img {
       margin: 5px;
     }
@@ -1133,13 +1195,18 @@ a {
       text-align: center;
       padding: 10px 15px;
   
-      .logo {
-        width: 50%;
-        height: auto;
-        object-fit: contain;
+      .logo-link {
         order: 1;
-        margin-left: 10px;
+        
+        .logo {
+          width: 90%;
+          height: auto;
+          object-fit: contain;
+          order: 1;
+          margin-left: 10px;
       }
+    }
+  
       .menu-toggle {
         display: block;
         font-size: 24px;
@@ -1244,17 +1311,12 @@ a {
           display: none;
         }
       }
-    }
+      }
     
     .activities {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 30px 0;
-    
-    
     .activity-card {
-      height: auto; 
+      max-width:fit-content;
+      height: max-content;
     }
   }
     .gallery img {
@@ -1349,14 +1411,17 @@ a {
       text-align: center;
       padding: 10px 15px;
   
+      .logo-link {
+        
       .logo {
-        width: 20%;
-        height: auto;
-        object-fit: contain;
+        width: 90%;
+          height: auto;
+          object-fit: contain;
       }
+    }
       .header-info {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         margin-top: 10px;
       }
     }
@@ -1412,7 +1477,7 @@ a {
   //Чем можно заняться
   .activities {
     .activity-card {
-      height: 230px;
+      max-width: 330px;
     }
   }
   .kust {
@@ -1494,7 +1559,8 @@ a {
     }
     .activities {
       .activity-card {
-        height: 260px;
+        height: 310px;
+       max-width: 302px;
       }
     }
   }
@@ -1508,9 +1574,8 @@ left: 50%;
 top: 15vh;
 }
 }
-.activities {
-  .activity-card {
-    height: 255px;
-  }
+.shishka {
+  display: none;
 }
+
 }
